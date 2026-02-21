@@ -1,0 +1,15 @@
+# OS Files
+.DS_Store
+
+# Obsidian - Workspace State (Ignore)
+.obsidian/workspace
+.obsidian/workspace-mobile.json
+.obsidian/workspace.json
+
+# Obsidian - Cache (Ignore)
+.obsidian/plugins/recent-files-obsidian/data.json
+.trash/
+
+# Gemini CLI - Temporary Data (Ignore)
+.gemini/memory/
+.gemini/tmp/
