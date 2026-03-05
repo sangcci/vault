@@ -6,7 +6,6 @@ updated: 2026-02-04
 type: Principle
 difficulty: Medium
 ---
-# Principle: 신뢰성 (Reliability)
 **핵심 질문**: "시스템이 실패하지 않는 것인가, 실패해도 올바르게 동작하는 것인가?"
 
 ## One-liner Definition

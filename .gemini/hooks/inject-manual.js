@@ -5,9 +5,7 @@ try {
   if (!input) return;
 
   const data = JSON.parse(input);
-  const userMsg = data.messages && data.messages.length > 0 
-    ? data.messages[data.messages.length - 1].content 
-    : "";
+  const userMsg = data.prompt || "";
 
   if (!userMsg) {
     console.log("{}");

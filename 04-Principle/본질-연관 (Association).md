@@ -6,7 +6,6 @@ updated: 2026-02-05
 type: Principle
 difficulty: Medium
 ---
-# Principle: 연관 (Association)
 **핵심 질문**: "객체들은 서로 어떻게 관계를 맺고 협력하는가? (소유인가, 참조인가?)"
 
  ![InkDrawing](<97-Image/Ink/Drawing/2026.2.6 - 22.35pm.svg>)

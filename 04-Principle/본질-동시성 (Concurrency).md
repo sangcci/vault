@@ -1,39 +1,36 @@
 ---
 aliases: [Concurrency]
-tags: [본질, 작성중]
-created: 2026-02-04
-updated: 2026-02-04
+tags: [본질, 완료]
+created: 2026-02-12
+updated: 2026-03-02
 type: Principle
-difficulty: Medium
+difficulty: High
 ---
-# Principle: 동시성 (Concurrency)
-**핵심 질문**: "동시에 실행되는 것인가, 동시에 실행되는 것처럼 보이는 것인가?"
+
+**핵심 질문**: "CPU가 아무것도 안 하는 '노는 시간(Idle Time)'을 어떻게 돈으로 바꿀 것인가?"
 
 ## One-liner Definition
-> (사전적) 여러 작업이 겹치는 기간 동안 실행되는 성질. (반드시 같은 순간에 실행될 필요는 없음)
-> (이해용) **"단일 CPU가 여러 일을 아주 빠르게 번갈아 가며 처리하여, 사용자에게는 마치 동시에 일어나는 것처럼 느끼게 만드는 관리의 마법"**.
 
-## Usage Examples (문장 3개)
-1. "Node.js는 싱글 스레드 기반이지만 비동기 I/O를 통해 높은 **동시성**을 처리한다."
-2. "웹 서버는 **동시성** 모델을 활용하여 수천 명의 사용자 요청을 동시에 다루는 것처럼 응답한다."
-3. "멀티스레딩 환경에서는 **동시성** 제어 실패로 인해 데이터 정합성이 깨지기 쉽다."
+> 여러 작업이 겹치는 기간 동안 실행될 수 있음을 보장하는 성질. OS의 스케쥴러를 생각하면 쉽다.
 
-## Recurring Core Problem (Concurrency vs Parallelism)
-동시성은 여러 일을 한꺼번에 '다루는(Dealing with)' 논리적 개념입니다. 반면 병렬성(Parallelism)은 여러 일을 실제로 한꺼번에 '수행하는(Doing)' 물리적 개념입니다. 핵심 문제는 제한된 물리적 자원(CPU 코어) 위에서 어떻게 하면 작업들 간의 간섭 없이 높은 응답성을 유지하며 작업을 교체할 것인가에 있습니다.
+## 대기 시간의 자원화 (Wait-time Optimization)
 
-## Why It Doesn't Disappear
-사용자 경험(UX) 측면에서 '즉각적인 응답'은 필수적이기 때문입니다. 대용량 요청을 처리해야 하는 백엔드 환경에서 자원을 놀리지 않고 효율적으로 작업을 배분하는 것은 영원한 숙제입니다.
+- **Problem**: DB 조회(100ms) 동안 CPU 연산(1ms)은 단 1%만 사용되고 나머지 99%는 낭비됩니다.
+- **Solution**: I/O 요청 후 주도권을 반납(IoC)하고 다음 작업을 수행합니다. 작업이 완료되면 이벤트 신호(Interrupt)를 받아 결과를 처리합니다.
+- **Result**: 단위 시간당 처리할 수 있는 일의 양(**Throughput**)이 비약적으로 향상됩니다.
 
-## Trade-offs
-- **동기화 오버헤드**: 공유 자원 접근 시 발생하는 락(Lock) 비용과 데이터 오염 위험이 따릅니다.
-- **컨텍스트 스위칭 비용**: 너무 많은 작업을 동시에 다루려 하면, 실제 작업보다 작업을 교체하는 데 드는 비용이 더 커질 수 있습니다.
+## Concurrency vs Parallelism
 
-## Appears As
-- **Asynchronous I/O**: 대기 시간을 활용한 작업 전환
-- **Multithreading**: 하나의 프로세스 내 동시 실행
-- **Context Switching**: CPU 점유권의 빠른 교체
+- **동시성 (Concurrency)**: 한 명의 점원이 여러 손님의 주문을 번갈아 받는 것. (논리적 단위)
+- **병렬성 (Parallelism)**: 점원 여러 명이 동시에 여러 손님을 응대하는 것. (물리적 단위)
+
+## Why It Is Difficult
+
+여러 작업이 공유 자원을 향해 동시에 달려들 때, 순서와 상호작용이 꼬이며 버그(Heisenbug)를 만들어내기 때문입니다. 이를 위해 격리성(Isolation)과 원자성(Atomicity)이 뒷받침되어야 합니다.
 
 ## Related Cases
-- [[본질-격리성 (Isolation)]]
-- [[본질-처리량과 지연시간 (Throughput and Latency)]]
+
+- [[탐구-멀티스레드와 이벤트루프의 OS 활용 차이]]
+- [[본질-제어의 역전 (Inversion of Control)]]
+- [[개념-프로세스 스케줄러 (Process Scheduler)]]
 - [[본질-병렬성 (Parallelism)]]

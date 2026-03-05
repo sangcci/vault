@@ -1,8 +1,8 @@
 {
 	"nodes":[
-		{"id":"71639717b7ecee47","x":-80,"y":-120,"width":80,"height":50,"type":"text","text":"학습"},
+		{"id":"71639717b7ecee47","type":"text","text":"학습","x":-80,"y":-120,"width":80,"height":50},
 		{"id":"b353e68581a48ad2","type":"text","text":"이해","x":-80,"y":0,"width":80,"height":50},
-		{"id":"3e5b8f0b462835cf","x":-360,"y":-170,"width":140,"height":50,"type":"text","text":"변하지 않는 본질"},
+		{"id":"3e5b8f0b462835cf","type":"text","text":"변하지 않는 본질","x":-360,"y":-170,"width":140,"height":50},
 		{"id":"06b109cbbef9c899","type":"text","text":"추상화","x":50,"y":-220,"width":90,"height":50},
 		{"id":"8d1c3a8c2ea60230","type":"text","text":"개념학습","x":-270,"y":-50,"width":100,"height":50},
 		{"id":"ec3b2c1b65f70e71","type":"text","text":"이론 종속과 현실의 접점","x":100,"y":-75,"width":200,"height":50},

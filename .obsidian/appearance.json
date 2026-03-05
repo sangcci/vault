@@ -10,5 +10,6 @@
     "extended-color"
   ],
   "baseFontSizeAction": false,
-  "theme": "obsidian"
+  "theme": "obsidian",
+  "showRibbon": false
 }
