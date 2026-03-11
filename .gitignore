@@ -14,5 +14,8 @@
 .gemini/memory/
 .gemini/tmp/
 
+# Claude Code - settings.local Data
+.claude/settings.local.json
+
 # Temp Note
 98-Temp/

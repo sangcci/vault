@@ -51,6 +51,24 @@ try {
     }
   }
 
+  if (filePath.includes('05-Case')) {
+    if (!content.includes('## 상황')) {
+      violations.push("- [Rule] '## 상황' section is MISSING in Case note.");
+    }
+    if (!content.includes('## 근본 원인')) {
+      violations.push("- [Rule] '## 근본 원인' section is MISSING in Case note.");
+    }
+  }
+
+  if (filePath.includes('06-Heuristic')) {
+    if (!content.includes('## 판단 기준')) {
+      violations.push("- [Rule] '## 판단 기준' section is MISSING in Heuristic note.");
+    }
+    if (!content.includes('## 효과적인 상황')) {
+      violations.push("- [Rule] '## 효과적인 상황' section is MISSING in Heuristic note.");
+    }
+  }
+
   if (violations.length > 0) {
     console.log(
       `[VALIDATION FAILED] Note does not comply with CLAUDE.md rules:\n${violations.join('\n')}\n\nFix these issues before writing the file.`
