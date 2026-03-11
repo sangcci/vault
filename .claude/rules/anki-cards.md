@@ -26,7 +26,9 @@
     • 키워드: ..., ...
     ```
   - **Type**: `Concept` / `Principle` / `Question` / `Phenomenon` / `Case` / `Heuristic`
-  - **Category**: `OS` / `Network` / `DB` / `Redis` / `Java` / `Spring`
+  - **Category**: `04-Principle/` 에 존재하는 본질 노트명 그대로 사용 (예: `본질-원자성 (Atomicity)`)
+    - 매칭되는 본질 노트가 없으면 카드 생성 중단 → 본질 노트 먼저 생성
+    - 후보가 여러 개일 경우 카드 생성 중단 → 사용자에게 목록 보여주고 1개 선택
   - **Difficulty**: `Low` / `Medium` / `High`
   - **Code**: (Optional)
   - **RelatedConcepts**: (Optional, comma-separated)
@@ -36,32 +38,39 @@
 - **Anki MCP 제거됨** — 반드시 AnkiConnect HTTP API를 Bash(curl)로 직접 호출
 - **Endpoint**: `http://localhost:8765` (POST, JSON body)
 - **카드 1장씩 개별 호출** — 배치 생성 금지 (커스텀 노트 타입 실패)
+- **MUST use temp file approach** — JSON을 먼저 `/tmp/anki-card.json`에 쓴 후 curl로 전송
 
-**카드 추가 예시**:
+**카드 추가 순서**:
 ```bash
+# Step 1: JSON을 임시 파일에 저장 (Write tool 사용)
+# /tmp/anki-card.json 에 아래 형식으로 작성
+
+{
+  "action": "addNote",
+  "version": 6,
+  "params": {
+    "note": {
+      "deckName": "💻::Keyword",
+      "modelName": "🧑🏻‍💻 Interview v2",
+      "fields": {
+        "Question": "용어명",
+        "Answer": "<b>정의</b><br>• 설명",
+        "Type": "Concept",
+        "Category": "본질-원자성 (Atomicity)",
+        "Difficulty": "Medium",
+        "Code": "",
+        "RelatedConcepts": "",
+        "Image": ""
+      },
+      "options": { "allowDuplicate": false }
+    }
+  }
+}
+
+# Step 2: curl로 전송 (hook이 자동으로 validate-anki-card.js 실행)
 curl -s -X POST http://localhost:8765 \
   -H "Content-Type: application/json" \
-  -d '{
-    "action": "addNote",
-    "version": 6,
-    "params": {
-      "note": {
-        "deckName": "💻::Keyword",
-        "modelName": "🧑🏻‍💻 Interview v2",
-        "fields": {
-          "Question": "용어명",
-          "Answer": "<b>정의</b><br>• 설명",
-          "Type": "Concept",
-          "Category": "OS",
-          "Difficulty": "Medium",
-          "Code": "",
-          "RelatedConcepts": "",
-          "Image": ""
-        },
-        "options": { "allowDuplicate": false }
-      }
-    }
-  }'
+  -d @/tmp/anki-card.json
 ```
 
 **기타 유용한 actions**: `findNotes`, `notesInfo`, `deleteNotes`, `deckNames`, `modelNames`
