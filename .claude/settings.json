@@ -1,0 +1,33 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/hooks/validate-note.js"
+          }
+        ]
+      },
+      {
+        "matcher": "mcp__anki__create_note",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/hooks/validate-anki.js"
+          }
+        ]
+      },
+      {
+        "matcher": "mcp__anki__batch_create_notes",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/hooks/block-batch-anki.js"
+          }
+        ]
+      }
+    ]
+  }
+}

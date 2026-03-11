@@ -1,5 +1,4 @@
 # 🧠 Backend Knowledge System (Obsidian & Anki)
-43.118
 
 **"구조적 사고(Structural Thinking)"를 위한 백엔드 엔지니어링 지식 저장소입니다.**
 

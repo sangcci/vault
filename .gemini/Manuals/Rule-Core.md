@@ -27,6 +27,11 @@ Before writing ANY note, you must **analyze the user input** and **propose a str
     - **Action**: Mark as `[CREATE]`, `[UPDATE]`, or `[SKIP]`.
 4.  **Wait for Approval**: Do not create files until the user says "Go".
 
+### 🛠 필수 구성 요소 (Mandatory Elements)
+모든 지식 노트는 다음 요소를 반드시 포함해야 합니다:
+- **Visual/Logic Evidence**: 해당 주제를 직관적으로 설명하는 **ASCII Diagram** 또는 **Pseudo Code**를 필수적으로 포함할 것. (복잡한 메커니즘은 다이어그램으로, 코드 레벨의 판단이나 로직은 의사코드로 설명)
+- **Reference**: 관련된 다른 지식 노트와의 연결([[링크]])을 적극적으로 활용할 것.
+
 ### ⛔ Boundary Rules (파생 제한)
 - **Explicit Only**: Only extract topics **explicitly mentioned** or **directly implied** in the input.
 - **No Hallucination**: Do not invent related topics just to fill the list.
