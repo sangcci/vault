@@ -13,3 +13,6 @@
 # Gemini CLI - Temporary Data (Ignore)
 .gemini/memory/
 .gemini/tmp/
+
+# Temp Note
+98-Temp/
