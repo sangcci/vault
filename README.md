@@ -1,4 +1,4 @@
-# 🧠 Backend Knowledge System (Obsidian & Anki)
+# Backend Knowledge System (Obsidian & Anki)
 
 **"구조적 사고(Structural Thinking)"를 위한 백엔드 엔지니어링 지식 저장소입니다.**
 
@@ -6,7 +6,7 @@
 
 ---
 
-## 🏗️ 6-Layer Thought Structure
+## 6-Layer Thought Structure
 
 이 저장소는 백엔드 지식을 6가지 계층으로 분리하여 관리합니다.
 
@@ -21,7 +21,7 @@
 
 ---
 
-## 🤖 Gemini CLI Automation System
+## Gemini CLI Automation System
 
 이 프로젝트는 **Gemini CLI**와 커스텀 **Hook 시스템**을 활용하여 지식 관리 프로세스를 자동화했습니다.
 
@@ -37,12 +37,12 @@
 
 ---
 
-## ⚙️ Requirements & Setup
+## Requirements & Setup
 
 ### 1. Obsidian Configuration
--   **Theme**: `AnuPpuccin` - `Kanagawa`
+-   **Theme**: `Minimal Theme`
 -   **Font**:
-    -   **Code**: `JetBrains Mono`
+    -   **Code**: `SFMono`
     -   **UI/Text**: `Pretendard`
 -   **Essential Plugins**:
     -   **`Ink`**: 손글씨/그림 (복잡한 개념 시각화)
