@@ -2,7 +2,7 @@
 aliases: [Concurrency]
 tags: [본질, 완료]
 created: 2026-02-12
-updated: 2026-03-02
+updated: 2026-03-17
 type: Principle
 difficulty: High
 ---
@@ -23,6 +23,27 @@ difficulty: High
 
 - **동시성 (Concurrency)**: 한 명의 점원이 여러 손님의 주문을 번갈아 받는 것. (논리적 단위)
 - **병렬성 (Parallelism)**: 점원 여러 명이 동시에 여러 손님을 응대하는 것. (물리적 단위)
+
+## 동시성의 두 층위 (Two Layers)
+
+같은 "동시성"이지만 **제어권의 주체**에 따라 두 층위가 존재한다. 이것이 OS 동시성과 이벤트루프 동시성이 다른 느낌인 이유다.
+
+| 층위 | 방식 | 제어권 주체 | 목적 |
+|---|---|---|---|
+| OS 레벨 | 선점형 (Preemptive) | OS가 강제로 뺏음 | 공정성 (시스템 마비 방지) |
+| App 레벨 | 협력형 (Cooperative) | 작업이 스스로 양보 | 효율성 (Context Switch 최소화) |
+
+```
+OS Level (Preemptive) — [[개념-소프트웨어 스레드 (Software Thread)]]
+  SW Thread A ──▶ Timer Interrupt ──▶ SW Thread B
+                  (OS 강제 교체)
+
+App Level (Cooperative) — [[개념-이벤트 루프]], Coroutine, Goroutine
+  Task A ──▶ await / yield ──▶ Task B
+             (자발적 양보)
+```
+
+- 두 층위는 **중첩**된다: 이벤트루프 스레드도 OS 입장에선 하나의 SW Thread → OS가 선점 가능
 
 ## Why It Is Difficult
 

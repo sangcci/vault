@@ -1,5 +1,5 @@
 ---
-aliases: [Unix Pipe, 파이프, |]
+aliases: [Unix Pipe, 파이프, ]
 tags: [개념, OS, IPC]
 created: 2026-02-14
 updated: 2026-02-14

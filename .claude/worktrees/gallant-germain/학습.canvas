@@ -1,0 +1,35 @@
+{
+	"nodes":[
+		{"id":"71639717b7ecee47","type":"text","text":"학습","x":-80,"y":-120,"width":80,"height":50},
+		{"id":"b353e68581a48ad2","type":"text","text":"이해","x":-80,"y":0,"width":80,"height":50},
+		{"id":"3e5b8f0b462835cf","type":"text","text":"변하지 않는 본질","x":-360,"y":-170,"width":140,"height":50},
+		{"id":"06b109cbbef9c899","type":"text","text":"추상화","x":50,"y":-220,"width":90,"height":50},
+		{"id":"8d1c3a8c2ea60230","type":"text","text":"개념학습","x":-270,"y":-50,"width":100,"height":50},
+		{"id":"ec3b2c1b65f70e71","type":"text","text":"이론 종속과 현실의 접점","x":100,"y":-75,"width":200,"height":50},
+		{"id":"5f1f6ba45b22cd44","type":"text","text":"내가 이해한 것을 애매함 없이, 구조적으로, 타인이 오해하지 않게 설명하는 능력","x":-420,"y":-440,"width":300,"height":80},
+		{"id":"516f9edb12d9f8a1","type":"text","text":"설명","x":-164,"y":-270,"width":64,"height":50},
+		{"id":"38b82aae42eb74b4","type":"text","text":"\"사례\"로 연결하는 힘. 현실을 고려하는 힘","x":-520,"y":-580,"width":200,"height":70},
+		{"id":"387e980e4f645ef2","type":"text","text":"구조화 하는 힘","x":-346,"y":-660,"width":126,"height":55},
+		{"id":"254d5b37f52823d0","type":"text","text":"경계짓는 힘\n\"이건 뭐고 뭐가 아닌가?\"","x":-170,"y":-632,"width":210,"height":55},
+		{"id":"0124655b021a1178","type":"text","text":"정의하는 힘\n\"한문장으로 말할 수 있는가?\"","x":-40,"y":-537,"width":240,"height":55},
+		{"id":"016fec012cc927e9","type":"text","text":"이 개념이 해결하지 않는 것은 무엇인가?","x":-237,"y":-840,"width":210,"height":55},
+		{"id":"7faa16a56d28d4aa","type":"text","text":"사람들이 흔히 오해하는 지점은?","x":-10,"y":-812,"width":210,"height":55},
+		{"id":"584e0cf9eb4ae94a","type":"text","text":"비슷해 보이지만 다른 개념은?","x":95,"y":-740,"width":210,"height":55}
+	],
+	"edges":[
+		{"id":"6fad7c6312cee57e","fromNode":"71639717b7ecee47","fromSide":"bottom","toNode":"b353e68581a48ad2","toSide":"top"},
+		{"id":"38512ef468a5fa00","fromNode":"71639717b7ecee47","fromSide":"right","toNode":"ec3b2c1b65f70e71","toSide":"left"},
+		{"id":"5afd8b65dfaec35e","fromNode":"71639717b7ecee47","fromSide":"left","toNode":"3e5b8f0b462835cf","toSide":"right"},
+		{"id":"011acb293d1509f0","fromNode":"71639717b7ecee47","fromSide":"top","toNode":"06b109cbbef9c899","toSide":"left"},
+		{"id":"d0154d93b7922674","fromNode":"71639717b7ecee47","fromSide":"left","toNode":"8d1c3a8c2ea60230","toSide":"right"},
+		{"id":"511ab2691881d423","fromNode":"71639717b7ecee47","fromSide":"top","toNode":"516f9edb12d9f8a1","toSide":"bottom"},
+		{"id":"c17923e5ebaf6bcc","fromNode":"516f9edb12d9f8a1","fromSide":"top","toNode":"5f1f6ba45b22cd44","toSide":"bottom"},
+		{"id":"75f4af87977b2e01","fromNode":"5f1f6ba45b22cd44","fromSide":"top","toNode":"38b82aae42eb74b4","toSide":"bottom"},
+		{"id":"4e3cea9b8a80467d","fromNode":"5f1f6ba45b22cd44","fromSide":"top","toNode":"387e980e4f645ef2","toSide":"bottom"},
+		{"id":"7806b342eb15c958","fromNode":"5f1f6ba45b22cd44","fromSide":"top","toNode":"254d5b37f52823d0","toSide":"bottom"},
+		{"id":"f63bfb420d1d224f","fromNode":"5f1f6ba45b22cd44","fromSide":"top","toNode":"0124655b021a1178","toSide":"left"},
+		{"id":"144f08f26ebc857f","fromNode":"254d5b37f52823d0","fromSide":"top","toNode":"016fec012cc927e9","toSide":"bottom"},
+		{"id":"7dbc479d04de1549","fromNode":"254d5b37f52823d0","fromSide":"top","toNode":"7faa16a56d28d4aa","toSide":"bottom"},
+		{"id":"1bfaa6253902e770","fromNode":"254d5b37f52823d0","fromSide":"top","toNode":"584e0cf9eb4ae94a","toSide":"left"}
+	]
+}

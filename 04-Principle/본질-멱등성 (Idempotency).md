@@ -32,6 +32,7 @@ difficulty: Medium
 - **Idempotency Key**: 결제 및 주문 처리 시 유니크 키 활용
 - **UPSERT**: DB의 `INSERT IGNORE` 또는 `ON DUPLICATE KEY UPDATE`
 - **Standard HTTP Methods**: GET, PUT, DELETE (멱등성 보장 메서드)
+- **Flyway 체크섬 검증**: 마이그레이션 파일이 이미 적용됐으면 재실행하지 않고, 파일이 변조됐으면 체크섬 불일치로 실행 거부 → 중복 적용과 변조를 동시에 차단
 
 ## Related Cases
 - [[본질-원자성 (Atomicity)]]

@@ -46,3 +46,4 @@ difficulty: High
 - **OS**: 프로세스 간 메모리 공간 격리(Memory Isolation).
 - **Container**: 리소스 제어(Cgroups) 및 네임스페이스(Namespaces)를 통한 프로세스 수준의 격리.
 - **Architecture**: 마이크로서비스(MSA) 간의 데이터베이스 독립성 보장.
+- **Schema Drift**: dev/stag/prod의 DB 스키마가 점진적으로 달라지는 현상. 환경 격리는 코드뿐 아니라 스키마 상태까지 포함해야 한다. Flyway 같은 마이그레이션 툴이 이 격리 실패를 예방한다. → [[개념-스키마 마이그레이션 (Schema Migration)]]

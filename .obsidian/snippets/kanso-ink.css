@@ -1,0 +1,82 @@
+/*
+ * Kanso Ink — Obsidian CSS Snippet
+ * Ported from https://github.com/webhooked/kanso.nvim
+ * Palette: ink (dark)
+ */
+
+.theme-dark {
+  /* ── Base ───────────────────────────────────────────── */
+  --background-primary:          #14171d;
+  --background-primary-alt:      #1a1e26;
+  --background-secondary:        #1a1e26;
+  --background-secondary-alt:    #1f2330;
+
+  /* ── Borders & Modifiers ────────────────────────────── */
+  --background-modifier-border:        #2a2e38;
+  --background-modifier-border-hover:  #393B44;
+  --background-modifier-border-focus:  #393B44;
+  --background-modifier-form-field:    #1a1e26;
+  --background-modifier-hover:         rgba(57, 59, 68, 0.3);
+  --background-modifier-active-hover:  rgba(57, 59, 68, 0.5);
+  --background-modifier-error:         rgba(196, 116, 110, 0.15);
+  --background-modifier-success:       rgba(138, 154, 123, 0.15);
+  --background-modifier-cover:         rgba(20, 23, 29, 0.8);
+
+  /* ── Text ───────────────────────────────────────────── */
+  --text-normal:       #C5C9C7;
+  --text-muted:        #A4A7A4;
+  --text-faint:        #717574;
+  --text-on-accent:    #14171d;
+  --text-error:        #E46876;
+  --text-warning:      #E6C384;
+  --text-success:      #87A987;
+  --text-accent:       #7FB4CA;
+  --text-accent-hover: #8BA4B0;
+  --text-selection:    rgba(57, 59, 68, 0.7);
+  --text-highlight-bg: rgba(230, 195, 132, 0.2);
+
+  /* ── Interactive ────────────────────────────────────── */
+  --interactive-normal:        #1a1e26;
+  --interactive-hover:         #252930;
+  --interactive-accent:        #7FB4CA;
+  --interactive-accent-rgb:    127, 180, 202;
+  --interactive-accent-hover:  #8BA4B0;
+  --interactive-success:       #87A987;
+
+  /* ── Scrollbar ──────────────────────────────────────── */
+  --scrollbar-bg:               transparent;
+  --scrollbar-thumb-bg:         #393B44;
+  --scrollbar-active-thumb-bg:  #4a4d58;
+
+  /* ── Headings ───────────────────────────────────────── */
+  --h1-color: #E6C384;
+  --h2-color: #87A987;
+  --h3-color: #7AA89F;
+  --h4-color: #7FB4CA;
+  --h5-color: #A292A3;
+  --h6-color: #A4A7A4;
+
+  /* ── Code ───────────────────────────────────────────── */
+  --code-background:  #1a1e26;
+  --code-normal:      #C5C9C7;
+  --code-comment:     #717574;
+  --code-function:    #7FB4CA;
+  --code-important:   #E46876;
+  --code-keyword:     #A292A3;
+  --code-operator:    #8EA4A2;
+  --code-property:    #8A9A7B;
+  --code-punctuation: #A4A7A4;
+  --code-string:      #87A987;
+  --code-tag:         #C4746E;
+  --code-value:       #E6C384;
+
+  /* ── Tags ───────────────────────────────────────────── */
+  --tag-color:            #7AA89F;
+  --tag-background:       rgba(122, 168, 159, 0.15);
+  --tag-color-hover:      #8EA4A2;
+  --tag-background-hover: rgba(122, 168, 159, 0.25);
+
+  /* ── Bold / Italic ──────────────────────────────────── */
+  --bold-color:   #E6C384;
+  --italic-color: #A292A3;
+}

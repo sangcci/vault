@@ -1,13 +1,13 @@
 {
-  "cssTheme": "AnuPpuccin",
-  "interfaceFontFamily": "SFMono Nerd Font,JetBrainsMono Nerd Font,Iosevka Nerd Font",
-  "textFontFamily": "Inter,SFMono Nerd Font,Iosevka Nerd Font",
-  "monospaceFontFamily": "SFMono Nerd Font,Iosevka Nerd Font",
-  "baseFontSize": 15,
-  "accentColor": "#48655a",
+  "cssTheme": "Minimal",
+  "interfaceFontFamily": "D2Coding,RIDIBatang",
+  "textFontFamily": "Pretendard,RIDIBatang,MaruBuri,D2CodingLigature Nerd Font Mono,D2CodingLigature Nerd Font,SFMono Nerd Font",
+  "monospaceFontFamily": "D2CodingLigature Nerd Font,D2CodingLigature Nerd Font Mono,SFMono Nerd Font",
+  "baseFontSize": 14,
+  "accentColor": "#097761",
   "enabledCssSnippets": [
-    "custom-rainbow-colors",
-    "extended-color"
+    "spacing",
+    "kanso-ink"
   ],
   "baseFontSizeAction": false,
   "theme": "obsidian",

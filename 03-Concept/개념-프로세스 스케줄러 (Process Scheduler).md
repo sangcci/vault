@@ -1,33 +1,75 @@
 ---
 aliases: [Process Scheduler, 스케줄러, CPU 스케줄러]
-tags: [개념, OS, 프로세스, 완료]
+tags: [개념, 작성중]
+type: Concept
+difficulty: Medium
 created: 2026-02-14
-updated: 2026-03-02
+updated: 2026-03-17
 ---
-## 📝 정의
 
-CPU 자원을 여러 프로세스에 효율적으로 배분하기 위해, 다음에 실행할 프로세스를 선택하고 상태(Ready, Running, Waiting)를 전환하는 OS의 핵심 모듈입니다.
-제어의 역전(IoC)이 적용된 사례 중 하나입니다.
+## 한 문장 정의
 
-## ⚙️ 핵심 역할
+> (사전적) 다음에 실행할 SW Thread를 선택하고, context_switch()로 HW Thread에 올리는 OS 커널 모듈.
+> (이해용) 공장 라인(HW Thread) 배정 담당자. 대기 목록에서 다음 작업을 골라 라인에 올려놓는다.
 
-### 1. 상태 전이와 제어의 역전 (IoC)
+## 해결하는 문제
 
-- **Running -> Waiting**: I/O 요청 시 OS가 프로세스의 주도권을 뺏어 대기 리스트로 보냅니다.
-- **Waiting -> Ready**: I/O 완료 시 인터럽트가 발생하여 OS가 프로세스를 다시 깨웁니다.
-- **Running -> Ready**: 할당된 시간이 끝나면 OS가 강제로 중단시킵니다(**선점**).
+- [[개념-하드웨어 스레드 (Hardware Thread)]] 수보다 훨씬 많은 [[개념-소프트웨어 스레드 (Software Thread)]]를 공정하게 실행
+- 특정 SW Thread가 CPU를 독점해 시스템이 마비되는 현상 방지
 
-### 2. 문맥 교환 (Context Switch)
+## 치르는 비용
 
-- 작업 교체 시 **PCB**에 현재 상태를 저장하고 다음 작업을 복원함으로써, 각 프로세스가 CPU를 독점하고 있다는 '추상화'를 제공합니다.
+- context_switch() 호출마다 [[개념-문맥 교환 (Context Switch)]] 비용 발생
+- SW Thread 수 ↑ → run queue 탐색 비용 ↑, context switch 빈도 ↑
 
-## 💡 본질과의 연결
+## 동작 원리
 
-- **[[본질-제어의 역전 (Inversion of Control)]]**: 스케줄러의 개입은 소프트웨어 계층에서 일어나는 가장 거대한 제어의 역전 현상입니다.
-- **[[본질-동시성 (Concurrency)]]**: 프로세스가 Waiting 상태일 때 다른 프로세스를 실행함으로써 대기 시간을 효율로 바꿉니다.
+```
+① Timer Interrupt  (CPU 내부 하드웨어, Device Driver 아님)
+         │
+         ▼
+② scheduler_tick() ← 현재 SW Thread 잔여 time_slice 차감
+         │ time_slice <= 0
+         ▼
+③ set_need_resched() ← 재스케줄링 플래그 세팅
+         │
+         ▼  (user space 복귀 직전 자동 체크)
+④ schedule()
+         │
+         ▼
+⑤ pick_next_task() ← CFS: vruntime 가장 작은 task 선택
+         │                 (가장 덜 실행된 SW Thread)
+         ▼
+⑥ context_switch() ← 현재 레지스터 저장 → 다음 레지스터 적재
+         │
+         ▼
+   다음 SW Thread가 이 HW Thread 위에서 실행 시작
+```
 
-## 🔗 관련 개념
+- ①~⑥ 전 과정이 `kernel/sched/` **커널 코드**로 구현
+- CPU는 특권 명령어로 직접 제어 가능 → 중간 계층(Device Driver 등) 불필요
+- SW Thread 상태 전이: Running → Waiting (I/O), Waiting → Ready (I/O 완료), Running → Ready (선점)
 
+## 스케줄링 알고리즘 (별도 노트)
+
+| 알고리즘 | 선점 | 특징 |
+|---------|------|------|
+| [[개념-FCFS (First Come First Served)]] | ✗ | 단순, Convoy Effect |
+| [[개념-SJF (Shortest Job First)]] | ✗ | 평균 대기 최적, 기아 |
+| [[개념-SRT (Shortest Remaining Time)]] | ✓ | SJF 선점형 |
+| [[개념-Round Robin (라운드 로빈)]] | ✓ | 범용 OS, 로드밸런서 |
+| [[개념-Priority Scheduling (우선순위 스케줄링)]] | 양쪽 | RTOS, Linux prio |
+| [[개념-HRN (Highest Response Ratio Next)]] | ✗ | SJF + Aging |
+
+→ 선택 전략: [[판단기준-CPU 스케줄링 알고리즘 선택]]
+
+## 관련 본질
+
+- [[본질-동시성 (Concurrency)]]
 - [[본질-선점 (Preemption)]]
+- [[본질-제어의 역전 (Inversion of Control)]]
 - [[개념-문맥 교환 (Context Switch)]]
+- [[개념-하드웨어 스레드 (Hardware Thread)]]
+- [[개념-소프트웨어 스레드 (Software Thread)]]
+- [[탐구-OS 스케줄러와 HW Thread 배치 사이에 어떤 계층은 없고 바로 전달하는가]]
 - [[탐구-스케줄링과 정합성의 충돌]]
