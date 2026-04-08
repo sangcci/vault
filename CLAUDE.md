@@ -57,3 +57,21 @@ type: [Note_Type]
 
 ## 7. Anki Card Rules
 @.claude/rules/anki-cards.md
+
+## 8. LOG.md Recording Rules
+Every knowledge note CREATE or UPDATE must end with a log entry in `LOG.md`.
+
+**How it works:**
+The PostToolUse hook (`log-note.js`) auto-appends a stub after every note write:
+```
+YYYY-MM-DD HH:MM [CREATE|UPDATE] [[filename]] ·
+```
+Claude MUST immediately follow up by editing LOG.md to complete the stub with a one-line summary in Korean:
+```
+2026-04-08 14:23 [CREATE] [[개념-N+1 문제 (N+1 Query Problem)]] · JPA 연관관계 조회 시 발생하는 쿼리 폭발 현상
+```
+
+**Rules:**
+- Applies to all notes under `01-Question/` through `06-Heuristic/`
+- Summary must be in Korean, one sentence only
+- Skipping this step is a system violation

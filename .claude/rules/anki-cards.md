@@ -18,7 +18,7 @@ One card = one concept. 3 points → 3 cards.
 | Type | `Concept` `Principle` `Question` `Phenomenon` `Case` `Heuristic` |
 | Category | Exact 본질 note name from `04-Principle/` (e.g. `본질-원자성 (Atomicity)`) |
 | Difficulty | `Low` `Medium` `High` |
-| Code | Optional. Use ASCII diagrams actively. |
+| Code | Required for Concept/Principle. Copy the ASCII diagram or pseudocode directly from the source note. |
 | RelatedConcepts | Optional, comma-separated. |
 | Image | Optional, leave empty unless file provided. |
 
@@ -60,7 +60,7 @@ Anki MCP removed. Use AnkiConnect HTTP API via curl only.
         "Type": "Concept",
         "Category": "본질-원자성 (Atomicity)",
         "Difficulty": "Medium",
-        "Code": "",
+        "Code": "<!-- ASCII diagram or pseudocode from source note -->",
         "RelatedConcepts": "",
         "Image": ""
       },
