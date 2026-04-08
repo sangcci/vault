@@ -24,7 +24,7 @@ try {
   const filename = path.basename(filePath, '.md');
   const action = toolName === 'Write' ? 'CREATE' : 'UPDATE';
 
-  const logFile = path.resolve(__dirname, '../../LOG.md');
+  const logFile = path.resolve(__dirname, '../../00-Meta/LOG.md');
   const entry = `${timestamp} [${action}] [[${filename}]] ·\n`;
 
   fs.appendFileSync(logFile, entry);
