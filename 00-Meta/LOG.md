@@ -251,3 +251,51 @@
 2026-04-07 18:29 [CREATE] [[판단기준-접근 제어 모델 선택 (DAC vs RBAC vs ReBAC)]] · 정적 역할(관리자/일반 사용자)만으로 권한 구분이 가능하다면 → **RBAC**
 2026-04-07 18:29 [CREATE] [[판단기준-REST API 파라미터 선택 (Path Variable vs Query Parameter)]] · 특정 리소스 **단건 식별** (검증/수정/삭제) → **Path Variable**
 2026-04-07 18:30 [CREATE] [[개념-JPA EntityManager]] · 엔티티를 메모리에 올려두고 변경을 추적하다가, 트랜잭션이 끝날 때 한 번에 DB에 반영하는 중간 관리자.
+2026-04-09 23:19 [CREATE] [[개념-OSI Layer별 보안 공격과 방어]] · OSI 2~7계층별 보안 공격 유형과 공격-방어 인과 체인 전체 개요
+2026-04-10 14:43 [UPDATE] [[현상-JPA 순환 참조 (Circular Reference)]] · Jackson ObjectMapper 재귀 직렬화 단계별 흐름 및 StackOverflowError 발생 원인 상세화
+2026-04-10 16:39 [CREATE] [[본질-보안 (Security)]] · 공격 비용 > 방어 비용 원칙 중심의 보안 본질 노트 — BCrypt, TLS, 접근 제어의 공통 원리
+2026-04-10 19:01 [UPDATE] [[개념-OSI Layer별 보안 공격과 방어]] · Malware 섹션(Worm/Spyware/Rootkit/Bootkit/Ransomware/Key Logger/Logic Bomb/ATM 스키밍), MITM·APT 교차 계층 위협, Honeypot·XDR·Bug Bounty 방어 도구, 사회공학 기법 상세화 추가
+2026-04-14 10:30 [CREATE] [[현상-명령어 재배치 (Instruction Reordering)]] · CPU 파이프라인 최적화로 인한 실행 순서 역전 현상
+2026-04-14 10:30 [CREATE] [[개념-메모리 배리어 (Memory Barrier)]] · 명령어 재배치를 막고 데이터 가시성을 강제하는 하드웨어 펜스
+2026-04-14 10:30 [CREATE] [[개념-원자적 명령어 (TAS, CAS)]] · TAS와 CAS의 하드웨어 동작 원리 및 낙관적 락 구현 메커니즘
+2026-04-14 10:30 [CREATE] [[현상-ABA 문제 (ABA Problem)]] · CAS 연산이 값의 변화 이력을 인지하지 못해 발생하는 데이터 정합성 오류
+2026-04-14 10:30 [CREATE] [[탐구-뮤텍스 락의 내부 동작과 하드웨어 추상화]] · 하드웨어 프리미티브에서 OS 뮤텍스까지의 동기화 계층 구조 탐구
+2026-04-14 10:30 [UPDATE] [[개념-뮤텍스 (Mutex)]] · 하드웨어 원자적 명령어 및 내부 스핀락 전략 내용 보강
+2026-04-14 11:15 [CREATE] [[탐구-경쟁 상태 해결을 위한 3대 조건은 무엇인가]] · 임계 구역 문제 해결의 논리적 필수 조건 분석
+2026-04-14 11:15 [CREATE] [[본질-임계 구역 해결의 3대 조건]] · 상호 배제, 진행, 한정 대기의 메커니즘 및 기아 상태 시나리오 정리
+2026-04-14 11:15 [UPDATE] [[개념-임계 구역 (Critical Section)]] · 3대 조건을 본질 노드로 연결 및 가용성 관점 보강
+2026-04-14 15:26 [UPDATE] [[현상-명령어 재배치 (Instruction Reordering)]] ·
+2026-04-14 15:26 [UPDATE] [[개념-메모리 배리어 (Memory Barrier)]] ·
+2026-04-14 15:26 [UPDATE] [[현상-ABA 문제 (ABA Problem)]] ·
+2026-04-14 15:26 [UPDATE] [[개념-뮤텍스 (Mutex)]] ·
+2026-04-14 15:26 [UPDATE] [[현상-명령어 재배치 (Instruction Reordering)]] ·
+2026-04-14 15:26 [UPDATE] [[개념-메모리 배리어 (Memory Barrier)]] ·
+2026-04-14 15:26 [UPDATE] [[현상-ABA 문제 (ABA Problem)]] ·
+2026-04-14 15:26 [UPDATE] [[개념-뮤텍스 (Mutex)]] ·
+2026-04-14 15:26 [UPDATE] [[현상-명령어 재배치 (Instruction Reordering)]] ·
+2026-04-14 15:27 [UPDATE] [[개념-메모리 배리어 (Memory Barrier)]] ·
+2026-04-14 15:27 [UPDATE] [[현상-ABA 문제 (ABA Problem)]] ·
+2026-04-14 15:27 [UPDATE] [[개념-뮤텍스 (Mutex)]] ·
+2026-04-14 15:28 [UPDATE] [[현상-명령어 재배치 (Instruction Reordering)]] ·
+2026-04-14 15:28 [UPDATE] [[개념-메모리 배리어 (Memory Barrier)]] ·
+2026-04-14 15:28 [UPDATE] [[현상-ABA 문제 (ABA Problem)]] ·
+2026-04-14 15:28 [UPDATE] [[개념-뮤텍스 (Mutex)]] ·
+2026-04-14 15:28 [UPDATE] [[현상-명령어 재배치 (Instruction Reordering)]] ·
+2026-04-14 15:28 [UPDATE] [[개념-메모리 배리어 (Memory Barrier)]] ·
+2026-04-14 15:28 [UPDATE] [[현상-ABA 문제 (ABA Problem)]] ·
+2026-04-14 15:28 [UPDATE] [[개념-뮤텍스 (Mutex)]] ·
+2026-04-14 15:29 [UPDATE] [[현상-명령어 재배치 (Instruction Reordering)]] ·
+2026-04-14 15:29 [UPDATE] [[현상-ABA 문제 (ABA Problem)]] ·
+2026-04-14 15:31 [CREATE] [[개념-원자적 명령어 (TAS, CAS)]] ·
+2026-04-14 15:32 [CREATE] [[개념-임계 구역 (Critical Section)]] ·
+2026-04-14 15:33 [CREATE] [[본질-임계 구역 해결의 3대 조건]] ·
+2026-04-15 02:21 [CREATE] [[본질-디자인 패턴의 본질 (Design Pattern)]] · 패턴은 좋은 코드에서 발견된 어휘이며, 기술을 정의하는 명세가 아니다
+2026-04-15 02:22 [CREATE] [[판단기준-패턴 사고 적용 기준]] · 패턴은 이해/소통 도구이며, 설계 목표로 삼으면 오버엔지니어링으로 이어진다
+2026-04-15 16:17 [CREATE] [[개념-SQL 집계함수 (Aggregate Function)]] · 집계함수는 결과셋을 받는 함수가 아니라 행을 직접 순회하며 단일값을 비교·누적하는 함수
+2026-04-15 16:21 [CREATE] [[본질-연산 간 의존성 (Operational Dependency)]] · 상태가 존재하는 한 의존하는 값이 먼저 결정되어야 다음 연산이 가능하다는 불변 제약
+2026-04-15 16:53 [UPDATE] [[사례-맥북 M4 Pro 외장 모니터 인식 불량 해결]] ·
+2026-04-15 [MAINT] 태그 통일 · #Case → #사례 (사례-맥북 M4 Pro 외장 모니터 인식 불량 해결, 사례-IntelliJ 기본 단축키 정리)
+2026-04-15 [MAINT] 깨진 링크 수정 · 41 → 23개, 괄호 서브타이틀 누락 13건·프리픽스 불일치 9건 수정, nginx 파일명 손상(하는ᄀ) 복구
+2026-04-15 [MAINT] CLAUDE.md 업데이트 · 중복 체크 단계를 obsidian search로 교체, 노트 작성 후 unresolved 검증 단계 추가
+2026-04-15 [RENAME] [[탐구-Node.js 이벤트루프는 epoll을 통해 IO 대기를 어떻게 커널에 위임하는가]] · I/O 슬래시로 인한 폴더 분리 구조를 단일 파일로 통합
+2026-04-15 16:53 [UPDATE] [[사례-IntelliJ 기본 단축키 정리]] ·

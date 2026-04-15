@@ -28,5 +28,5 @@ difficulty: Low
 - 현재 Caps Lock 기반의 즉각적인 전환 환경을 구축하여 오타 없는 고속 입력 환경을 완성함.
 
 ## 관련 문서
-- [[00-Meta/keymaps]]
+- [[KEYMAPS]]
 - [[사례-독거미(AULA) F65 macOS Tahoe 최적화 가이드]]

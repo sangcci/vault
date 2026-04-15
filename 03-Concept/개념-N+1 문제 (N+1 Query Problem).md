@@ -56,7 +56,7 @@ SELECT * FROM Book WHERE author_id = 3  ← +1회
      |   WHERE author_id = ?          |
 ```
 
-1. ORM은 연관 엔티티를 **프록시 객체**로 감싼다 (Lazy Loading).
+1. ORM은 연관 엔티티를 **프록시 객체**로 감싼다 ([[개념-지연 로딩 (Lazy Loading)]]).
 2. 컬렉션 순회 시점에 프록시가 초기화되며 **개별 SELECT**가 발생한다.
 3. ORM 사용자는 코드상 `author.getBooks()`만 호출하므로 쿼리 발생을 인지하기 어렵다.
 

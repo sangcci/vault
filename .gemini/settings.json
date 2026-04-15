@@ -24,28 +24,7 @@
         ]
       }
     ],
-    "BeforeTool": [
-      {
-        "matcher": "create_note",
-        "hooks": [
-          {
-            "name": "anki-safety-check",
-            "type": "command",
-            "command": "node .gemini/hooks/validate-anki.js"
-          }
-        ]
-      },
-      {
-        "matcher": "batch_create_notes",
-        "hooks": [
-          {
-            "name": "anki-batch-safety-check",
-            "type": "command",
-            "command": "node .gemini/hooks/validate-anki.js"
-          }
-        ]
-      }
-    ]
+    "BeforeTool": []
   },
   "hooksConfig": {
     "enabled": true,

@@ -80,3 +80,44 @@
   --bold-color:   #E6C384;
   --italic-color: #A292A3;
 }
+
+/* ── Window Frame ───────────────────────────────────── */
+.titlebar {
+  border: none;
+  background: var(--background-primary);
+  height: 32px;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.titlebar-inner {
+  padding: 0 8px;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+}
+
+/* 프레임 테두리 제거 */
+.mod-root {
+  border-radius: 0;
+  border: none;
+}
+
+/* 사이드바 구분선 제거 */
+.sidebar {
+  border-right: none;
+}
+
+.sidebar-toggle-button {
+  color: var(--text-muted);
+}
+
+.sidebar-toggle-button:hover {
+  color: var(--text-normal);
+}
+
+/* 탭 헤더 구분선 제거 */
+.vertical-tab-header {
+  border-bottom: none;
+}

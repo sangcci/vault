@@ -1,15 +1,11 @@
 {
   "cssTheme": "Minimal",
-  "interfaceFontFamily": "D2Coding,RIDIBatang",
-  "textFontFamily": "Pretendard,RIDIBatang,MaruBuri,D2CodingLigature Nerd Font Mono,D2CodingLigature Nerd Font,SFMono Nerd Font",
-  "monospaceFontFamily": "D2CodingLigature Nerd Font,D2CodingLigature Nerd Font Mono,SFMono Nerd Font",
-  "baseFontSize": 14,
-  "accentColor": "#097761",
   "enabledCssSnippets": [
-    "spacing",
-    "kanso-ink"
+    "kanso-ink",
+    "spacing"
   ],
-  "baseFontSizeAction": false,
-  "theme": "obsidian",
+  "interfaceFontFamily": "Pretendard",
+  "textFontFamily": "Pretendard",
+  "monospaceFontFamily": "D2CodingLigature Nerd Font",
   "showRibbon": false
 }

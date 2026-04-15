@@ -80,3 +80,4 @@ DataSource → ConnectionPool (HikariCP)
 - [[본질-추상화 (Abstraction)]] — 이기종 트랜잭션 API를 단일 인터페이스로 통합.
 - [[본질-격리성 (Isolation)]] — 같은 Connection 공유가 트랜잭션 격리 수준을 보장하는 전제 조건.
 - [[개념-AOP (Aspect-Oriented Programming)]] — 선언형 트랜잭션의 구현 기반.
+- [[개념-JPA EntityManager]] — JpaTransactionManager가 직접 생명주기를 관리하는 대상.

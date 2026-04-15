@@ -30,4 +30,4 @@ ide.override.Tree.rowHeight=22
 
 ## 4. 관련 문서
 - [[사례-IntelliJ 기본 단축키 정리]]
-- [[00-Meta/keymaps]]
+- [[KEYMAPS]]

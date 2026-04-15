@@ -23,5 +23,5 @@ type: Phenomenon
 
 ## Related Concepts / Principles
 - [[개념-Namespaces와 Cgroups]] — 해결을 위한 도구
-- [[개념-하이퍼바이저]] — 현상이 발생하는 계층
+- [[개념-하이퍼바이저 (Hypervisor)]] — 현상이 발생하는 계층
 - [[본질-격리성 (Isolation)]] — 현상을 방지하고자 하는 가치

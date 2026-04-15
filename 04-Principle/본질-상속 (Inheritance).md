@@ -37,8 +37,77 @@ difficulty: Medium
 - **Exception Hierarchy**: 예외 상황의 계층적 분류
 - **Template Method Pattern**: 부모가 골격을 잡고 자식이 세부 구현(IoC의 초기 형태)
 
+## 생성자 호출 순서와 super()
+
+상속의 본질이 "부모의 자원을 사용하는 것"이기 때문에, 자식 객체 생성 시 **부모 생성자가 반드시 먼저 실행**된다.
+
+```
+// Compiler auto-injects super() if not explicitly written
+class Dog extends Animal {
+    Dog() {
+        super();   // <-- injected by compiler (must be first line)
+        this.breed = "Labrador";
+    }
+}
+
+// If parent has no default constructor -> compile error
+class Animal {
+    Animal(String name) { ... }  // no default constructor
+}
+
+class Dog extends Animal {
+    Dog() {
+        // super();  <- compiler tries this, but Animal() doesn't exist
+        // COMPILE ERROR: must explicitly call super("name")
+        super("Buddy"); // <- developer must provide
+    }
+}
+```
+
+**초기화 순서:**
+```
+new Dog() called
+  1. super() -> Animal constructor runs
+  2. Dog field initializers run  (e.g., breed = "Labrador")
+  3. Dog constructor body runs
+```
+
+## 생성자에서 오버라이드 가능한 메서드 호출 — 안티패턴
+
+Java 설계자들은 "객체가 어떤 상태에 있든, 재정의된 메서드가 있다면 항상 최하위(가장 구체적인) 구현을 실행한다"는 다형성 원칙을 일관되게 적용했다. 그 결과, **생성자 안에서도 가상 디스패치가 동작**한다.
+
+```
+class Parent {
+    Parent() {
+        init();        // virtual dispatch -> Child::init() is called
+    }
+    void init() {}
+}
+
+class Child extends Parent {
+    String name = "default";   // initialized AFTER super() returns
+
+    @Override
+    void init() {
+        System.out.println(name.length());  // NPE! name is null here
+    }
+}
+
+new Child();
+// Execution order:
+//   1. super() -> Parent()
+//   2. Parent() calls init() -> virtual dispatch -> Child::init()
+//   3. Child::init() accesses name -> name is null (step 4 not reached yet)
+//   4. [never reached] Dog field: name = "default"
+```
+
+- **NPE 원인**: 부모 생성자 실행 시점에 자식 필드는 아직 null/기본값 상태
+- **규칙**: 상속용 클래스의 생성자에서는 재정의 가능한 메서드를 절대 호출해선 안 된다 (Effective Java Item 19)
+- **대안**: `private` 또는 `final` 메서드만 생성자에서 호출할 것 — 오버라이드 불가능하므로 안전
+
 ## Related Cases
 
 - [[본질-제어의 역전 (Inversion of Control)]]
 - [[본질-조합 (Composition)]] — 상속의 대안으로 권장되는 "상속보다는 조합" 원칙.
 - [[본질-캡슐화 (Encapsulation)]]
+- [[개념-JVM 메모리 구조 (JVM Memory Structure)]] — Heap 내 상속 관계 메모리 레이아웃 (부모 필드 → 자식 필드 순 배치)

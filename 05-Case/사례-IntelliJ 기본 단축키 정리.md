@@ -1,6 +1,6 @@
 ---
 aliases: [IntelliJ Keymap, IntelliJ 단축키]
-tags: [Case, IntelliJ, Keymap, IdeaVim]
+tags: [사례, IntelliJ, Keymap, IdeaVim]
 difficulty: Low
 type: Case
 ---

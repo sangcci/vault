@@ -12,17 +12,16 @@ LIMIT 10
 ```
 
 # 오늘의 Task
-
+### 단기 Task
 ```dataview
 TASK
-FROM "99-Daily"
+FROM "00-Meta/TODO.md"
 WHERE !completed
 ```
-
-# 데일리 노트
-
+### 장기 Task
 ```dataview
-CALENDAR file.day
-FROM "99-Daily"
-WHERE file.name != "00-Daily Note Template"
+LIST L.text
+FROM "00-Meta/TODO.md"
+FLATTEN file.lists AS L
+WHERE meta(L.section).subpath = "Long-Term Plan"
 ```

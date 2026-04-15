@@ -1,6 +1,6 @@
 ---
 aliases: [MacBook External Display Issue, DR1602 Connection]
-tags: [Case, MacOS, Hardware, Troubleshooting]
+tags: [사례, MacOS, Hardware, Troubleshooting]
 difficulty: Low
 type: Case
 ---

@@ -18,9 +18,20 @@
 Before writing ANY note, analyze the user input and propose a structural plan.
 
 1. **Analyze**: Break down the input into atomic topics.
-2. **Check Duplication**: Before proposing a new file, check if a similar file already exists. If it does, propose UPDATE or SKIP instead of CREATE.
+2. **Check Duplication**: Before proposing a new file, run:
+   ```bash
+   obsidian search query="<핵심 키워드>" format=json
+   ```
+   This searches filenames, body text, and aliases simultaneously. If a match exists, propose UPDATE or SKIP instead of CREATE.
+   - For folder-scoped search: add `path=<folder>` (e.g., `path=03-Concept`)
+   - To inspect the matched context: use `obsidian search:context query="<키워드>" format=json`
 3. **Propose Structure**: List files to create/update. Mark as `[CREATE]`, `[UPDATE]`, or `[SKIP]`. Briefly explain why each file is needed.
 4. **Wait for Approval**: Do NOT create files until the user says "Go".
+5. **Post-write link check**: After creating/updating any note, run:
+   ```bash
+   obsidian unresolved total
+   ```
+   If count increased, run `obsidian unresolved verbose format=tsv` and fix any new broken links before finishing.
 
 ### Required Elements
 Every knowledge note MUST include:
