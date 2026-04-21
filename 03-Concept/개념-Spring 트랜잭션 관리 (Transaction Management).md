@@ -75,6 +75,33 @@ DataSource → ConnectionPool (HikariCP)
 
 `@Transactional`은 [[개념-AOP (Aspect-Oriented Programming)]]를 활용한다. Spring이 Bean 등록 시 프록시 객체를 생성하고, 메서드 호출 전후에 트랜잭션 시작/커밋/롤백 로직을 Advice로 삽입한다.
 
+## @Transactional 남용 패턴
+
+외부 I/O가 트랜잭션 범위 안에 포함되면 커넥션이 idle 상태로 점유되어 [[현상-커넥션 풀 고갈 (Connection Pool Exhaustion)]]로 이어진다.
+
+```java
+// 문제: callExternalApi() 동안 커넥션 idle 점유
+@Transactional
+public void process() {
+    dbWrite();
+    callExternalApi();   // 수백ms ~ 수초, 커넥션 반납 불가
+    dbWrite2();
+}
+
+// 개선: 외부 호출을 트랜잭션 밖으로 분리
+public void process() {
+    callExternalApi();   // 커넥션 없이 실행
+    doTransactional();   // 커넥션 점유 최소화
+}
+
+@Transactional
+private void doTransactional() { dbWrite(); dbWrite2(); }
+```
+
+- `PROPAGATION_NOT_SUPPORTED`는 트랜잭션을 suspend할 뿐 커넥션을 반납하지 않음 (오히려 2개 점유)
+- 외부 호출 실패 시 DB 롤백까지 필요하면 Saga / Transactional Outbox 패턴 사용
+- → [[판단기준-트랜잭션 범위 설계]]
+
 ## 관련 본질
 
 - [[본질-추상화 (Abstraction)]] — 이기종 트랜잭션 API를 단일 인터페이스로 통합.

@@ -1,7 +1,7 @@
 # Knowledge Architect — System Rules
 
 ## 1. System Philosophy
-- **Objective**: Structural thinking for backend interviews.
+- **Objective**: Structural thinking across all domains of knowledge.
 - **Language**: Korean (한국어) is mandatory for all notes and cards.
 - **3-Tool System**: Obsidian (구조화) + Anki (즉시 회상) + LLM (실행·검증)
 - **PACER Framework**: 모든 정보는 5가지 유형으로 분류되며, 유형에 따라 도구가 결정된다.

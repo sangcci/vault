@@ -57,7 +57,7 @@ cwnd=1 → 2 → 4 → 8 ... (지수 증가)
 
 - **TCP** — rwnd (흐름 제어) + cwnd (혼잡 제어)
 - **QUIC** (HTTP/3) — TCP 대체, 스트림별 윈도우
-- **Go-Back-N, Selective Repeat** — ARQ 구현의 기반 메커니즘
+- **Go-Back-N, Selective Repeat** — ARQ 구현의 기반 메커니즘 → [[개념-ARQ (오류 제어)]]
 - **Kafka** — 프로듀서 배치 전송 (in-flight 메시지 수 제한)
 
 ## 관련 본질
@@ -65,5 +65,4 @@ cwnd=1 → 2 → 4 → 8 ... (지수 증가)
 - [[본질-신뢰성 (Reliability)]]
 - [[본질-처리량과 지연시간 (Throughput and Latency)]]
 - [[본질-역압 (Backpressure)]]
-- [[개념-Go-Back-N]]
-- [[개념-Selective Repeat]]
+- [[개념-ARQ (오류 제어)]]
