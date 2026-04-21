@@ -7,16 +7,22 @@ One card = one concept. 3 points → 3 cards.
 - **Model Name**: `🧑🏻‍💻 Interview v2`
 
 ### Decks
-- **`💻::Keyword`**: Type = Concept / Principle / Phenomenon — recall in 5s
-- **`💻::Q&A`**: Type = Question / Case / Heuristic — answer in 30s
+- **`💻::Keyword`**: The only deck. C-type one-line definition / R-type values & thresholds / E-type evidence with context — recall in 5s
+- ~~`💻::Q&A`~~: **Abolished**. Question / Case / Heuristic types are replaced by LLM practice.
+
+### Prerequisite Before Card Creation — MANDATORY
+Before creating any card, verify:
+1. Does an Obsidian note for this concept exist in `03-Concept/` or `04-Principle/`?
+2. If not → **write the note first**. Card creation is blocked until the note exists.
+3. Card creation is only allowed after structuring (links, ASCII diagram) is complete.
 
 ### Fields
 | Field | Values |
 |-------|--------|
-| Question | Keyword: term name only. Q&A: interview question form. |
-| Answer | HTML. Keyword: one-line def + keywords in context. Q&A: conclusion → evidence → keywords. |
-| Type | `Concept` `Principle` `Question` `Phenomenon` `Case` `Heuristic` |
-| Category | Exact 본질 note name from `04-Principle/` (e.g. `본질-원자성 (Atomicity)`) |
+| Question | Term name only (C/R-type). For E-type: "In what context is this evidence used?" |
+| Answer | HTML. One-line definition + keywords in context. See format below. |
+| Type | `Concept` `Principle` `Phenomenon` `Evidence` |
+| Category | Exact name of the linked `04-Principle/` note (e.g. `본질-원자성 (Atomicity)`) |
 | Difficulty | `Low` `Medium` `High` |
 | Code | Required for Concept/Principle. Copy the ASCII diagram or pseudocode directly from the source note. |
 | RelatedConcepts | Optional, comma-separated. |
@@ -28,19 +34,29 @@ One card = one concept. 3 points → 3 cards.
 
 ### Answer Format
 ```html
-<!-- Keyword -->
+<!-- C-type / R-type (Keyword) -->
 <b>one-line definition</b><br>
 • keyword used in context, not listed<br>
 • consequence if violated
 
-<!-- Q&A -->
-<b>conclusion in one line</b><br>
-• evidence 1<br>
-• evidence 2<br>
-• keywords: ..., ...
+<!-- E-type (Evidence with context) -->
+<b>finding or statistic in one line</b><br>
+• source: institution / study name<br>
+• context: what argument does this evidence support
 ```
 - NEVER use `~입니다`, `~합니다`
-- NEVER list keywords without context sentence
+- NEVER list keywords without a context sentence
+- E-type cards MUST include context (what claim this evidence supports)
+
+### Anki Target Summary
+| PACER Type | Anki? | Alternative |
+|---|---|---|
+| P (Procedural) | ❌ | LLM scenario practice |
+| A (Analogous) | ❌ | Obsidian link & critique |
+| C (Conceptual) | ✅ Keyword | One-line definition only |
+| E (Evidence) | ✅ Keyword | Must include context |
+| R (Reference) | ✅ Keyword | Values & thresholds |
+| Question / Case / Heuristic | ❌ | LLM practice |
 
 ### Tool Usage — CRITICAL
 Anki MCP removed. Use AnkiConnect HTTP API via curl only.
@@ -56,7 +72,7 @@ Anki MCP removed. Use AnkiConnect HTTP API via curl only.
       "modelName": "🧑🏻‍💻 Interview v2",
       "fields": {
         "Question": "term name",
-        "Answer": "<b>definition</b><br>• explanation",
+        "Answer": "<b>definition</b><br>• keyword in context",
         "Type": "Concept",
         "Category": "본질-원자성 (Atomicity)",
         "Difficulty": "Medium",
