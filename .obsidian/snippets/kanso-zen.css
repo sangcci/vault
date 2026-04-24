@@ -1,0 +1,120 @@
+/*
+ * Kanso Zen — Obsidian CSS Snippet
+ * Ported from https://github.com/webhooked/kanso.nvim
+ * Palette: zen (dark)
+ */
+
+.theme-dark {
+  /* ── Base ───────────────────────────────────────────── */
+  --background-primary:          #090E13;
+  --background-primary-alt:      #1C1E25;
+  --background-secondary:        #1C1E25;
+  --background-secondary-alt:    #22262D;
+
+  /* ── Borders & Modifiers ────────────────────────────── */
+  --background-modifier-border:        #22262D;
+  --background-modifier-border-hover:  #393B44;
+  --background-modifier-border-focus:  #393B44;
+  --background-modifier-form-field:    #1C1E25;
+  --background-modifier-hover:         rgba(57, 59, 68, 0.3);
+  --background-modifier-active-hover:  rgba(57, 59, 68, 0.5);
+  --background-modifier-error:         rgba(196, 116, 110, 0.15);
+  --background-modifier-success:       rgba(138, 154, 123, 0.15);
+  --background-modifier-cover:         rgba(9, 14, 19, 0.8);
+
+  /* ── Text ───────────────────────────────────────────── */
+  --text-normal:       #C5C9C7;
+  --text-muted:        #A4A7A4;
+  --text-faint:        #75797f;
+  --text-on-accent:    #090E13;
+  --text-error:        #E46876;
+  --text-warning:      #E6C384;
+  --text-success:      #87A987;
+  --text-accent:       #7FB4CA;
+  --text-accent-hover: #8BA4B0;
+  --text-selection:    rgba(57, 59, 68, 0.7);
+  --text-highlight-bg: rgba(230, 195, 132, 0.2);
+
+  /* ── Interactive ────────────────────────────────────── */
+  --interactive-normal:        #1C1E25;
+  --interactive-hover:         #22262D;
+  --interactive-accent:        #7FB4CA;
+  --interactive-accent-rgb:    127, 180, 202;
+  --interactive-accent-hover:  #8BA4B0;
+  --interactive-success:       #87A987;
+
+  /* ── Scrollbar ──────────────────────────────────────── */
+  --scrollbar-bg:               transparent;
+  --scrollbar-thumb-bg:         #393B44;
+  --scrollbar-active-thumb-bg:  #4a4d58;
+
+  /* ── Headings ───────────────────────────────────────── */
+  --h1-color: #c4b28a;
+  --h2-color: #8ba4b0;
+  --h3-color: #8ea4a2;
+  --h4-color: #8a9a7b;
+  --h5-color: #a292a3;
+  --h6-color: #A4A7A4;
+
+  /* ── Code ───────────────────────────────────────────── */
+  --code-background:  #1C1E25;
+  --code-normal:      #C5C9C7;
+  --code-comment:     #75797f;
+  --code-function:    #8ba4b0;
+  --code-important:   #c4746e;
+  --code-keyword:     #8992a7;
+  --code-operator:    #909398;
+  --code-property:    #8a9a7b;
+  --code-punctuation: #909398;
+  --code-string:      #8a9a7b;
+  --code-tag:         #c4746e;
+  --code-value:       #c4b28a;
+
+  /* ── Tags ───────────────────────────────────────────── */
+  --tag-color:            #8ea4a2;
+  --tag-background:       rgba(142, 164, 162, 0.15);
+  --tag-color-hover:      #7AA89F;
+  --tag-background-hover: rgba(142, 164, 162, 0.25);
+
+  /* ── Bold / Italic ──────────────────────────────────── */
+  --bold-color:   #c4b28a;
+  --italic-color: #a292a3;
+}
+
+/* ── Window Frame ───────────────────────────────────── */
+.titlebar {
+  border: none;
+  background: var(--background-primary);
+  height: 32px;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.titlebar-inner {
+  padding: 0 8px;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+}
+
+.mod-root {
+  border-radius: 0;
+  border: none;
+}
+
+.sidebar {
+  border-right: none;
+}
+
+.sidebar-toggle-button {
+  color: var(--text-muted);
+}
+
+.sidebar-toggle-button:hover {
+  color: var(--text-normal);
+}
+
+.vertical-tab-header {
+  border-bottom: none;
+}

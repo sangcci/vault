@@ -1,8 +1,8 @@
 {
   "cssTheme": "Minimal",
   "enabledCssSnippets": [
-    "kanso-ink",
-    "spacing"
+    "spacing",
+    "kanso-zen"
   ],
   "interfaceFontFamily": "Pretendard",
   "textFontFamily": "Pretendard",
