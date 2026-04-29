@@ -22,15 +22,17 @@ Before creating any card, verify:
 | Question | Term name only (C/R-type). For E-type: "In what context is this evidence used?" |
 | Answer | HTML. One-line definition + keywords in context. See format below. |
 | Type | `Concept` `Principle` `Phenomenon` `Evidence` |
-| Category | Exact name of the linked `04-Principle/` note (e.g. `본질-원자성 (Atomicity)`) |
+| Category | Domain label (e.g. `Git`, `Spring`, `JPA`, `DB`, `OS`, `Network`, `Java`, `Security`, `Infra`) |
 | Difficulty | `Low` `Medium` `High` |
 | Code | Required for Concept/Principle. Copy the ASCII diagram or pseudocode directly from the source note. |
-| RelatedConcepts | Optional, comma-separated. |
+| RelatedConcepts | Comma-separated. Include linked 본질 note names and related concept names here. |
 | Image | Optional, leave empty unless file provided. |
 
 **Category rules:**
-- No matching 본질 note → stop, create 본질 note first
-- Multiple candidates → stop, show list, user picks one
+- Use a short domain label that best describes where this concept belongs.
+- Common values: `Git`, `Spring`, `JPA`, `DB`, `OS`, `Network`, `Java`, `Security`, `Infra`, `Architecture`
+- If a concept spans multiple domains, pick the most specific one.
+- 본질 links go in **RelatedConcepts**, not Category.
 
 ### Answer Format
 ```html
@@ -74,7 +76,7 @@ Anki MCP removed. Use AnkiConnect HTTP API via curl only.
         "Question": "term name",
         "Answer": "<b>definition</b><br>• keyword in context",
         "Type": "Concept",
-        "Category": "본질-원자성 (Atomicity)",
+        "Category": "DB",
         "Difficulty": "Medium",
         "Code": "<!-- ASCII diagram or pseudocode from source note -->",
         "RelatedConcepts": "",
