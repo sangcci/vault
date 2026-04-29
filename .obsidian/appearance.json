@@ -2,10 +2,10 @@
   "cssTheme": "Minimal",
   "enabledCssSnippets": [
     "spacing",
-    "kanso-zen"
+    "kanagawabones"
   ],
-  "interfaceFontFamily": "Pretendard",
-  "textFontFamily": "Pretendard",
-  "monospaceFontFamily": "D2CodingLigature Nerd Font",
+  "interfaceFontFamily": "Sarasa Term K",
+  "textFontFamily": "Sarasa Term K",
+  "monospaceFontFamily": "Sarasa Term K",
   "showRibbon": false
 }

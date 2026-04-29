@@ -1,0 +1,120 @@
+/*
+ * Kanagawabones — Obsidian CSS Snippet
+ * A zenbones variant inspired by Kanagawa.
+ * Palette: muted dark (navy-purple base, warm cream text)
+ */
+
+.theme-dark {
+  /* ── Base ───────────────────────────────────────────── */
+  --background-primary:          #1F1F28;
+  --background-primary-alt:      #26263A;
+  --background-secondary:        #26263A;
+  --background-secondary-alt:    #2A2A37;
+
+  /* ── Borders & Modifiers ────────────────────────────── */
+  --background-modifier-border:        #3C3C51;
+  --background-modifier-border-hover:  #49473E;
+  --background-modifier-border-focus:  #7EB3C9;
+  --background-modifier-form-field:    #26263A;
+  --background-modifier-hover:         rgba(73, 71, 62, 0.3);
+  --background-modifier-active-hover:  rgba(73, 71, 62, 0.5);
+  --background-modifier-error:         rgba(228, 106, 120, 0.15);
+  --background-modifier-success:       rgba(152, 188, 109, 0.15);
+  --background-modifier-cover:         rgba(31, 31, 40, 0.85);
+
+  /* ── Text ───────────────────────────────────────────── */
+  --text-normal:       #DDD8BB;
+  --text-muted:        #A8A48D;
+  --text-faint:        #636370;
+  --text-on-accent:    #1F1F28;
+  --text-error:        #E46A78;
+  --text-warning:      #E5C283;
+  --text-success:      #98BC6D;
+  --text-accent:       #7EB3C9;
+  --text-accent-hover: #7BC2DF;
+  --text-selection:    rgba(73, 71, 62, 0.7);
+  --text-highlight-bg: rgba(229, 194, 131, 0.2);
+
+  /* ── Interactive ────────────────────────────────────── */
+  --interactive-normal:        #26263A;
+  --interactive-hover:         #2A2A37;
+  --interactive-accent:        #7EB3C9;
+  --interactive-accent-rgb:    126, 179, 201;
+  --interactive-accent-hover:  #7BC2DF;
+  --interactive-success:       #98BC6D;
+
+  /* ── Scrollbar ──────────────────────────────────────── */
+  --scrollbar-bg:               transparent;
+  --scrollbar-thumb-bg:         #3C3C51;
+  --scrollbar-active-thumb-bg:  #49473E;
+
+  /* ── Headings ───────────────────────────────────────── */
+  --h1-color: #E46A78;
+  --h2-color: #957FB8;
+  --h3-color: #7EB3C9;
+  --h4-color: #98BC6D;
+  --h5-color: #E5C283;
+  --h6-color: #A8A48D;
+
+  /* ── Code ───────────────────────────────────────────── */
+  --code-background:  #16161E;
+  --code-normal:      #DDD8BB;
+  --code-comment:     #636370;
+  --code-function:    #7EB3C9;
+  --code-important:   #E46A78;
+  --code-keyword:     #957FB8;
+  --code-operator:    #A8A48D;
+  --code-property:    #98BC6D;
+  --code-punctuation: #A8A48D;
+  --code-string:      #98BC6D;
+  --code-tag:         #E46A78;
+  --code-value:       #E5C283;
+
+  /* ── Tags ───────────────────────────────────────────── */
+  --tag-color:            #7EB3C9;
+  --tag-background:       rgba(126, 179, 201, 0.15);
+  --tag-color-hover:      #7BC2DF;
+  --tag-background-hover: rgba(126, 179, 201, 0.25);
+
+  /* ── Bold / Italic ──────────────────────────────────── */
+  --bold-color:   #E5C283;
+  --italic-color: #957FB8;
+}
+
+/* ── Window Frame ───────────────────────────────────── */
+.titlebar {
+  border: none;
+  background: var(--background-primary);
+  height: 32px;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.titlebar-inner {
+  padding: 0 8px;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+}
+
+.mod-root {
+  border-radius: 0;
+  border: none;
+}
+
+.sidebar {
+  border-right: none;
+}
+
+.sidebar-toggle-button {
+  color: var(--text-muted);
+}
+
+.sidebar-toggle-button:hover {
+  color: var(--text-normal);
+}
+
+.vertical-tab-header {
+  border-bottom: none;
+}
