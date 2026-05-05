@@ -79,6 +79,10 @@ difficulty: Medium
 ## 관련 본질
 
 - [[본질-...]]
+
+## 참고
+
+- [Source Name](URL) — "verbatim quote if applicable"
 ```
 
 ### Principle — `04-Principle/본질-<Title>.md`

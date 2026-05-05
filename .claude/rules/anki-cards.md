@@ -24,7 +24,7 @@ Before creating any card, verify:
 | Type | `Concept` `Principle` `Phenomenon` `Evidence` |
 | Category | Domain label (e.g. `Git`, `Spring`, `JPA`, `DB`, `OS`, `Network`, `Java`, `Security`, `Infra`) |
 | Difficulty | `Low` `Medium` `High` |
-| Code | Required for Concept/Principle. Copy the ASCII diagram or pseudocode directly from the source note. |
+| Code | **Always required**. Copy the ASCII diagram or pseudocode directly from the source note. |
 | RelatedConcepts | Comma-separated. Include linked 본질 note names and related concept names here. |
 | Image | Optional, leave empty unless file provided. |
 
@@ -59,6 +59,17 @@ Before creating any card, verify:
 | E (Evidence) | ✅ Keyword | Must include context |
 | R (Reference) | ✅ Keyword | Values & thresholds |
 | Question / Case / Heuristic | ❌ | LLM practice |
+
+### Depth → Card Count Rule
+The Anki deck is the single source of truth for study depth. No `scope` field in note YAML.
+
+| Depth | 기준 | 생성 카드 |
+|---|---|---|
+| concept | 개념 정의만 알면 됨 | 정의 카드 1장 |
+| taxonomy | 종류를 열거·구분할 수 있어야 함 | 정의 카드 1장 + 종류별 카드 각 1장 |
+| mechanism | 내부 동작 원리까지 설명 가능해야 함 | taxonomy 카드 전부 + Code 필드 상세 기입 |
+
+Note: Code 필드는 depth 불문 항상 필수. mechanism depth는 Code 필드의 충실도로 구분.
 
 ### Tool Usage — CRITICAL
 Anki MCP removed. Use AnkiConnect HTTP API via curl only.
