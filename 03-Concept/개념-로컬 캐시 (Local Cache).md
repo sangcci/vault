@@ -52,6 +52,22 @@ findAll("DESC") → key: "DESC" → 독립 엔트리
 - 파라미터가 정렬 조건만 다를 경우 → 캐시 미스가 증가하거나 중복 엔트리가 누적됨.
 - 권장: 정렬을 제외한 데이터 식별자만 키로 쓰고, 캐시 조회 후 메모리에서 sort.
 
+### 캐시 이름(value/cacheNames) — 키 네임스페이스
+```text
+@Cacheable(value = "products", key = "#id")
+           ──────────────────  ──────────
+           네임스페이스          엔트리 식별자
+
+"products" 공간  →  { 1 → DTO, 2 → DTO, ... }
+"orders"   공간  →  { 1 → DTO, ... }
+                         ↑
+              같은 key "#id = 1"이라도
+              value가 다르면 완전히 별개 캐시 공간
+```
+- `@CacheEvict(value = "products", allEntries = true)` → 공간 단위 전체 무효화 가능
+- 캐시 이름을 설계할 때 무효화 단위를 먼저 정의하고 역으로 이름을 결정하는 것이 원칙
+- 키 공간이 무한히 증가하는 경우 → [[현상-캐시 키 공간 폭발 (Cache Key Space Explosion)]]
+
 ### Caffeine — Read 경로 (lock-free)
 ```text
 Read 요청

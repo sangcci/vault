@@ -54,11 +54,12 @@ difficulty: High
 ```text
 비영속 (new)
     │  em.persist()
+    │  em.merge()
     ▼
-영속 (managed)  ←─── em.merge()
-    │  em.detach() / em.clear()
-    ▼
-준영속 (detached)
+영속 (managed) ◄── em.merge() ── 준영속 (detached)
+    │                                  ▲
+    └──── em.detach() / em.clear() ────┘
+    │
     │  em.remove()
     ▼
 삭제 (removed)
