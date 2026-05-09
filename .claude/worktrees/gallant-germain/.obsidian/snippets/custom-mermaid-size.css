@@ -1,5 +1,0 @@
-.mermaid svg {
-    max-width: 100% !important; /* Forces it to stay within note bounds */
-    width: 600px;              /* Set your preferred standard width */
-    height: auto;
-}
