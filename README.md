@@ -1,6 +1,6 @@
 # Backend Knowledge System
 
-> 정보를 기억하는 게 아니라, 문제를 논리적으로 푸는 것.
+> 개념의 구조화 + 잘 기억해서 다른 곳에 써먹기
 
 ## 6-Layer Note Structure
 
@@ -21,17 +21,25 @@
 | **Anki** | 즉시 회상 — `💻::Keyword` 단일 덱 |
 | **LLM** | 실행·검증 — 시나리오 연습, 판단기준 검증 |
 
-도구 간 역할 분담은 PACER 프레임워크 기준. → `00-Meta/SYSTEM-WORKFLOW.md`
+도구별 역할 분리는 PACER 프레임워크와 `00-Meta/SYSTEM-WORKFLOW.md`를 따릅니다.
+
+## 사용 환경
+
+- 이 저장소는 ClaudeCode, Codex, OpenCode 등 모든 code agent와 함께 사용 가능합니다
+- 단, 각 에이전트는 이 저장소의 `AGENTS.md`와 로컬 설정에 맞게 동작하도록 맞춰 써야 합니다
+- 현재는 Codex에 맞춰서 작동하도록 설계되었습니다. 
+
 ## Requirements
 
-- [Claude Code](https://claude.ai/code) — Knowledge Architect
-- [Anki](https://apps.ankiweb.net/) + [AnkiConnect](https://ankiweb.net/shared/info/2055492159)
-- Obsidian plugins: **Dataview**, **Homepage**
+- Obsidian
+- Anki + AnkiConnect
+- 필요 시 사용하는 code agent (Claude Code, Codex, pi 등)
 
 ## Quick Start
 
 ```bash
 git clone <repo-url> obsidian-note
 cd obsidian-note
-claude
 ```
+
+이후에는 원하는 code agent로 저장소를 열어 작업 진행

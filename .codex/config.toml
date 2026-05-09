@@ -1,0 +1,6 @@
+[mcp_servers.job-search]
+args = [
+    "-y",
+    "job-search-mcp",
+]
+command = "npx"

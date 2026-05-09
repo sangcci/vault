@@ -1,0 +1,35 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node '/Users/sangcci/Library/Mobile Documents/iCloud~md~obsidian/Documents/note/.codex/hooks/validate-note.js'"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash(localhost:8765)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node '/Users/sangcci/Library/Mobile Documents/iCloud~md~obsidian/Documents/note/.codex/hooks/validate-anki-card.js'"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node '/Users/sangcci/Library/Mobile Documents/iCloud~md~obsidian/Documents/note/.codex/hooks/log-note.js'"
+          }
+        ]
+      }
+    ]
+  }
+}

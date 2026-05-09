@@ -1,0 +1,37 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(python3 update_anki_codes.py)",
+      "Bash(curl:*)",
+      "Bash(python3 -c ':*)",
+      "Bash(obsidian tag *)",
+      "Bash(obsidian unresolved *)",
+      "Bash(obsidian files *)",
+      "Bash(obsidian reload *)",
+      "mcp__mcp-obsidian__obsidian_simple_search",
+      "mcp__mcp-obsidian__obsidian_list_files_in_vault",
+      "Bash(obsidian --version)",
+      "Bash(obsidian version *)",
+      "Bash(obsidian search *)",
+      "Bash(obsidian help *)",
+      "Bash(obsidian search:context query=\"면접\" format=json)",
+      "Bash(python3 -c ' *)",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(f'{len\\(d[\\\\\"result\\\\\"]\\)}장 남음'\\)\")",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(f'{len\\(d[\\\\\"result\\\\\"]\\)}장'\\)\")"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"/Users/sangcci/Library/Mobile Documents/iCloud~md~obsidian/Documents/note/.agents/hooks/log-note.js\""
+          }
+        ]
+      }
+    ]
+  }
+}

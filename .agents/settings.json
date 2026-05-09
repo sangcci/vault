@@ -1,0 +1,24 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .agents/hooks/validate-note.js"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash(localhost:8765)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .agents/hooks/validate-anki-card.js"
+          }
+        ]
+      }
+    ]
+  }
+}
