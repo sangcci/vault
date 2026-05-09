@@ -66,5 +66,6 @@ Bitmap Scan 준순차      중간 규모에 최적
 
 ## 관련 본질
 
+- [[본질-논리 순서와 물리 순서는 다르다]]
 - [[본질-간접 참조 (Indirection)]]
 - [[본질-처리량과 지연시간 (Throughput and Latency)]]

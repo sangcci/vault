@@ -64,4 +64,5 @@ Seq Scan on rent_participants  (actual time=0.106..519 rows=1020000 loops=1)
 
 ## 관련 본질
 
+- [[본질-논리 순서와 물리 순서는 다르다]]
 - [[본질-처리량과 지연시간 (Throughput and Latency)]]

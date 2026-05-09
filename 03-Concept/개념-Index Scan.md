@@ -64,4 +64,5 @@ Index Scan using idx_boarding_date on rent_participants
 
 ## 관련 본질
 
+- [[본질-논리 순서와 물리 순서는 다르다]]
 - [[본질-간접 참조 (Indirection)]]

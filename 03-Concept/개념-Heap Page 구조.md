@@ -84,5 +84,6 @@ VACUUM이 주기적으로 dead tuple 정리
 
 ## 관련 본질
 
+- [[본질-논리 순서와 물리 순서는 다르다]]
 - [[본질-쓰기 시 분리 (Copy-on-Write)]]
 - [[본질-영속성 (Persistence)]]
