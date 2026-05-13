@@ -1,4 +1,7 @@
 # LOG
+2026-05-13 13:38 [CREATE] [[개념-EntityManager의 주입 방식과 AOP의 관계]] · EntityManager 공유 프록시와 트랜잭션 AOP가 각자 무엇을 맡는지 스레드 기준 흐름으로 분리해 정리함
+2026-05-13 13:38 [UPDATE] [[개념-JPA EntityManager]] · @PersistenceContext로 주입되는 EntityManager가 shared proxy라는 점과 JpaTransactionManager 위임 흐름을 보강함
+2026-05-13 13:38 [UPDATE] [[개념-Spring 트랜잭션 관리 (Transaction Management)]] · Tomcat worker thread 기준으로 Connection·EntityManager 바인딩과 AOP의 역할 경계를 더 명확히 정리함
 2026-05-13 13:20 [UPDATE] [[본질-논리 순서와 물리 순서는 다르다]] · YAML frontmatter를 목록 형식으로 정리해 메타데이터 가독성을 맞춤
 2026-05-13 13:13 [UPDATE] [[개념-MVCC (PostgreSQL)]] · 트랜잭션 가시성 관점으로 xmin/xmax, snapshot, UPDATE 구버전 유지, VACUUM과 freeze까지 한 흐름으로 보강함
 2026-05-12 15:33 [UPDATE] [[개념-스레드 안전성 (Thread Safety)]] · 서술 문장을 더 자연스러운 한국어 흐름으로 다듬고 오해하기 쉬운 지점을 읽기 쉽게 정리함

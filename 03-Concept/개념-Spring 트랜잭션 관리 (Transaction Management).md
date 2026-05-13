@@ -7,13 +7,14 @@ difficulty: Medium
 
 ## 한 문장 정의
 
-> (사전적) Spring이 JDBC, JPA 등 이기종 데이터 접근 기술의 트랜잭션 API를 `PlatformTransactionManager` 인터페이스로 추상화하고, ThreadLocal 기반으로 같은 커넥션을 공유하게 하는 메커니즘.
-> (이해용) 데이터 접근 기술이 바뀌어도 트랜잭션 코드는 그대로 두고, 하나의 요청 안에서 Service든 Repository든 같은 DB 연결을 쓰게 보장하는 장치.
+> (사전적) Spring이 `PlatformTransactionManager`와 프록시 기반 선언형 트랜잭션을 이용해, 현재 스레드에 트랜잭션 자원(Connection, EntityManager)을 묶어 일관되게 관리하는 메커니즘.
+> (이해용) 보통은 Tomcat worker thread 하나가 요청을 처리하는 동안, Spring이 그 스레드에 같은 Connection과 EntityManager를 붙여 두고 시작·커밋·롤백을 자동으로 챙기는 장치.
 
 ## 해결하는 문제
 
 - JDBC는 `Connection.setAutoCommit(false)`, JPA는 `EntityTransaction.begin()` — 기술마다 트랜잭션 API가 다른 문제.
-- Service와 Repository가 각각 다른 Connection을 사용하면 트랜잭션 격리가 깨지는 문제.
+- Service와 Repository가 각각 다른 Connection을 사용하면 트랜잭션 경계와 격리가 깨지는 문제.
+- 요청 스레드 하나 안에서 같은 DB 작업인데도, 중간 계층마다 자원을 따로 열고 닫아 일관성이 무너지는 문제.
 
 ## 치르는 비용
 
@@ -40,28 +41,35 @@ TransactionSynchronizationManager (ThreadLocal 커넥션 보관)
 DataSource → ConnectionPool (HikariCP)
 ```
 
-### 커넥션 동기화 흐름
+### 스레드 중심으로 보는 트랜잭션 흐름
 
 ```text
-1. @Transactional 진입
-2. DataSource에서 Connection 획득
-3. Connection을 ThreadLocal에 저장
-         ┌──────────────────────────┐
-         │  ThreadLocal<Connection> │
-         │  ┌────────────────────┐  │
-         │  │ Connection (conn1) │  │
-         │  └────────────────────┘  │
-         └──────────────────────────┘
-              ↑              ↑
-         Service         Repository
-         (같은 Thread = 같은 Connection)
-4. 비즈니스 로직 수행
-5. commit 또는 rollback
-6. ThreadLocal에서 Connection 제거
-7. DataSource에 Connection 반환
+HTTP 요청 도착
+   │
+Tomcat worker thread-17
+   │
+Controller
+   │
+@Service @Transactional 메서드 진입
+   │   (여기서 Spring AOP 프록시가 개입)
+   ▼
+TransactionManager begin
+   │
+   ├─ Connection 획득 후 현재 thread에 바인딩
+   ├─ JPA면 EntityManager도 현재 thread에 바인딩
+   │
+Service → Repository → JPA/JDBC
+   │
+   └─ 같은 thread 안에서는 같은 자원을 계속 씀
+   │
+commit / rollback
+   │
+thread binding 해제
+   │
+Connection 반환
 ```
 
-핵심: **같은 Thread 내에서는 Service든 Repository든 동일한 Connection을 사용**한다. 이것이 논리 트랜잭션을 가능하게 하는 원리.
+핵심은 **Spring이 별도 트랜잭션 전용 스레드를 만드는 게 아니라, 지금 요청을 처리 중인 그 스레드에 트랜잭션 자원을 묶는다**는 점이다.
 
 ### 트랜잭션 사용 방식 진화
 
@@ -73,7 +81,28 @@ DataSource → ConnectionPool (HikariCP)
 
 ### @Transactional의 내부
 
-`@Transactional`은 [[개념-AOP (Aspect-Oriented Programming)]]를 활용한다. Spring이 Bean 등록 시 프록시 객체를 생성하고, 메서드 호출 전후에 트랜잭션 시작/커밋/롤백 로직을 Advice로 삽입한다.
+`@Transactional`은 [[개념-AOP (Aspect-Oriented Programming)]]를 활용한다. Spring이 Bean 등록 시 프록시 객체를 만들고, **외부 호출이 프록시를 통과할 때만** 메서드 앞뒤에 트랜잭션 시작/커밋/롤백 로직을 Advice로 삽입한다.
+
+```text
+클라이언트
+  ↓
+트랜잭션 프록시
+  ├─ begin
+  ├─ 현재 thread에 Connection / EntityManager 바인딩
+  ├─ 실제 target 메서드 호출
+  ├─ commit or rollback
+  └─ 자원 정리
+```
+
+즉 AOP가 하는 일은 **트랜잭션 경계를 잡는 것**이고, 그 경계 안에서 실제 Connection / EntityManager를 묶어 관리하는 건 `TransactionManager`와 `TransactionSynchronizationManager` 계층이다.
+
+### 자주 헷갈리는 점
+
+- **트랜잭션을 관리하는 Thread = 보통 Tomcat worker thread**
+- **DB 서버 쪽 실행은 별개지만, Java 애플리케이션 쪽 호출 흐름은 같은 worker thread에서 계속 감**
+- **JPA를 쓴다고 별도 EntityManager thread가 생기는 건 아님**
+- **self-invocation은 프록시를 우회하므로 `@Transactional`이 적용되지 않음**
+- **`@Async`나 직접 새 Thread를 만들면 ThreadLocal 문맥이 자동 전파되지 않음**
 
 ## @Transactional 남용 패턴
 
@@ -108,3 +137,10 @@ private void doTransactional() { dbWrite(); dbWrite2(); }
 - [[본질-격리성 (Isolation)]] — 같은 Connection 공유가 트랜잭션 격리 수준을 보장하는 전제 조건.
 - [[개념-AOP (Aspect-Oriented Programming)]] — 선언형 트랜잭션의 구현 기반.
 - [[개념-JPA EntityManager]] — JpaTransactionManager가 직접 생명주기를 관리하는 대상.
+- [[개념-EntityManager의 주입 방식과 AOP의 관계]] — AOP가 하는 일과 EntityManager 프록시가 하는 일을 분리해서 이해.
+
+## 참고
+
+- [Spring Framework Reference — Declarative Transaction Management](https://docs.spring.io/spring-framework/reference/data-access/transaction/declarative.html) — "the Spring Framework's declarative transaction management is enabled via AOP proxies"
+- [Spring Framework Reference — Transaction Abstraction](https://docs.spring.io/spring-framework/reference/data-access/transaction/strategies.html) — Spring transaction infrastructure binds resources and synchronizations to the current thread through `TransactionSynchronizationManager`
+- [Spring Framework Reference — Proxying Mechanisms](https://docs.spring.io/spring-framework/reference/core/aop/proxying.html) — self-invocation bypasses advice in proxy-based AOP

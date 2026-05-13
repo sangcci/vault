@@ -81,19 +81,41 @@ difficulty: High
 트랜잭션 커밋 → DB 반영
 ```
 
+### Spring에서 주입되는 EntityManager는 무엇인가
+
+핵심은 **Spring Bean에 주입되는 `EntityManager`가 항상 '실제 EntityManager 인스턴스 그 자체'는 아니라는 점**이다.
+보통 `@PersistenceContext`로 주입받는 것은 **현재 트랜잭션에 맞는 진짜 EntityManager로 위임해 주는 공유 프록시**에 가깝다.
+
+```text
+@Service / Repository Bean
+   │
+   └─ 주입되는 EntityManager
+        = shared EntityManager proxy
+                │
+                ├─ 현재 thread에 트랜잭션용 EntityManager가 있으면 거기로 위임
+                └─ 없으면 필요 시 새 EntityManager를 열어 작업 후 정리
+```
+
+그래서 `EntityManager` 자체는 thread-safe하지 않지만, Spring이 주입한 shared proxy는 **현재 트랜잭션 문맥으로 위임**하기 때문에 일반적인 singleton Bean에서도 안전하게 쓸 수 있다.
+
 ### JpaTransactionManager와의 관계
 
 ```text
 @Transactional 진입
         │
         ▼
-JpaTransactionManager
-  1. EntityManagerFactory에서 EntityManager 생성
-  2. 트랜잭션 시작 (EntityTransaction.begin())
-  3. EntityManager를 ThreadLocal에 바인딩
+트랜잭션 AOP 프록시
         │
         ▼
-비즈니스 로직 (Repository → EntityManager 사용)
+JpaTransactionManager
+  1. EntityManagerFactory에서 실제 EntityManager 생성 또는 연결
+  2. 트랜잭션 시작 (EntityTransaction.begin())
+  3. EntityManager를 현재 thread에 바인딩
+        │
+        ▼
+비즈니스 로직 (Repository → 주입된 EntityManager proxy 사용)
+        │
+        └─ proxy가 현재 thread의 실제 EntityManager로 위임
         │
         ▼
 JpaTransactionManager
@@ -103,7 +125,7 @@ JpaTransactionManager
   7. ThreadLocal 해제
 ```
 
-→ [[개념-Spring 트랜잭션 관리 (Transaction Management)]]의 `JpaTransactionManager`가 EntityManager 생명주기를 통제.
+→ [[개념-Spring 트랜잭션 관리 (Transaction Management)]]의 `JpaTransactionManager`가 EntityManager 생명주기를 통제하고, 주입된 프록시는 그 결과를 현재 스레드에서 투명하게 쓰게 해 준다.
 
 ### flush vs clear vs close
 
@@ -117,3 +139,10 @@ JpaTransactionManager
 
 - [[본질-영속성 (Persistence)]] — 엔티티 상태의 지속성 관리
 - [[본질-값의 신뢰성 (Value Trustworthiness)]] — 1차 캐시와 DB 간 일관성
+- [[개념-EntityManager의 주입 방식과 AOP의 관계]] — 주입 프록시, 트랜잭션 프록시, 실제 EntityManager의 역할 분리
+
+## 참고
+
+- [Spring Framework Reference — JPA](https://docs.spring.io/spring-framework/reference/data-access/orm/jpa.html) — "EntityManagerFactory instances are thread-safe, EntityManager instances are not"
+- [Spring Framework Reference — JPA](https://docs.spring.io/spring-framework/reference/data-access/orm/jpa.html) — injected `EntityManager` "delegates all calls to the current transactional EntityManager, if any"
+- [Spring Framework Reference — JPA](https://docs.spring.io/spring-framework/reference/data-access/orm/jpa.html) — `@PersistenceContext` with default `TRANSACTION` type gives a shared `EntityManager` proxy
