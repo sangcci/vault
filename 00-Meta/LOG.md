@@ -1,4 +1,5 @@
 # LOG
+2026-05-13 13:13 [UPDATE] [[개념-MVCC (PostgreSQL)]] · 트랜잭션 가시성 관점으로 xmin/xmax, snapshot, UPDATE 구버전 유지, VACUUM과 freeze까지 한 흐름으로 보강함
 2026-05-12 15:33 [UPDATE] [[개념-스레드 안전성 (Thread Safety)]] · 서술 문장을 더 자연스러운 한국어 흐름으로 다듬고 오해하기 쉬운 지점을 읽기 쉽게 정리함
 2026-05-12 15:33 [UPDATE] [[개념-Java 컬렉션의 스레드 안전성 보장 방식]] · 설명 문장의 번역투를 줄이고 선택 기준과 주의점을 더 사용자 말투에 가깝게 다듬음
 2026-05-12 15:25 [CREATE] [[개념-Java 컬렉션의 스레드 안전성 보장 방식]] · 기본 컬렉션, synchronized 래퍼, ConcurrentHashMap의 차이와 복합 연산 주의점을 정리함
