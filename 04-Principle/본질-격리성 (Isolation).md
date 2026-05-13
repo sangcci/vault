@@ -33,7 +33,7 @@ difficulty: Medium
 ## Appears As
 - **Isolation Levels**: Read Committed, Serializable
 - **Containerization**: Docker, VM
-- **Thread Safety**: ThreadLocal, Immutability
+- [[개념-스레드 안전성 (Thread Safety)]]: ThreadLocal, Immutability
 
 ## Related Cases
 - [[본질-원자성 (Atomicity)]]
