@@ -1,11 +1,12 @@
 {
   "cssTheme": "Minimal",
-  "enabledCssSnippets": [
-    "spacing",
-    "kanagawabones"
-  ],
-  "interfaceFontFamily": "Sarasa Term K",
-  "textFontFamily": "Sarasa Term K",
-  "monospaceFontFamily": "Sarasa Term K",
-  "showRibbon": false
+  "enabledCssSnippets": [],
+  "interfaceFontFamily": "Apple SD Gothic Neo",
+  "textFontFamily": "Apple SD Gothic Neo",
+  "monospaceFontFamily": "Apple SD Gothic Neo",
+  "showRibbon": false,
+  "translucency": false,
+  "accentColor": "#9ba6ab",
+  "showViewHeader": true,
+  "nativeMenus": true
 }
