@@ -52,8 +52,26 @@ difficulty: High
 - **네트워크**: `tcpdump`, 패킷 캡처, 라우팅 테이블
 - **JVM**: GC 로그, Thread Dump, Heap Dump
 
+## 대표 도구 매핑
+
+```text
+Observability
+├── Metrics  → [[개념-Prometheus]]
+├── Logs     → [[개념-Loki]] / [[개념-ELK 스택 (Elasticsearch, Logstash, Kibana)]]
+├── View     → [[개념-Grafana]]
+└── Storage  → [[개념-시계열 메트릭 저장소 (TSDB)]] / object storage / search index
+```
+
+- 중요한 건 "도구 이름"보다 **어떤 신호를 어떤 비용으로 다루는가**다.
+- Prometheus, Loki, ELK는 같은 층위의 대체재가 아니라, 다루는 데이터와 인덱싱 방식이 서로 다르다.
+
 ## 관련 개념
 
 - [[개념-구조화된 로그 (Structured Logging)]]
+- [[개념-시계열 메트릭 저장소 (TSDB)]]
+- [[개념-Prometheus]]
+- [[개념-Grafana]]
+- [[개념-Loki]]
+- [[개념-ELK 스택 (Elasticsearch, Logstash, Kibana)]]
 - [[현상-멀티스레드 로그 혼재 (Log Interleaving)]]
 - [[판단기준-운영 환경 로그 레벨 및 보안 관리 전략]]

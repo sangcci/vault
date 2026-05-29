@@ -43,6 +43,23 @@ difficulty: Medium
 }
 ```
 
+### Loki와 Elasticsearch가 이 로그를 다루는 방식 차이
+
+```text
+구조화 로그(JSON)
+   │
+   ├── Loki
+   │    ├── label 중심 탐색
+   │    └── 비용·운영 단순성 유리
+   │
+   └── Elasticsearch
+        ├── 본문/필드 색인 강화
+        └── 검색 자유도 유리
+```
+
+- 구조화된 로그는 [[개념-Loki]]에서는 label 설계를 좋게 만드는 재료가 된다.
+- 같은 구조화 로그라도 [[개념-ELK 스택 (Elasticsearch, Logstash, Kibana)]]에서는 필드 검색과 분석 자유도를 더 크게 끌어올리는 쪽으로 쓰인다.
+
 ### 메트릭으로 활용되는 흐름
 
 ```
@@ -75,3 +92,6 @@ difficulty: Medium
 ## 관련 본질
 
 - [[본질-옵저버빌리티 (Observability)]]
+- [[개념-Loki]]
+- [[개념-label 기반 로그 검색]]
+- [[개념-ELK 스택 (Elasticsearch, Logstash, Kibana)]]
