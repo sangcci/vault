@@ -60,6 +60,31 @@ Hash Join
 2. `rows` 예측 vs 실제 괴리 확인
 3. `loops` 곱해 총 비용 계산 (`actual time × loops`)
 4. `Rows Removed by Filter` 큰 것 주목
+5. `BUFFERS`로 shared hit/read를 확인해 memory hit인지 disk read인지 구분
+
+**FROM/WHERE 물리 실행 읽기**
+
+```text
+Seq Scan on orders
+  Filter: (user_id = 42)
+  Rows Removed by Filter: 89809
+  Buffers: shared hit=120 read=30
+```
+
+- `Seq Scan`: `FROM orders`가 heap page 순차 접근으로 실행됨.
+- `Filter`: `WHERE` 조건이 tuple을 읽은 뒤 평가됨.
+- `Rows Removed by Filter`: page에서 읽었지만 조건에 맞지 않아 버린 row 수.
+- `shared hit`: 이미 shared buffer에 있던 page.
+- `shared read`: disk에서 읽어 shared buffer에 올린 page.
+
+```text
+Index Scan using idx_orders_user_id on orders
+  Index Cond: (user_id = 42)
+  Buffers: shared hit=10 read=2
+```
+
+- `Index Cond`: `WHERE` 조건이 index 탐색 조건으로 내려감.
+- heap 접근 전 후보 TID를 줄일 수 있음.
 
 **EXPLAIN vs EXPLAIN ANALYZE**
 
@@ -72,3 +97,10 @@ Hash Join
 ## 관련 본질
 
 - [[본질-옵저버빌리티 (Observability)]]
+- [[개념-SQL 물리 실행 흐름]]
+- [[개념-Seq Scan]]
+- [[개념-Index Scan]]
+
+## 참고
+
+> "EXPLAIN actually executes the query, and then displays the true row counts and true run time accumulated within each plan node." — [PostgreSQL Documentation, Using EXPLAIN](https://www.postgresql.org/docs/18/using-explain.html)

@@ -61,3 +61,47 @@
 2026-05-05 18:08 [UPDATE] [[개념-PostgreSQL CREATE INDEX CONCURRENTLY]] ·
 2026-05-05 18:08 [UPDATE] [[개념-PostgreSQL CREATE INDEX CONCURRENTLY]] ·
 2026-05-05 18:08 [UPDATE] [[현상-잠금 경합 (Lock Contention)]] ·
+2026-05-14 02:10 [CREATE] [[탐구-grafana, prometheus, loki를 왜 선택하는가]] · Grafana·Prometheus·Loki를 ELK 및 metrics 대안과 비교해 선택 이유를 설명하려는 원문 질문을 진입점으로 기록함
+2026-05-14 02:10 [CREATE] [[개념-시계열 메트릭 저장소 (TSDB)]] · 시간축 위 수치 데이터를 저장·집계하는 저장소의 성격과 Prometheus가 왜 이 범주에 들어가는지 정리함
+2026-05-14 02:10 [CREATE] [[개념-Prometheus]] · pull 기반 메트릭 수집기이자 로컬 TSDB를 가진 모니터링 도구라는 점을 구조 중심으로 정리함
+2026-05-14 02:10 [CREATE] [[개념-Grafana]] · 여러 관측 저장소를 하나의 대시보드와 알림 계층으로 묶는 시각화 도구의 역할을 정리함
+2026-05-14 02:10 [CREATE] [[개념-Loki]] · label만 인덱싱하고 압축 chunk를 object storage에 저장하는 비용 효율적 로그 시스템의 성격을 정리함
+2026-05-14 02:10 [CREATE] [[개념-Loki의 저장 구조]] · Loki가 일반 RDB보다 append-oriented한 로그 저장 구조에 가깝다는 점과 index·chunk 분리를 정리함
+2026-05-14 02:10 [CREATE] [[개념-label 기반 로그 검색]] · label로 검색 범위를 먼저 줄인 뒤 chunk를 읽는 Loki식 로그 탐색 방식을 정리함
+2026-05-14 02:10 [CREATE] [[개념-pull 모델과 push 모델]] · Prometheus와 Loki의 수집 방식 차이를 pull과 push 관점으로 비교 정리함
+2026-05-14 02:10 [CREATE] [[개념-ELK 스택 (Elasticsearch, Logstash, Kibana)]] · ELK가 로그를 강하게 색인해 검색·분석 자유도를 높이는 대신 운영 비용이 커지는 구조를 정리함
+2026-05-14 02:10 [CREATE] [[판단기준-Prometheus + Grafana + Loki와 ELK 중 무엇을 선택할 것인가]] · 운영 단순성과 비용을 중시할 때와 본문 검색 자유도를 중시할 때의 선택 기준을 정리함
+2026-05-14 02:10 [CREATE] [[판단기준-Prometheus 대신 다른 metrics 시스템을 고려해야 하는 경우]] · 장기 보관·관리형 SaaS·시계열 DB 활용 목적에 따라 Mimir·VictoriaMetrics·Datadog·InfluxDB를 검토하는 기준을 정리함
+2026-05-14 02:10 [UPDATE] [[본질-옵저버빌리티 (Observability)]] · Metrics·Logs·View 계층에 Prometheus·Loki·ELK·Grafana를 연결해 대표 도구 지도를 보강함
+2026-05-14 02:10 [UPDATE] [[개념-구조화된 로그 (Structured Logging)]] · 같은 구조화 로그를 Loki와 Elasticsearch가 어떻게 다르게 활용하는지 비교 링크를 추가함
+2026-05-14 02:18 [CREATE] [[개념-로그 시스템 선택의 트레이드오프]] · Loki와 ELK가 검색 자유도와 운영 비용 사이에서 어떻게 다른 선택을 하는지 구조 중심으로 정리함
+2026-05-14 02:18 [CREATE] [[개념-metrics 시스템 선택의 트레이드오프]] · Prometheus와 확장형 backend·SaaS 대안이 어떤 운영 구조 차이를 가지는지 압축해 정리함
+2026-05-14 02:24 [UPDATE] [[본질-캡슐화 (Encapsulation)]] · 공개 API와 내부 구현의 경계를 패키지·import·코드리뷰·AI 컨텍스트 절감 관점까지 확장해 보강함
+2026-05-29 00:00 [CREATE] [[판단기준-Application Domain Implementation 경계]] · usecase 흐름, 행위자, 도메인 규칙을 어디에 둘지 판단하는 기준을 정리함
+2026-05-29 00:00 [CREATE] [[판단기준-멀티모듈 아키텍처를 언제 도입할 것인가]] · 단순 CRUD에서 멀티모듈로 넘어갈 임계점과 비용을 판단 기준으로 정리함
+2026-05-29 00:00 [CREATE] [[판단기준-기술 로직과 비즈니스 로직을 어떻게 구분할 것인가]] · 기술 교체와 제품 정책 변화 기준으로 core와 adapter 경계를 나누는 기준을 정리함
+2026-05-29 00:00 [CREATE] [[개념-감사 로그 (Audit Log)]] · 누가 언제 무엇을 바꿨는지 추적하는 감사 로그의 목적과 일반 로그와의 차이를 정리함
+2026-05-29 00:00 [CREATE] [[개념-캐시 Evict Race Condition]] · 트랜잭션 커밋 전 캐시 무효화로 오래된 값이 재저장되는 경쟁 상태를 정리함
+2026-05-29 00:00 [CREATE] [[본질-정합성과 무결성의 차이]] · 값 자체를 방어하는 무결성과 여러 상태의 흐름을 맞추는 정합성의 차이를 정리함
+2026-05-29 00:00 [CREATE] [[본질-의존성 방향 (Dependency Direction)]] · 변하기 쉬운 구현이 core 업무 규칙을 끌고 가지 않도록 의존성 방향의 원리를 정리함
+2026-05-29 00:00 [CREATE] [[개념-포트와 어댑터 (Port and Adapter)]] · core port와 support adapter로 외부 기술 의존을 숨기는 구조를 정리함
+2026-05-29 00:00 [CREATE] [[개념-Command Query 분리]] · 상태 변경 모델과 조회 모델을 분리해 각각의 목적에 맞게 설계하는 방식을 정리함
+2026-05-29 00:00 [CREATE] [[판단기준-트랜잭션 경계를 어디에 둘 것인가]] · usecase 원자성과 외부 I/O 비용을 기준으로 트랜잭션 경계를 정하는 기준을 정리함
+2026-05-29 00:00 [CREATE] [[본질-이벤트의 불변성]] · 이미 발생한 사건은 수정하지 않고 보정 이벤트로 남긴다는 원리를 정리함
+2026-05-29 00:00 [CREATE] [[개념-Append-only 이벤트 이력]] · 현재 상태와 별도로 상태 변경 사건을 시간순으로 추가 저장하는 방식을 정리함
+2026-05-29 00:00 [CREATE] [[개념-TransactionAwareCacheManagerProxy]] · Spring 트랜잭션 commit 이후로 cache 작업을 동기화하는 proxy의 역할을 정리함
+2026-05-29 00:00 [CREATE] [[개념-Cache Stampede]] · cache miss가 동시에 몰려 backend 부하를 폭증시키는 현상과 완화 방향을 정리함
+2026-05-29 00:00 [CREATE] [[개념-JVM Heap Metric]] · JVM heap의 used·committed·max 지표 의미와 GC 관찰 기준을 정리함
+2026-05-29 00:00 [CREATE] [[개념-G1 Evacuation Pause]] · G1 GC가 live object를 옮기며 발생시키는 stop-the-world pause를 정리함
+2026-05-29 00:00 [CREATE] [[판단기준-GC Metric을 어떻게 해석할 것인가]] · heap·GC pause·latency·CPU·thread 지표를 함께 해석하는 기준을 정리함
+2026-05-29 00:00 [CREATE] [[탐구-SQL은 논리 구문에서 물리 실행까지 어떻게 동작하는가]] · SQL의 FROM과 WHERE를 disk page와 memory buffer 관점으로 이해하려는 원문 질문을 진입점으로 기록함
+2026-05-29 00:00 [CREATE] [[개념-SQL 물리 실행 흐름]] · SQL 문자열이 planner와 executor를 거쳐 scan node와 page 접근으로 내려가는 전체 흐름을 정리함
+2026-05-29 00:00 [UPDATE] [[개념-Seq Scan]] · heap page를 shared buffer로 올린 뒤 tuple visibility와 Filter 조건을 평가하는 물리 흐름을 보강함
+2026-05-29 00:00 [UPDATE] [[개념-Index Scan]] · index page에서 TID를 찾고 heap page를 읽어 visibility와 Filter를 평가하는 흐름을 보강함
+2026-05-29 00:00 [UPDATE] [[개념-EXPLAIN ANALYZE]] · Filter, Index Cond, Buffers를 FROM/WHERE의 물리 실행 관점으로 읽는 방법을 추가함
+2026-05-29 00:00 [UPDATE] [[개념-DBMS의 역할과 저장소 관리자 (Storage Manager)]] · executor scan node와 storage buffer manager가 SQL 실행에서 연결되는 구조를 보강함
+2026-05-29 00:00 [CREATE] [[개념-Implementation 계층]] · application과 domain 사이에서 조회·저장·not found 처리 같은 usecase 행위를 맡는 계층을 정리함
+2026-05-29 00:00 [CREATE] [[개념-Application Service]] · 외부 요청 하나의 usecase 흐름과 트랜잭션 경계를 조합하는 계층을 정리함
+2026-05-29 00:00 [CREATE] [[개념-Domain Service와 Policy]] · 한 aggregate에 넣기 어려운 순수 도메인 규칙을 분리하는 객체를 정리함
+2026-05-29 00:00 [CREATE] [[개념-Filter와 Index Cond]] · EXPLAIN에서 index 탐색 조건과 tuple 읽은 뒤 평가되는 필터 조건의 차이를 정리함
+2026-05-29 00:00 [CREATE] [[개념-Buffers shared hit와 shared read]] · PostgreSQL EXPLAIN의 shared hit와 shared read가 memory buffer와 disk read를 어떻게 구분하는지 정리함

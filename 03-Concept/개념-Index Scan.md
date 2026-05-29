@@ -32,10 +32,18 @@ B-tree 인덱스 (boarding_date 기준)
 ...
 
 heap 접근:
+index page를 buffer로 읽음
+  ↓
+matching TID 수집
+  ↓
 page 892 읽음 → offset 3 tuple 반환
 page 12  읽음 → offset 1 tuple 반환  ← 디스크 헤드 점프
 page 457 읽음 → offset 2 tuple 반환  ← 또 점프
+  ↓
+MVCC visibility 확인 + 필요 시 Filter 평가
 ```
+
+`WHERE boarding_date = '2025-09-11'`가 인덱스 조건으로 내려가면 `Index Cond`가 된다. 인덱스에 없는 조건은 heap tuple을 읽은 뒤 `Filter`로 평가된다.
 
 **Index Cond vs Filter 구분**
 
@@ -66,3 +74,9 @@ Index Scan using idx_boarding_date on rent_participants
 
 - [[본질-논리 순서와 물리 순서는 다르다]]
 - [[본질-간접 참조 (Indirection)]]
+- [[개념-SQL 물리 실행 흐름]]
+- [[개념-DBMS의 역할과 저장소 관리자 (Storage Manager)]]
+
+## 참고
+
+> "There are different types of scan nodes for different table access methods: sequential scans, index scans, and bitmap index scans." — [PostgreSQL Documentation, Using EXPLAIN](https://www.postgresql.org/docs/18/using-explain.html)

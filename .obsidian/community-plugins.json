@@ -1,5 +1,4 @@
 [
-  "obsidian-style-settings",
   "project-browser",
   "ink",
   "oz-clear-unused-images",
@@ -7,5 +6,7 @@
   "obsidian-hider",
   "homepage",
   "dataview",
-  "obsidian-auto-hide"
+  "obsidian-auto-hide",
+  "obsidian-minimal-settings",
+  "beautiful-mermaid-renderer"
 ]

@@ -27,12 +27,18 @@ heap 파일 (단일 파일, 예: /data/base/16384/orders)
 
 [page 0][page 1][page 2]...[page N]
    ↓       ↓       ↓
- 순서대로  순서대로  순서대로 읽음
+ buffer manager가 page를 shared buffer로 적재
+   ↓
+ executor의 Seq Scan node가 tuple을 하나씩 읽음
+   ↓
+ MVCC visibility 확인
    ↓
  각 tuple의 Filter 조건 평가
    YES → 결과 포함
    NO  → 버림 (Rows Removed by Filter)
 ```
+
+`FROM orders`는 실제로 heap page 접근으로 내려간다. `WHERE user_id = 42`는 Seq Scan에서는 page 안 tuple을 읽은 뒤 `Filter`로 평가된다.
 
 **Seq Scan은 컬럼 정렬과 무관**
 
@@ -66,3 +72,9 @@ Seq Scan on rent_participants  (actual time=0.106..519 rows=1020000 loops=1)
 
 - [[본질-논리 순서와 물리 순서는 다르다]]
 - [[본질-처리량과 지연시간 (Throughput and Latency)]]
+- [[개념-SQL 물리 실행 흐름]]
+- [[개념-DBMS의 역할과 저장소 관리자 (Storage Manager)]]
+
+## 참고
+
+> "Nodes at the bottom level of the tree are scan nodes: they return raw rows from a table." — [PostgreSQL Documentation, Using EXPLAIN](https://www.postgresql.org/docs/18/using-explain.html)
