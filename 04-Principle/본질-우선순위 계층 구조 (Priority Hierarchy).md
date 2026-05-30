@@ -12,6 +12,8 @@ difficulty: High
 > (사전적) 구성 요소들 간의 우선순위를 명확히 정의하여, 충돌 발생 시 최종적으로 적용될 값을 결정하는 수직적 구조.
 > (이해용) "더 구체적이고(Specific), 더 명시적이며(Explicit), 더 나중에(Latest) 로드된 것이 이긴다"는 소프트웨어 구성의 권력 서열.
 
+---
+
 ## 로직 예시 (Pseudo Code)
 
 ```python
@@ -36,20 +38,28 @@ def get_final_config():
     return final_dict
 ```
 
+---
+
 ## 사용 예시 (Examples)
 
 1. **Spring Boot**: 약 14단계 이상의 외부 설정 우선순위를 가짐.
 2. **Kubernetes**: 컨테이너 내부 환경 변수가 이미지 내부의 기본 설정을 덮어씀.
 3. **OOP Overriding**: 자식 클래스의 메서드가 부모 클래스의 메서드를 재정의하여 우선권을 가짐.
 
+---
+
 ## 트레이드오프 (Trade-off)
 
 - **이득**: 코드 변경 없이 환경(Dev/Prod)에 따라 동작을 유연하게 변경할 수 있음 (추상화).
 - **손실**: 설정의 최종 출처를 파악하기 위한 인지 부하(Cognitive Load)가 증가함.
 
+---
+
 ## 왜 사라지지 않는가 (Persistence)
 
 - **환경별 가변성**: 동일한 바이너리(Jar/Image)를 서로 다른 환경에서 실행해야 하는 현대 소프트웨어 배포 철학(Build Once, Run Anywhere)을 실현하기 위한 필수 장치이기 때문임.
+
+---
 
 ## 연결 지식
 - [[현상-설정 섀도잉 (Configuration Shadowing)]]

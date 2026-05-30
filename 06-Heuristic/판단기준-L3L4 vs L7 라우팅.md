@@ -10,6 +10,8 @@ difficulty: Medium
 - 기준이 **IP:Port** 뿐이다 → L3/L4 (iptables, NAT)
 - 기준이 **도메인, 경로, 헤더, 쿠키** 등이다 → L7 (Nginx, ALB, Cloudflare)
 
+---
+
 ## 효과적인 상황
 
 ```
@@ -24,6 +26,8 @@ L7 (Nginx / ALB):
   WAF, 인증, 헬스체크, SSL 종료
 ```
 
+---
+
 ## 실패하는 상황
 
 ```
@@ -35,6 +39,8 @@ L7으로 L3/L4 역할 시도:
   Nginx는 IP 수준 패킷 필터링 불가
   → DDoS IP 차단, 포트 포워딩은 iptables 역할
 ```
+
+---
 
 ## 계층 관계
 
@@ -50,6 +56,8 @@ container A  container B
 
 둘은 **대체 관계가 아니라 역할 분담 관계**.
 
+---
+
 ## 클라우드에서의 확장
 
 Nginx가 하는 L7 라우팅을 클라우드 managed 서비스로 대체 가능.
@@ -62,6 +70,8 @@ Nginx가 하는 L7 라우팅을 클라우드 managed 서비스로 대체 가능.
 | 헬스체크 자동화 | 수동 | O |
 | Auto Scaling 연동 | 수동 | O |
 | WAF 통합 | 별도 설정 | O |
+
+---
 
 ## 출처
 

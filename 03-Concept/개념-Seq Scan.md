@@ -10,15 +10,21 @@ difficulty: Low
 > (사전적) heap 파일을 page 0부터 끝까지 물리적 순서대로 전부 읽으며 조건에 맞는 row를 거르는 스캔 방식.
 > (이해용) 데이터가 어떻게 정렬됐는지 모르니까 처음부터 끝까지 다 읽고 원하는 것만 남기는 방식.
 
+---
+
 ## 해결하는 문제
 
 - 인덱스 없을 때 유일한 탐색 수단
 - 대부분의 row를 읽어야 할 때 Index Scan보다 효율적
 
+---
+
 ## 치르는 비용
 
 - 테이블 전체 읽음 (row 수에 비례)
 - dead tuple도 읽어야 함 → bloat 시 더 느려짐
+
+---
 
 ## 동작 원리
 
@@ -68,12 +74,16 @@ Seq Scan on rent_participants  (actual time=0.106..519 rows=1020000 loops=1)
   Rows Removed by Filter: 1019966
 ```
 
+---
+
 ## 관련 본질
 
 - [[본질-논리 순서와 물리 순서는 다르다]]
 - [[본질-처리량과 지연시간 (Throughput and Latency)]]
 - [[개념-SQL 물리 실행 흐름]]
 - [[개념-DBMS의 역할과 저장소 관리자 (Storage Manager)]]
+
+---
 
 ## 참고
 

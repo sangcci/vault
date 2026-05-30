@@ -10,15 +10,21 @@ difficulty: Medium
 > (사전적) Outer 테이블의 각 row마다 Inner 테이블을 탐색하는 중첩 반복 조인 전략.
 > (이해용) 중첩 for문 그 자체. Inner에 인덱스가 있으면 빠르고, 없으면 최악.
 
+---
+
 ## 해결하는 문제
 
 - Outer가 소량이고 Inner에 인덱스가 있을 때 최적 조인
 - Hash Join보다 메모리 사용량 낮음
 
+---
+
 ## 치르는 비용
 
 - Inner 인덱스 없으면 O(N × M) — 대용량에서 치명적
 - Outer가 클수록 Inner 탐색 반복 횟수 증가
+
+---
 
 ## 동작 원리
 
@@ -57,6 +63,8 @@ Driven   →  인덱스 있는 테이블
 LEFT JOIN: 왼쪽 테이블이 Driving 고정 (A의 모든 row 보장 필요)
 INNER JOIN: 옵티마이저가 비용 계산 후 결정
 ```
+
+---
 
 ## 관련 본질
 

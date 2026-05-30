@@ -10,15 +10,21 @@ difficulty: Medium
 > (사전적) READ 없이 DB가 단일 SQL 문장 안에서 읽기·수정·쓰기를 원자적으로 수행하는 갱신 방식.
 > (이해용) "애플리케이션이 값을 꺼내 계산하지 않고, DB에게 '지금 있는 값에서 +1해줘'라고 지시하는 것."
 
+---
+
 ## 해결하는 문제
 
 - [[현상-갱신 손실 (Lost Update)]] — READ와 WRITE 사이 간격에서 다른 트랜잭션이 개입하는 문제
+
+---
 
 ## 치르는 비용
 
 - 반환값(rowCount)으로만 성공·실패를 판단해야 함 → 실패 원인 세분화가 어려움
 - 조건 분기가 복잡한 경우(읽은 값에 따라 다른 무언가를 결정) 적용 불가
   → 그 경우 [[판단기준-동시성 제어 방법 선택 (Atomic UPDATE vs Lock)]] 참고
+
+---
 
 ## 동작 원리
 
@@ -46,6 +52,8 @@ WHERE id = :id
 - rowCount = 0 → 만석 또는 조건 불충족
 
 JPA에서는 JPQL `@Modifying @Query`로 구현. 1차 캐시·dirty checking을 우회하므로 `@Modifying(clearAutomatically = true)` 권장.
+
+---
 
 ## 관련 본질
 

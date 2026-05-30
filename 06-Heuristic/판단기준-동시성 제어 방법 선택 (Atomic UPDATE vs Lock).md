@@ -19,6 +19,8 @@ difficulty: High
                 └── 충돌 빈도 높음, 재시도 불가 → Pessimistic Lock (SELECT FOR UPDATE)
 ```
 
+---
+
 ## 효과적인 상황
 
 **Atomic UPDATE:**
@@ -35,6 +37,8 @@ difficulty: High
 - 읽은 값에 의존하면서 충돌이 잦고 재시도 비용이 큰 경우
 - 예: 등급별 차등 가격 계산, 좌석 번호 배정, 동반자 묶음 예약
 
+---
+
 ## 실패하는 상황
 
 **Atomic UPDATE가 부족한 경우** (→ Lock 필요):
@@ -45,6 +49,8 @@ difficulty: High
 **Pessimistic Lock 남용 시:**
 - DB Connection 점유 시간 증가 → 커넥션 풀 고갈 위험
 - 응답 지연 증가
+
+---
 
 ## 출처
 

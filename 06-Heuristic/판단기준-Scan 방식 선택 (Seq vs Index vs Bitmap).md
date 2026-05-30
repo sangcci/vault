@@ -20,6 +20,8 @@ Index Scan ←──────────┤
                                        ├──── Seq Scan ──────→
 ```
 
+---
+
 ## 효과적인 상황
 
 **Seq Scan**
@@ -37,6 +39,8 @@ Index Scan ←──────────┤
 - 디스크 I/O 발생 가능성이 있을 때
 - 복수 인덱스 조건 AND/OR 결합 시 (`BitmapAnd`, `BitmapOr`)
 
+---
+
 ## 실패하는 상황
 
 **Seq Scan**
@@ -48,6 +52,8 @@ Index Scan ←──────────┤
 
 **Bitmap Index Scan**
 - 매칭 row가 매우 많을 때 → Seq Scan이 더 단순하고 빠를 수 있음
+
+---
 
 ## 관련 설정값
 
@@ -62,6 +68,8 @@ SET random_page_cost = 1.1;
 -- Seq Scan 강제 비활성화 (테스트용)
 SET enable_seqscan = off;
 ```
+
+---
 
 ## 진단 방법
 

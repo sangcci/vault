@@ -10,16 +10,22 @@ difficulty: Medium
 > (사전적) SQL 파일을 버전 번호로 관리하고 미적용 파일을 순서대로 실행해 스키마를 일관되게 유지하는 마이그레이션 도구.
 > (이해용) "스키마 변경 이력을 Git처럼 버전으로 추적하고, 어느 환경에서든 같은 순서로 재현하는 도구."
 
+---
+
 ## 해결하는 문제
 
 - 팀원마다 다른 DB 스키마 상태 → 공유 이력으로 동기화
 - 배포 환경(dev·staging·prod)마다 스키마가 달라지는 문제
+
+---
 
 ## 치르는 비용
 
 - 한 번 적용된 파일 수정 불가 — 체크섬 검증으로 감지 후 실행 거부
 - 마이그레이션 실패 시 수동 repair 필요 (특히 MySQL — 트랜잭션 DDL 미지원)
 - `flyway:executeInTransaction=false` 지정 시 마이그레이션 SQL 트랜잭션 래퍼는 제거되지만, `flyway_schema_history` 잠금용 외부 트랜잭션은 유지됨 → [[개념-PostgreSQL CREATE INDEX CONCURRENTLY]] 사용 시 무한 대기 (해결: `postgresql.transactional-lock=false`)
+
+---
 
 ## 동작 원리
 
@@ -138,9 +144,13 @@ flyway_schema_history 체크섬 != 파일 체크섬
 주의: prod에서 repair는 이력 조작 — dev/staging 전용
 ```
 
+---
+
 ## 관련 본질
 
 - [[본질-코드와 상태의 비대칭성 (Code-State Asymmetry)]]
+
+---
 
 ## 관련 개념
 

@@ -21,20 +21,28 @@ api / batch / support ----> core
 support implements core port
 ```
 
+---
+
 ## 사용 예시
 
 1. `allreva-core`는 `allreva-support`를 참조하지 않는다.
 2. core는 `NotificationSender` port만 알고, FCM 구현체는 support에 둔다.
 3. domain은 JPA Entity가 아니라 domain 객체와 repository interface를 기준으로 움직인다.
 
+---
+
 ## 트레이드오프
 
 - 얻는 것: 기술 교체 비용 감소, core 테스트 용이성, 모듈 경계 명확화.
 - 잃는 것: interface/adapter 코드 증가, wiring 복잡도 증가, 초기 설계 비용 증가.
 
+---
+
 ## 왜 사라지지 않는가
 
 비즈니스 규칙보다 DB, cache, 외부 API, framework가 더 자주 바뀐다. 변하는 쪽이 변하지 않아야 하는 쪽을 끌고 가면 변경 비용이 커진다.
+
+---
 
 ## 다른 모습들
 
@@ -42,11 +50,15 @@ support implements core port
 - DB: SQL 사용자는 storage engine 세부 구현을 직접 알지 않는다.
 - Network: application은 socket abstraction을 사용하고 NIC 구현을 몰라도 된다.
 
+---
+
 ## 관련 노트
 
 - [[본질-모듈성 (Modularity)]]
 - [[본질-캡슐화 (Encapsulation)]]
 - [[개념-포트와 어댑터 (Port and Adapter)]]
+
+---
 
 ## 참고
 

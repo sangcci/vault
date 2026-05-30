@@ -35,6 +35,8 @@ difficulty: Medium
 > 기존 [[판단기준-동시성 제어 방법 선택 (Atomic UPDATE vs Lock)]]은 "이미 있는 행을 동시에 UPDATE"할 때의 기준.
 > 이 노트는 "없는 행을 동시에 INSERT"하는 중복 저장 문제를 다룸.
 
+---
+
 ## 효과적인 상황
 
 **Unique Key + flush + try-catch:**
@@ -51,10 +53,14 @@ difficulty: Medium
 - 클라이언트가 요청마다 고유 키를 헤더에 포함
 - 서버는 키 존재 여부로 중복 판별 → 기 처리 결과 반환
 
+---
+
 ## 실패하는 상황
 
 - **Unique Key만으로 동시성 해결 기대**: Race Condition 상황에서 두 요청이 동시에 INSERT 시도하면 한 쪽 예외 발생 → 예외 처리 로직 없으면 500 반환
 - **Redis 락 단독 사용**: 락 만료 전 서버 재시작 등 예외 상황에서 DB 제약 없으면 중복 허용 가능
+
+---
 
 ## 출처
 

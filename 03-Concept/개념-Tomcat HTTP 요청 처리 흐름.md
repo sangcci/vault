@@ -10,15 +10,21 @@ difficulty: Medium
 > (사전적) Tomcat이 클라이언트의 HTTP 요청을 수신하여 응답을 반환하기까지, OS 레벨의 TCP 연결부터 Acceptor Thread의 연결 수거, Poller(NIO Selector)의 이벤트 감지, Worker Thread 할당, Spring MVC 처리를 거치는 전체 흐름.
 > (이해용) "경비원(Acceptor)이 문 앞에서 손님을 받아 대기실에 안내하고, 안내데스크(Poller)가 손님 호출을 감지해 담당자(Worker)에게 연결하는" 과정.
 
+---
+
 ## 해결하는 문제
 
 - HTTP 요청 하나당 스레드 하나를 점유하는 전통 모델(BIO)의 자원 낭비 문제.
 - 대량의 동시 연결을 제한된 스레드 풀로 효율적으로 처리하는 문제.
 
+---
+
 ## 치르는 비용
 
 - NIO 모델의 복잡도 증가 (Selector, Channel, Buffer 관리).
 - Worker Thread 풀 크기 설정을 잘못하면 병목 또는 자원 낭비 발생.
+
+---
 
 ## 동작 원리
 
@@ -90,6 +96,8 @@ Worker:   │   0개    │    0개     │    1개      │    0개
 - Acceptor는 `accept()` 순간만 활동, 처리 없이 즉시 복귀
 - Poller는 상시 대기하지만 CPU를 점유하지 않음 (`select()` 블로킹 대기)
 - Worker만이 실질적인 처리 스레드 — 풀 크기가 처리량의 상한을 결정
+
+---
 
 ## 관련 본질
 

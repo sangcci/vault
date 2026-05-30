@@ -10,17 +10,23 @@ difficulty: High
 > (사전적) JPA에서 엔티티의 생명주기를 관리하고, DB와의 동기화를 조율하는 영속성 컨텍스트의 관리자.
 > (이해용) 엔티티를 메모리에 올려두고 변경을 추적하다가, 트랜잭션이 끝날 때 한 번에 DB에 반영하는 중간 관리자.
 
+---
+
 ## 해결하는 문제
 
 - 매 조회마다 DB에 접근하는 비효율 (1차 캐시로 해결)
 - 객체 변경을 일일이 UPDATE 쿼리로 작성해야 하는 불편 (Dirty Checking으로 해결)
 - 같은 식별자의 엔티티가 여러 인스턴스로 생성되는 정합성 문제 (Identity Map으로 해결)
 
+---
+
 ## 치르는 비용
 
 - JPQL 벌크 연산이 1차 캐시를 우회 → 불일치 발생 가능 (→ [[개념-JPQL 벌크 연산 (Bulk Operation)]])
 - 영속성 컨텍스트가 살아있는 동안 엔티티를 메모리에 보유
 - Lazy Loading 사용 시 컨텍스트가 닫힌 후 접근하면 `LazyInitializationException`
+
+---
 
 ## 동작 원리
 
@@ -135,11 +141,15 @@ JpaTransactionManager
 | `clear()` | 1차 캐시 전체 초기화 (엔티티 준영속 전환) |
 | `close()` | 영속성 컨텍스트 종료 |
 
+---
+
 ## 관련 본질
 
 - [[본질-영속성 (Persistence)]] — 엔티티 상태의 지속성 관리
 - [[본질-값의 신뢰성 (Value Trustworthiness)]] — 1차 캐시와 DB 간 일관성
 - [[개념-EntityManager의 주입 방식과 AOP의 관계]] — 주입 프록시, 트랜잭션 프록시, 실제 EntityManager의 역할 분리
+
+---
 
 ## 참고
 

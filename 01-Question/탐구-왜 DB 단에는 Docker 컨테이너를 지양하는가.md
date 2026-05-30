@@ -9,11 +9,15 @@ difficulty: Medium
 
 > DB는 왜 stateless 서비스와 달리 컨테이너화를 지양하는가?
 
+---
+
 ## 가설 및 추론 (Hypothesis)
 
 - Docker는 쉽게 띄우고 내리는 것이 핵심인데, DB는 반대로 절대 갑자기 꺼지면 안 됨
 - 컨테이너가 예기치 않게 종료될 때 DB가 정상 종료 루틴을 밟지 못하면 데이터가 손상될 것
 - Docker의 스토리지 레이어가 DB의 I/O 패턴에 맞지 않을 것
+
+---
 
 ## 검증 및 팩트 (Verification)
 
@@ -75,12 +79,16 @@ Persistence 설정 시 (AOF / RDB snapshot)
     → 프로덕션 persistence Redis도 Docker 비권장
 ```
 
+---
+
 ## 결론 (Conclusion)
 
 - 지양 이유의 핵심은 **"Docker는 SIGKILL을 전제로 설계됐고, DB는 SIGKILL을 견딜 수 없다"**
 - 디스크 기반 RDB(MySQL, PostgreSQL 등)에서 특히 강하게 적용됨
 - 인메모리 DB는 캐시 전용이라면 예외, persistence 설정 시 동일한 위험
 - 개발·테스트 환경에서는 완전히 허용 — 지양은 **프로덕션 한정**
+
+---
 
 ## 연결된 개념 (Links)
 

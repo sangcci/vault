@@ -10,15 +10,21 @@ difficulty: High
 > (사전적) PostgreSQL이 데이터를 저장하는 8KB 단위의 물리적 구조로, Header/Item Pointer/Tuple로 구성.
 > (이해용) 테이블의 row들이 실제로 디스크에 담기는 그릇. Seq Scan은 이 그릇을 처음부터 끝까지 순서대로 열어보는 것.
 
+---
+
 ## 해결하는 문제
 
 - 데이터 저장 및 접근의 기본 단위 제공
 - MVCC를 위한 버전 정보(xmin/xmax) 저장
 
+---
+
 ## 치르는 비용
 
 - UPDATE/DELETE 시 dead tuple 누적 → 페이지 bloat
 - VACUUM 없으면 dead tuple이 Seq Scan 시 함께 읽힘 → 성능 저하
+
+---
 
 ## 동작 원리
 
@@ -81,6 +87,8 @@ UPDATE passenger_num = 3 WHERE id = 1:
 VACUUM이 주기적으로 dead tuple 정리
 → Free Space 반환 → 새 row 삽입 가능
 ```
+
+---
 
 ## 관련 본질
 

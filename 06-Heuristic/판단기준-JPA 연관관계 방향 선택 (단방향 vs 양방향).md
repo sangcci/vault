@@ -10,6 +10,8 @@ difficulty: Medium
 - 반대 방향 탐색이 자주 필요하고, 조회 쿼리를 단순하게 유지하고 싶다면 → **양방향**
 - 연관의 독립성이 중요하고, 한 방향으로만 탐색한다면 → **단방향**
 
+---
+
 ## 효과적인 상황
 
 ### 양방향이 유리한 경우
@@ -43,6 +45,8 @@ Post post = postRepository.findByIdWithComments(id);
 - 연관이 단순하고 역방향 탐색이 없는 경우
 - 팀 내 JPA 숙련도가 낮아 양방향 부작용 리스크가 높은 경우
 
+---
+
 ## 실패하는 상황
 
 양방향 선택 시 반드시 주의해야 할 부작용:
@@ -56,6 +60,8 @@ Post post = postRepository.findByIdWithComments(id);
 
 → [[현상-JPA 순환 참조 (Circular Reference)]]
 → [[개념-N+1 문제 (N+1 Query Problem)]]
+
+---
 
 ## 출처
 

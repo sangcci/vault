@@ -10,6 +10,8 @@ type: Concept
 > (사전적) Semi Join은 inner row의 존재 여부만 확인해 outer row를 반환하는 join이고, Anti Join은 inner row가 존재하지 않는 outer row만 반환하는 join이다.
 > (이해용) Semi Join은 “있으면 통과”, Anti Join은 “없으면 통과”하는 존재성 검사 join이다.
 
+---
+
 ## 해결하는 문제
 
 - `EXISTS`, `IN`, `NOT EXISTS`가 실제로 일반 join이 아니라 존재성 검사로 최적화될 수 있음을 설명한다.
@@ -26,11 +28,15 @@ NOT EXISTS
   -> matching inner row가 없으면 outer row 반환
 ```
 
+---
+
 ## 치르는 비용
 
 - `NOT IN`은 subquery 결과에 `NULL`이 있으면 3-valued logic 때문에 기대와 다르게 동작할 수 있다.
 - 모든 `IN`/`EXISTS`가 항상 semi join으로 바뀌는 것은 아니다.
 - outer/inner cardinality와 index 유무에 따라 Hash Semi Join, Nested Loop Semi Join 등 비용이 달라진다.
+
+---
 
 ## 동작 원리
 
@@ -75,6 +81,8 @@ Hash Anti Join
 
 Anti Join은 matching payment가 없는 order만 반환한다.
 
+---
+
 ## 관련 본질
 
 - [[개념-서브쿼리 실행 계획]]
@@ -82,6 +90,8 @@ Anti Join은 matching payment가 없는 order만 반환한다.
 - [[개념-EXPLAIN ANALYZE]]
 - [[개념-Hash Join]]
 - [[개념-Nested Loop Join]]
+
+---
 
 ## 참고
 

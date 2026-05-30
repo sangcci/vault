@@ -9,6 +9,8 @@ difficulty: Medium
 
 > Entity 안에 static load(Long id) 같은 생성 메서드를 만들고 그 안에서 repository.findById(id)를 호출하면 안 되나? 굳이 Repository를 분리해야 하는 이유가 뭔가?
 
+---
+
 ## 파생 노트
 
 - [[개념-Repository 패턴]]

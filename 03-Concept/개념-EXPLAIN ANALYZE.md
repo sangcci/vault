@@ -10,16 +10,22 @@ difficulty: Low
 > (사전적) 쿼리 실행 계획(Planner 예측)과 실제 실행 결과(actual)를 동시에 출력하는 PostgreSQL 진단 도구.
 > (이해용) "Planner가 예상한 것"과 "실제 일어난 것"을 나란히 보여줘서 어디서 예측이 빗나갔는지 찾는 도구.
 
+---
+
 ## 해결하는 문제
 
 - 쿼리 성능 병목 지점 파악
 - Planner의 잘못된 통계/플랜 선택 탐지
 - 인덱스 사용 여부 확인
 
+---
+
 ## 치르는 비용
 
 - `EXPLAIN ANALYZE`는 쿼리를 실제로 실행함
 - `DELETE`, `UPDATE`에 사용 시 반드시 트랜잭션으로 감싸고 ROLLBACK
+
+---
 
 ## 동작 원리
 
@@ -117,6 +123,8 @@ Hash Anti Join / Nested Loop Anti Join
 | actual time/rows | X | O |
 | 사용 시점 | 빠른 플랜 확인 | 실제 병목 진단 |
 
+---
+
 ## 관련 본질
 
 - [[본질-옵저버빌리티 (Observability)]]
@@ -126,6 +134,8 @@ Hash Anti Join / Nested Loop Anti Join
 - [[개념-Semi Join과 Anti Join]]
 - [[개념-Seq Scan]]
 - [[개념-Index Scan]]
+
+---
 
 ## 참고
 

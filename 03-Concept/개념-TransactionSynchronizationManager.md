@@ -10,6 +10,8 @@ type: Concept
 > (사전적) `TransactionSynchronizationManager`는 Spring transaction에서 resource와 synchronization callback을 현재 thread 단위로 관리하는 중앙 delegate다.
 > (이해용) 현재 Java thread가 어떤 DB connection이나 EntityManager를 쓰는지 적어두는 thread-local 보관함이다.
 
+---
+
 ## 해결하는 문제
 
 - Service와 Repository가 같은 transaction 안에서 같은 connection/resource를 쓰게 한다.
@@ -26,11 +28,15 @@ TransactionSynchronizationManager(ThreadLocal)
   └─ afterCommit / beforeCommit synchronization
 ```
 
+---
+
 ## 치르는 비용
 
 - thread가 바뀌면 context가 자동 전파되지 않는다.
 - `@Async`, 직접 만든 thread, 다른 executor로 넘어가면 기존 transaction resource를 볼 수 없다.
 - WebFlux/Reactor 같은 reactive stack은 ThreadLocal이 아니라 Reactor Context 기반 transaction 관리가 필요하다.
+
+---
 
 ## 동작 원리
 
@@ -55,12 +61,16 @@ commit / rollback 후 unbind
 
 여기서 Tomcat은 필수가 아니다. Kafka listener container thread, scheduler thread, batch worker thread에서도 같은 imperative transaction model이 동작한다.
 
+---
+
 ## 관련 본질
 
 - [[개념-Spring 트랜잭션 관리 (Transaction Management)]]
 - [[개념-PlatformTransactionManager]]
 - [[개념-HikariCP]]
 - [[개념-AOP (Aspect-Oriented Programming)]]
+
+---
 
 ## 참고
 

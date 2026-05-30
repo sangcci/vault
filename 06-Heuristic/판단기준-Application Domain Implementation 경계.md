@@ -35,6 +35,8 @@ domain / policy
 - 상태 변경
 ```
 
+---
+
 ## 효과적인 상황
 
 - Service 코드가 구현 절차로 길어져서 업무 흐름이 안 보일 때.
@@ -42,11 +44,15 @@ domain / policy
 - 같은 조회, 저장, not found 처리가 여러 usecase에 반복될 때.
 - domain과 application 사이에 “작은 업무 행위자”가 필요할 때.
 
+---
+
 ## 실패하는 상황
 
 - 단순 CRUD인데 행위자를 과하게 쪼개면 추적 비용이 더 커진다.
 - domain 객체가 책임질 규칙까지 implementation으로 빼면 빈약한 도메인 모델이 된다.
 - implementation이 기술 adapter까지 직접 알면 의존성 방향이 무너진다.
+
+---
 
 ## 예시
 
@@ -66,12 +72,16 @@ public Long join(final RentJoinCommand command, final Long memberId) {
 - `rent.join(...)` 또는 `rent.validateJoinable(...)`: 좌석, 상태, 권한 같은 업무 규칙이면 domain.
 - `@Transactional`, `Events.raise(...)`: usecase 실행 경계이므로 application.
 
+---
+
 ## 관련 노트
 
 - [[본질-모듈성 (Modularity)]]
 - [[본질-캡슐화 (Encapsulation)]]
 - [[판단기준-멀티모듈 아키텍처를 언제 도입할 것인가]]
 - [[판단기준-기술 로직과 비즈니스 로직을 어떻게 구분할 것인가]]
+
+---
 
 ## 참고
 

@@ -10,16 +10,22 @@ difficulty: Medium
 > (사전적) Spring이 `PlatformTransactionManager`와 프록시 기반 선언형 트랜잭션을 이용해, 현재 스레드에 트랜잭션 자원(Connection, EntityManager 등)을 묶어 일관되게 관리하는 메커니즘.
 > (이해용) Tomcat, Kafka Listener, Scheduler, Batch 중 무엇이 실행했든 현재 Java thread에 필요한 resource를 붙여 두고 시작·커밋·롤백을 자동으로 챙기는 장치.
 
+---
+
 ## 해결하는 문제
 
 - JDBC는 `Connection.setAutoCommit(false)`, JPA는 `EntityTransaction.begin()` — 기술마다 트랜잭션 API가 다른 문제.
 - Service와 Repository가 각각 다른 Connection을 사용하면 트랜잭션 경계와 격리가 깨지는 문제.
 - 요청 스레드 하나 안에서 같은 DB 작업인데도, 중간 계층마다 자원을 따로 열고 닫아 일관성이 무너지는 문제.
 
+---
+
 ## 치르는 비용
 
 - ThreadLocal 기반이므로 **비동기 컨텍스트 전환 시 커넥션이 전파되지 않음** (별도 처리 필요).
 - 프록시 기반 `@Transactional`은 **같은 클래스 내부 호출(self-invocation)에서 동작하지 않음**.
+
+---
 
 ## 동작 원리
 
@@ -147,6 +153,8 @@ public void outer() {
 - **self-invocation은 프록시를 우회하므로 `@Transactional`이 적용되지 않음**
 - **`@Async`나 직접 새 Thread를 만들면 ThreadLocal 문맥이 자동 전파되지 않음**
 
+---
+
 ## @Transactional 남용 패턴
 
 외부 I/O가 트랜잭션 범위 안에 포함되면 커넥션이 idle 상태로 점유되어 [[현상-커넥션 풀 고갈 (Connection Pool Exhaustion)]]로 이어진다.
@@ -174,6 +182,8 @@ private void doTransactional() { dbWrite(); dbWrite2(); }
 - 외부 호출 실패 시 DB 롤백까지 필요하면 Saga / Transactional Outbox 패턴 사용
 - → [[판단기준-트랜잭션 범위 설계]]
 
+---
+
 ## 관련 본질
 
 - [[본질-추상화 (Abstraction)]] — 이기종 트랜잭션 API를 단일 인터페이스로 통합.
@@ -184,6 +194,8 @@ private void doTransactional() { dbWrite(); dbWrite2(); }
 - [[개념-HikariCP]] — JDBC Connection을 pool로 관리하는 RDB connection pool.
 - [[개념-JPA EntityManager]] — JpaTransactionManager가 직접 생명주기를 관리하는 대상.
 - [[개념-EntityManager의 주입 방식과 AOP의 관계]] — AOP가 하는 일과 EntityManager 프록시가 하는 일을 분리해서 이해.
+
+---
 
 ## 참고
 

@@ -9,6 +9,8 @@ type: Question
 
 > grafana, prometheus, loki에 대해 공부중. ELK 등 다른 logging system과 비교했을 때의 트레이드 오프, metrics의 다른 대안 등 여러 관점에서 왜 해당 스택을 선택했으며 어떻게 활용하고 있는지를 설명할 수 있을 정도가 되고 싶음.
 
+---
+
 ## 파생 노트
 
 - [[본질-옵저버빌리티 (Observability)]]

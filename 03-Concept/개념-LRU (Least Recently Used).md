@@ -10,11 +10,15 @@ difficulty: Medium
 > (사전적) 가장 오랫동안 참조되지 않은 페이지를 교체하는 알고리즘. 과거 참조 이력으로 미래를 근사한다.
 > (이해용) 책상 위 책 정리 — 마지막으로 펼쳐본 지 가장 오래된 책을 치운다.
 
+---
+
 ## 해결하는 문제
 
 - **시간 지역성(Temporal Locality)** 활용 — 최근에 쓴 것은 곧 다시 쓸 가능성이 높음
 - Belady's Anomaly 없음
 - OPT에 근접한 실용적 성능
+
+---
 
 ## 치르는 비용
 
@@ -22,6 +26,8 @@ difficulty: Medium
   - 완전 LRU: 각 페이지에 타임스탬프 또는 이중 연결 리스트 + 해시맵 필요
   - OS는 완전 LRU 대신 **Clock 알고리즘**(근사)을 실제로 사용
 - Page Hit 발생해도 순서 갱신 필요 (자주 간과하는 실수)
+
+---
 
 ## 동작 원리
 
@@ -50,6 +56,8 @@ Head(최신) ──→ [0] ──→ [3] ──→ [2] ──→ Tail(오래됨)
 해시맵: key → 노드 포인터 (O(1) 접근)
 ```
 
+---
+
 ## 실제 사용처
 
 - **Linux kernel page cache** — `mm/page_cache.c` (Clock 근사로 구현)
@@ -58,6 +66,8 @@ Head(최신) ──→ [0] ──→ [3] ──→ [2] ──→ Tail(오래됨)
 - **CPU TLB** (Translation Lookaside Buffer) — 하드웨어 LRU 근사
 - **CDN** (Cloudflare, Akamai) — 콘텐츠 캐시 eviction
 - **Browser cache** — 탭/리소스 캐싱
+
+---
 
 ## 관련 본질
 

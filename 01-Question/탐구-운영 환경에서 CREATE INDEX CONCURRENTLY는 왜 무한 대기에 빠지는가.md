@@ -9,6 +9,8 @@ difficulty: High
 
 > 운영 환경에서의 왜 무한 대기가 발생하는가
 
+---
+
 ## 파생 노트
 
 - [[개념-PostgreSQL CREATE INDEX CONCURRENTLY]] — CONCURRENTLY 3단계: 진행 중인 트랜잭션 모두 종료 대기

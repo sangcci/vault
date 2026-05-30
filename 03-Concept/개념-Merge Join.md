@@ -10,15 +10,21 @@ difficulty: Medium
 > (사전적) JOIN 키 기준으로 정렬된 두 테이블을 Two Pointer로 한 번씩만 순회해 조인하는 전략.
 > (이해용) 두 정렬된 명단을 손가락 하나씩 짚어가며 매칭하는 방식. 앞으로만 이동.
 
+---
+
 ## 해결하는 문제
 
 - 양쪽 모두 인덱스(정렬 상태)가 있는 대용량 조인
 - 디스크 I/O가 불가피한 환경에서 순차 접근 보장
 
+---
+
 ## 치르는 비용
 
 - 정렬되지 않은 경우 Sort 노드 추가 비용
 - 중복 값이 많으면 Mark/Restore(되감기) 비용 발생
+
+---
 
 ## 동작 원리
 
@@ -71,6 +77,8 @@ Index Scan의 heap 접근 → 물리적 랜덤 I/O (non-clustered 시)
 PostgreSQL: random_page_cost = 4.0 (순차 대비 4배 비쌈)
             SET random_page_cost = 1.1  -- SSD 환경 튜닝
 ```
+
+---
 
 ## 관련 본질
 

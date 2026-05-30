@@ -11,6 +11,8 @@ difficulty: Medium
 - 공인 IP 등록 후 자동화 봇이 탐지, `.env` / `.git` 경로를 brute force로 탐색
 - nginx 뒤에 Spring Boot WAS가 있는 구조
 
+---
+
 ## 실제 발생한 일
 
 nginx 로그에서 탐지:
@@ -32,6 +34,8 @@ HTTP GET /api/v1/.env → 401 (88ms)  ip=185.177.72.56
 
 grafana, prometheus도 nginx 우회 후 cloudflare에서 host port로 직접 노출된 상태 → 무인증 접근 가능 심각도 높음.
 
+---
+
 ## 시도한 해결책과 실패
 
 **fail2ban 시도 → 불가:**
@@ -40,10 +44,14 @@ grafana, prometheus도 nginx 우회 후 cloudflare에서 host port로 직접 노
 - XFF 헤더로 실제 IP를 로그에 기록해도 iptables는 source IP 기준 → 불일치
 - → [[현상-Cloudflare Tunnel 환경에서 클라이언트 IP 마스킹]] 참고
 
+---
+
 ## 근본 원인
 
 - [[본질-환경 격리 (Environment Isolation)]] 미적용 — staging을 외부에 그대로 노출
 - Cloudflare Tunnel 구조상 IP 레벨 차단이 불가능한 아키텍처
+
+---
 
 ## 교훈 및 조치
 
@@ -73,6 +81,8 @@ nginx/
 - swagger: nginx Basic Auth 적용
 - prometheus: Cloudflare Tunnel 자체를 닫음
 - grafana: 내장 Basic Auth 활용
+
+---
 
 ## 파생 판단기준
 

@@ -10,6 +10,8 @@ type: Concept
 > (사전적) HikariCP는 JDBC `DataSource` 뒤에서 RDB `Connection`을 미리 만들고 빌려주고 반납받는 고성능 JDBC connection pool이다.
 > (이해용) DB 커넥션을 매번 새로 만들지 않도록 차고에 보관했다가 빌려주는 렌터카 차고다.
 
+---
+
 ## 해결하는 문제
 
 - 요청마다 RDB connection을 새로 여는 비용을 줄인다.
@@ -25,11 +27,15 @@ type: Concept
                   -> RDB
 ```
 
+---
+
 ## 치르는 비용
 
 - pool size가 작으면 [[현상-커넥션 풀 고갈 (Connection Pool Exhaustion)]]이 생길 수 있다.
 - pool size가 크면 DB connection 수와 memory/thread 비용이 커진다.
 - HikariCP는 transaction boundary를 결정하지 않는다. commit/rollback은 transaction manager 책임이다.
+
+---
 
 ## 동작 원리
 
@@ -63,12 +69,16 @@ HikariCP는 모든 저장소 connection을 관리하는 thread manager가 아니
 | MongoDB | MongoDB Java Driver connection pool |
 | HTTP 외부 API | HTTP client connection pool |
 
+---
+
 ## 관련 본질
 
 - [[개념-Spring 트랜잭션 관리 (Transaction Management)]]
 - [[개념-PlatformTransactionManager]]
 - [[현상-커넥션 풀 고갈 (Connection Pool Exhaustion)]]
 - [[본질-처리량과 지연시간 (Throughput and Latency)]]
+
+---
 
 ## 참고
 

@@ -10,14 +10,20 @@ difficulty: High
 > (사전적) 각 노드에 Red/Black 색을 부여하고 5가지 색 규칙으로 트리 높이를 O(log n)으로 유지하는 자가 균형 BST.
 > (이해용) "BST의 편향 문제를 색 규칙으로 해결한 구조 — Java TreeMap, C++ std::map의 내부 구현체."
 
+---
+
 ## 해결하는 문제
 
 - BST의 최악 O(n) 편향 문제 해결 → 삽입·삭제·탐색 모두 O(log n) 보장
+
+---
 
 ## 치르는 비용
 
 - 삽입·삭제 시 Recoloring + Rotation 연산 필요 → 구현 복잡
 - 노드당 색 정보와 포인터 저장 → Heap 대비 메모리 사용량 증가
+
+---
 
 ## 동작 원리
 
@@ -66,9 +72,13 @@ TreeMap.put(key, value)
 | 삽입 | O(log n) |
 | 삭제 | O(log n) |
 
+---
+
 ## 관련 본질
 
 - [[본질-트레이드오프 (Trade-off)]]
+
+---
 
 ## 관련 개념
 

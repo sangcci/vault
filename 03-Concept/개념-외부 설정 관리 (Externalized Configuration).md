@@ -9,9 +9,13 @@ difficulty: Medium
 
 > 애플리케이션의 소스 코드 내부에 설정값(DB 접속 정보, API Key 등)을 하드코딩하지 않고, 실행 시점에 외부에서 주입받아 동작을 제어하는 방식.
 
+---
+
 ## 1. 개요 (Overview)
 
 이 방식은 **[[본질-환경 격리 (Environment Isolation)]]**을 실현하기 위한 핵심 기술적 수단이며, **12-Factor App**의 "설정(Config)" 원칙과 궤를 같이합니다.
+
+---
 
 ## 2. 핵심 메커니즘 (Mechanism)
 
@@ -19,11 +23,15 @@ difficulty: Medium
 2.  **오버라이딩 (Overriding)**: 기본 설정(Default)을 두고, 특정 환경(Test, Prod)에서만 필요한 값을 덮어씌움.
 3.  **동적 주입 (Injection)**: 애플리케이션 구동 시점에 컨테이너나 프레임워크가 외부 설정값을 읽어 내부 빈(Bean)이나 변수에 할당.
 
+---
+
 ## 3. 왜 사용하는가? (Why?)
 
 - **재컴파일 방지**: 환경이 바뀔 때마다 코드를 수정하고 다시 빌드할 필요가 없음 (Build Once, Run Anywhere).
 - **보안성**: 민감한 정보(비밀번호, 시크릿 키)를 소스 코드 저장소(Git)에 노출하지 않고 안전하게 관리 가능.
 - **유연성**: 운영 중에도 설정값만 변경하여 애플리케이션의 동작(로그 레벨, 타임아웃 등)을 제어할 수 있음.
+
+---
 
 ## 4. 구체적 수단 (How)
 
@@ -31,6 +39,8 @@ difficulty: Medium
 - **설정 파일 (Configuration Files)**: `.yml`, `.properties`, `.json` 등.
 - **커맨드라인 인자 (CLI Arguments)**: 실행 시 직접 전달.
 - **설정 서버 (Config Server)**: 중앙화된 서비스(Spring Cloud Config, AWS AppConfig)에서 설정 로드.
+
+---
 
 ## 5. 관련 개념
 

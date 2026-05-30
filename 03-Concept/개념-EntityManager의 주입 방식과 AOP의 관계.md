@@ -10,17 +10,23 @@ difficulty: High
 > (사전적) Spring은 `@PersistenceContext`로 주입되는 `EntityManager`를 공유 프록시로 제공하고, `@Transactional` AOP가 만든 트랜잭션 경계 안에서 현재 스레드에 바인딩된 실제 `EntityManager`로 호출을 위임한다.
 > (이해용) 개발자가 Bean에서 쓰는 `EntityManager`는 보통 진짜 본체라기보다 '지금 이 트랜잭션에 맞는 EntityManager한테 연결해 주는 중계기'에 가깝다.
 
+---
+
 ## 해결하는 문제
 
 - singleton Spring Bean에 thread-safe하지 않은 `EntityManager`를 그대로 들고 있으면 깨지는 문제
 - `@Transactional`은 자동인데, `EntityManager`는 누가 만들고 누가 닫는지 감이 안 잡히는 문제
 - AOP가 하는 일과 JPA 프록시가 하는 일이 섞여 보이는 문제
 
+---
+
 ## 치르는 비용
 
 - 프록시를 두 겹으로 이해해야 해서 처음엔 디버깅이 헷갈린다
 - self-invocation처럼 트랜잭션 프록시를 우회하면 기대한 `EntityManager` 문맥도 다르게 보일 수 있다
 - `PersistenceContextType.EXTENDED`는 성격이 달라서 singleton Bean에 함부로 쓰면 안 된다
+
+---
 
 ## 동작 원리
 
@@ -102,6 +108,8 @@ Bean 필드의 em
 기본값인 `TRANSACTION`은 트랜잭션과 함께 움직이는 shared proxy라서 일반적인 Spring 서버 코드와 잘 맞는다.
 반면 `EXTENDED`는 생명주기가 길고 thread-safe하지 않아서, 여러 요청이 동시에 들어오는 singleton Bean과는 맞지 않는다.
 
+---
+
 ## 관련 본질
 
 - [[개념-Spring 트랜잭션 관리 (Transaction Management)]]
@@ -109,6 +117,8 @@ Bean 필드의 em
 - [[개념-AOP (Aspect-Oriented Programming)]]
 - [[본질-간접 참조 (Indirection)]]
 - [[본질-관심사의 분리 (Separation of Concerns)]]
+
+---
 
 ## 참고
 

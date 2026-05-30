@@ -10,10 +10,14 @@ difficulty: High
 > (사전적) PostgreSQL이 각 row version의 생성·종료 트랜잭션 ID와 snapshot을 이용해, 트랜잭션마다 서로 다른 가시성을 판단하는 다중 버전 동시성 제어 메커니즘.
 > (이해용) row를 바로 덮어쓰거나 지우지 않고 버전을 잠깐 같이 남겨 둔 뒤, 각 트랜잭션이 자기 차례에 보여야 할 row만 보게 만드는 방식.
 
+---
+
 ## 해결하는 문제
 
 - 읽기와 쓰기 간 잠금 충돌 없는 동시성 보장
 - 트랜잭션 격리 (Dirty Read, Non-repeatable Read 방지)
+
+---
 
 ## 치르는 비용
 
@@ -21,6 +25,8 @@ difficulty: High
 - VACUUM이 dead tuple 정리 못 하면 Seq Scan 성능 저하
 - 장기 트랜잭션이 있으면 예전 snapshot 때문에 dead tuple을 오래 못 지움
 - 오래된 XID를 계속 방치하면 wraparound 방지를 위한 freeze / aggressive vacuum 비용이 커짐
+
+---
 
 ## 동작 원리
 
@@ -77,6 +83,8 @@ Snapshot = {
 xmin이 xip에 있으면 → commit 여부 무관, 안 보임
 ```
 
+---
+
 ## 중요한 가시성 종류
 
 ### 1. Insert Visibility
@@ -113,11 +121,15 @@ new version → heap에 새 추가   new version → 기존 페이지 덮어씀
 bloat 위험  → 있음             undo log 비대화 위험 → 있음
 ```
 
+---
+
 ## 관련 본질
 
 - [[본질-논리 순서와 물리 순서는 다르다]]
 - [[본질-쓰기 시 분리 (Copy-on-Write)]]
 - [[본질-격리성 (Isolation)]]
+
+---
 
 ## 참고
 

@@ -10,6 +10,8 @@ type: Concept
 > (사전적) TransactionAwareCacheManagerProxy는 Spring-managed transaction과 cache 작업을 동기화해 실제 cache put을 성공한 transaction의 after-commit phase로 미루는 CacheManager proxy다.
 > (이해용) DB commit이 끝나기 전에 캐시가 먼저 바뀌지 않도록 cache 작업을 commit 뒤로 줄 세우는 wrapper다.
 
+---
+
 ## 해결하는 문제
 
 - transaction rollback인데 cache가 먼저 갱신되는 문제.
@@ -24,11 +26,15 @@ commit 성공
   afterCommit cache put 실행
 ```
 
+---
+
 ## 치르는 비용
 
 - 모든 cache consistency 문제가 해결되는 것은 아니다.
 - DB와 Redis를 하나의 원자적 transaction으로 묶지는 않는다.
 - commit 이후 evict 시점에 동시 조회가 몰리면 [[개념-Cache Stampede]]가 생길 수 있다.
+
+---
 
 ## 동작 원리
 
@@ -41,11 +47,15 @@ CacheManager cacheManager(CacheManager target) {
 }
 ```
 
+---
+
 ## 관련 본질
 
 - [[개념-캐시 Evict Race Condition]]
 - [[본질-정합성과 무결성의 차이]]
 - [[03-Concept/개념-Spring 트랜잭션 관리 (Transaction Management)|Spring 트랜잭션 관리]]
+
+---
 
 ## 참고
 

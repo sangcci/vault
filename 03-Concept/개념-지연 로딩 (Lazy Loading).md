@@ -10,15 +10,21 @@ difficulty: Medium
 > (사전적) 객체가 실제로 필요한 시점까지 DB 조회를 미루는 로딩 전략.
 > (이해용) 빈 껍데기(프록시)를 먼저 돌려주고, 실제로 건드릴 때 DB에 다녀오는 것.
 
+---
+
 ## 해결하는 문제
 
 - Eager Loading: 연관 엔티티를 항상 함께 조회 → 사용하지 않아도 DB 왕복 발생
 - 지연 로딩: 실제 접근 시점까지 조회 미룸 → 불필요한 쿼리 제거
 
+---
+
 ## 치르는 비용
 
 - 프록시 초기화 시점에 DB 조회 → 순회 컨텍스트에서 N+1 문제 유발 가능 ([[개념-N+1 문제 (N+1 Query Problem)]])
 - 영속성 컨텍스트 종료 후 접근 시 `LazyInitializationException` 발생
+
+---
 
 ## 동작 원리
 
@@ -34,6 +40,8 @@ user.getTeam() 호출  ← 처음 접근하는 시점
     ↓
 데이터 채움 → 결과 반환
 ```
+
+---
 
 ## 프록시 구현 방식
 
@@ -70,6 +78,8 @@ class User$HibernateProxy extends User {
 | Javassist | 구버전 방식 |
 | java.lang.reflect.Proxy | Java 표준, 인터페이스만 가능 |
 
+---
+
 ## 프록시로 인한 제약
 
 ```java
@@ -87,6 +97,8 @@ class User {
 user.getClass() == User.class  // false → User$HibernateProxy
 user instanceof User           // true
 ```
+
+---
 
 ## 관련 본질
 

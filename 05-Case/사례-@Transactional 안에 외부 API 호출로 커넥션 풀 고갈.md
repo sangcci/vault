@@ -10,6 +10,8 @@ difficulty: Medium
 - Spring Boot 서비스에서 `@Transactional` 메서드 안에 외부 API 호출 포함
 - 출처: Reddit r/SpringBoot — Why shouldn't we use @Transactional every time?
 
+---
+
 ## 실제 발생한 일
 
 ```java
@@ -34,10 +36,14 @@ public void process() {
 **참고**: `HibernateTransactionManager`는 실제 필요 시점까지 커넥션 획득을 지연(lazy)하므로,
 트랜잭션 매니저 구현체에 따라 커넥션 획득 시점이 다를 수 있음.
 
+---
+
 ## 근본 원인
 
 - [[현상-커넥션 풀 고갈 (Connection Pool Exhaustion)]]
 - [[개념-Spring 트랜잭션 관리 (Transaction Management)]]
+
+---
 
 ## 교훈 및 조치
 
@@ -47,6 +53,8 @@ public void process() {
   2. 외부 호출 실패 시 트랜잭션이 필요한 구조 자체를 재설계
   3. Saga / Transactional Outbox 패턴 (분산 트랜잭션)
 - `TransactionTemplate`으로 트랜잭션 범위를 메서드보다 좁게 제어 가능
+
+---
 
 ## 파생 판단기준
 

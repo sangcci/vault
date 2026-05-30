@@ -10,15 +10,21 @@ difficulty: Medium
 > (사전적) 일정 속도로 토큰이 채워지는 버킷에서 패킷 전송마다 토큰을 소비하는 트래픽 제어 알고리즘.
 > (이해용) 게임 스태미너 — 초당 조금씩 차고, 행동마다 소비. 모아두면 순간 버스트 가능.
 
+---
+
 ## 해결하는 문제
 
 - API 과부하 방지 (Rate Limiting)
 - 네트워크 트래픽 버스트 허용 + 장기 평균 속도 제한
 
+---
+
 ## 치르는 비용
 
 - 버킷 최대 크기만큼 순간 버스트 허용 → 수신 측이 버스트 처리 능력 필요
 - Leaky Bucket 대비 출력 속도 불균등
+
+---
 
 ## 동작 원리
 
@@ -44,6 +50,8 @@ Leaky Bucket: 일정 속도로만 출력 (버스트 불가)
 Token Bucket: 누적 토큰으로 순간 버스트 가능 ← 핵심 차이
 ```
 
+---
+
 ## 실제 사용처
 
 - **Nginx** — `limit_req_zone` (Token Bucket 기반)
@@ -51,6 +59,8 @@ Token Bucket: 누적 토큰으로 순간 버스트 가능 ← 핵심 차이
 - **Kubernetes** — `kube-apiserver` 요청 제한
 - **Linux tc (Traffic Control)** — `tbf` (Token Bucket Filter) qdisc
 - **Redis + Lua** — 분산 Rate Limiting 구현
+
+---
 
 ## 관련 본질
 

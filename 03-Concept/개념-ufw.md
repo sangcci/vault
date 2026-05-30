@@ -10,15 +10,21 @@ difficulty: Low
 > (사전적) iptables의 복잡한 문법을 감싸 사람이 쓰기 쉽게 만든 Linux 방화벽 관리 도구.
 > (이해용) iptables라는 복잡한 기계에 붙인 쉬운 조작 패널.
 
+---
+
 ## 해결하는 문제 (Problem Solved)
 
 - iptables 직접 작성의 복잡성 제거
 - 규칙을 재부팅 후에도 유지 (iptables 규칙은 기본적으로 재부팅 시 초기화)
 
+---
+
 ## 치르는 비용 (Cost/Trade-off)
 
 - iptables-persistent 등 다른 도구와 공존 시 규칙 충돌 위험
 - iptables에 비해 세밀한 제어가 제한적
+
+---
 
 ## 동작 원리 (Mechanism)
 
@@ -50,9 +56,13 @@ ufw route allow ...   →  filter/FORWARD 체인에 규칙 추가
 → 하나로 통일 필요 (ufw 권장)
 ```
 
+---
+
 ## 관련 본질 (Related Principles)
 
 - [[본질-추상화 (Abstraction)]] — iptables 위에 올린 단순화 계층
+
+---
 
 ## 연결된 개념 (Links)
 

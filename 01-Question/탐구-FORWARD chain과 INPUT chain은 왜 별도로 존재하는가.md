@@ -9,11 +9,15 @@ difficulty: Medium
 
 > ufw allow로 포트를 열었는데 왜 VM으로 가는 트래픽은 차단되었나? FORWARD와 INPUT은 왜 별도로 존재하는가?
 
+---
+
 ## 가설 및 추론 (Hypothesis)
 
 - Host 자신이 받는 트래픽과 Host를 경유하는 트래픽은 처리 주체가 다를 것
 - Host가 라우터 역할을 할 때는 별도의 허용 지점이 필요할 것
 - `ufw allow`는 "Host가 받는" 것을 허용하는 것이므로 VM으로 가는 트래픽엔 무관할 것
+
+---
 
 ## 검증 및 팩트 (Verification)
 
@@ -54,12 +58,16 @@ nginx 80 접속 실패       → DNAT 됐지만 FORWARD에서 DROP
 nginx 80 접속 성공       → ufw route 추가 후
 ```
 
+---
+
 ## 결론 (Conclusion)
 
 - INPUT과 FORWARD는 패킷의 **최종 목적지가 Host 자신인가 아닌가**로 분기
 - Host가 라우터 역할을 하는 순간(VM·컨테이너 포워딩) FORWARD 체인이 개입
 - `ufw allow`는 INPUT 전용, `ufw route allow`가 FORWARD를 제어
 - 포트 포워딩(DNAT)을 설정했다면 반드시 FORWARD 규칙도 함께 필요
+
+---
 
 ## 연결된 개념 (Links)
 

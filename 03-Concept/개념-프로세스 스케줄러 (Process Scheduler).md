@@ -12,15 +12,21 @@ updated: 2026-03-17
 > (사전적) 다음에 실행할 SW Thread를 선택하고, context_switch()로 HW Thread에 올리는 OS 커널 모듈.
 > (이해용) 공장 라인(HW Thread) 배정 담당자. 대기 목록에서 다음 작업을 골라 라인에 올려놓는다.
 
+---
+
 ## 해결하는 문제
 
 - [[개념-하드웨어 스레드 (Hardware Thread)]] 수보다 훨씬 많은 [[개념-소프트웨어 스레드 (Software Thread)]]를 공정하게 실행
 - 특정 SW Thread가 CPU를 독점해 시스템이 마비되는 현상 방지
 
+---
+
 ## 치르는 비용
 
 - context_switch() 호출마다 [[개념-문맥 교환 (Context Switch)]] 비용 발생
 - SW Thread 수 ↑ → run queue 탐색 비용 ↑, context switch 빈도 ↑
+
+---
 
 ## 동작 원리
 
@@ -50,6 +56,8 @@ updated: 2026-03-17
 - CPU는 특권 명령어로 직접 제어 가능 → 중간 계층(Device Driver 등) 불필요
 - SW Thread 상태 전이: Running → Waiting (I/O), Waiting → Ready (I/O 완료), Running → Ready (선점)
 
+---
+
 ## 스케줄링 알고리즘 (별도 노트)
 
 | 알고리즘 | 선점 | 특징 |
@@ -62,6 +70,8 @@ updated: 2026-03-17
 | [[개념-HRN (Highest Response Ratio Next)]] | ✗ | SJF + Aging |
 
 → 선택 전략: [[판단기준-CPU 스케줄링 알고리즘 선택]]
+
+---
 
 ## 관련 본질
 

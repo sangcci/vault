@@ -10,11 +10,15 @@ difficulty: Medium
 > (사전적) 커넥션 풀에 할당된 모든 커넥션이 점유된 상태에서 새 요청이 대기하거나 실패하는 현상.
 > (이해용) DB 연결이라는 공유 자원이 바닥나서 후속 요청이 줄을 서다가 타임아웃으로 터지는 상황.
 
+---
+
 ## 발생 환경
 
 - HikariCP 등 커넥션 풀 사용 환경 (Spring Boot 기본)
 - 동시 요청이 많은 서비스
 - 커넥션 점유 시간이 길어지는 모든 상황
+
+---
 
 ## 관찰되는 증상
 
@@ -22,6 +26,8 @@ difficulty: Medium
 - DB 응답은 정상이나 애플리케이션 레이어에서 타임아웃
 - 스레드 덤프에서 `HikariPool connection adder` 대기 다수
 - APM에서 DB 커넥션 획득 대기 시간 급증
+
+---
 
 ## 추측되는 원인
 
@@ -41,6 +47,8 @@ WHERE 없는 UPDATE 등                @Transactional + 느린 외부 호출
 
 - [[개념-Lock 범위 (Row Lock vs Table Lock)]]
 - [[개념-Spring 트랜잭션 관리 (Transaction Management)]]
+
+---
 
 ## 관련 사례
 

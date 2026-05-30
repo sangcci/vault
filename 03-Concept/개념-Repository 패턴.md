@@ -10,15 +10,21 @@ difficulty: Medium
 > (사전적) 도메인 레이어와 데이터 접근 레이어 사이를 중재하는, 컬렉션과 같은 인터페이스로 도메인 객체 접근을 제공하는 패턴. (Martin Fowler, PoEAA 2002 / Eric Evans, DDD 2003)
 > (이해용) DB가 MySQL이든 MongoDB든 Entity는 모르고, Repository라는 창구 하나만 알면 되는 구조.
 
+---
+
 ## 해결하는 문제
 
 - Entity가 DB 접근 방식(SQL, ORM, DataSource)을 알게 되면 인프라 변경 시 도메인 코드를 수정해야 함
 - Entity는 여러 레이어(Controller, Service, Repository)에서 공유되는 객체 → 어느 레이어에도 종속되면 안 됨
 
+---
+
 ## 치르는 비용
 
 - 클래스 수 증가 (Entity + Repository 인터페이스 + 구현체)
 - 단순 CRUD 앱에서는 과한 구조일 수 있음 → Active Record 패턴이 대안
+
+---
 
 ## 의존 방향
 
@@ -39,6 +45,8 @@ Entity가 Repository를 알면:
 - Entity는 더 이상 순수 도메인 객체가 아님
 - 저장소 교체 시 Entity 수정 필요
 - 테스트 시 DB 없이 Entity 단독 테스트 불가
+
+---
 
 ## Repository는 프레임워크 진입점이다
 
@@ -68,6 +76,8 @@ class User {
 
 어떤 방법도 Entity를 인프라에 종속시킴.
 
+---
+
 ## Active Record와의 비교
 
 | | Repository 패턴 | Active Record |
@@ -79,10 +89,14 @@ class User {
 | 적합한 규모 | 복잡한 도메인 로직 | 단순 CRUD 앱 |
 | 사용 예 | Spring Data JPA | Rails, Laravel |
 
+---
+
 ## 관련 본질
 
 - [[본질-관심사의 분리 (Separation of Concerns)]]
 - [[본질-간접 참조 (Indirection)]]
+
+---
 
 ## 관련 개념
 

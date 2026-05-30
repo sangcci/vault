@@ -10,15 +10,21 @@ difficulty: High
 > (사전적) JVM이 프로그램 실행을 위해 OS로부터 할당받은 메모리를 역할에 따라 분리한 논리적 구조.
 > (이해용) "코드가 실행되는 극장 — 배우(객체)는 무대(Heap), 대본(클래스 메타데이터)은 소품실(Method Area), 각 배우의 현재 대사 위치(PC)는 별도 메모로 관리."
 
+---
+
 ## 해결하는 문제
 
 - 플랫폼 독립적 실행 — OS/하드웨어 메모리 모델을 추상화하여 바이트코드로 어디서든 동일하게 동작
 - 동적 클래스 로딩 — 필요한 시점에 클래스를 메모리에 올리는 lazy loading 지원
 
+---
+
 ## 치르는 비용
 
 - GC 오버헤드 — Heap 관리를 JVM이 대신하므로 Stop-the-World 발생 가능
 - 메타데이터 메모리 누수 — Metaspace는 native memory라 OOM 방향이 다름 (`OutOfMemoryError: Metaspace`)
+
+---
 
 ## 동작 원리
 
@@ -230,6 +236,8 @@ JVM PC:        [bytecode array index]  <-- what JVM PC Register stores
 - [[본질-추상화 (Abstraction)]] — PC Register는 하드웨어 PC 위의 추상화 계층. Method Area는 OS의 Code 영역 위의 추상화.
 - [[본질-동시성 (Concurrency)]] — Stack과 PC Register가 스레드별로 독립 존재하는 이유.
 - [[본질-간접 참조 (Indirection)]] — klass pointer를 통한 메서드/vtable 참조 구조.
+
+---
 
 ## 관련 개념
 

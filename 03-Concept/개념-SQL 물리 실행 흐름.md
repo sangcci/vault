@@ -10,17 +10,23 @@ type: Concept
 > (사전적) SQL 물리 실행 흐름은 SQL 문자열이 parse, rewrite, planning, execution을 거쳐 disk page와 memory buffer를 읽고 tuple을 반환하는 과정이다.
 > (이해용) `SELECT ... FROM ... WHERE ...`가 사람이 읽는 문장에서 DBMS가 page를 읽고 row를 걸러내는 실행 기계로 바뀌는 과정이다.
 
+---
+
 ## 해결하는 문제
 
 - `FROM`과 `WHERE`를 단순한 논리 순서가 아니라 실제 page 접근과 tuple 평가로 이해하게 한다.
 - 왜 같은 SQL도 Seq Scan, Index Scan, Bitmap Scan으로 다르게 실행되는지 설명한다.
 - [[개념-EXPLAIN ANALYZE]]에서 `Filter`, `Index Cond`, `Buffers`가 무엇을 뜻하는지 연결한다.
 
+---
+
 ## 치르는 비용
 
 - 실제 DBMS는 optimizer가 plan을 고르므로 SQL 문장 순서와 실행 순서가 항상 일치하지 않는다.
 - PostgreSQL, MySQL, Oracle마다 세부 구현은 다르다.
 - page, buffer, MVCC, index, join까지 함께 봐야 전체 흐름이 보인다.
+
+---
 
 ## 동작 원리
 
@@ -67,6 +73,8 @@ Index Scan 선택 시:
 index page -> matching TID -> heap page -> tuple filter/recheck
 ```
 
+---
+
 ## FROM과 WHERE의 물리적 의미
 
 ```text
@@ -85,6 +93,8 @@ scan node opens rent relation
 
 인덱스가 없거나 대부분의 row를 읽어야 하면 [[개념-Seq Scan]]이 선택될 수 있다. 선택도가 높고 인덱스가 유리하면 [[개념-Index Scan]]이나 [[개념-Bitmap Index Scan]]이 선택될 수 있다.
 
+---
+
 ## 관련 본질
 
 - [[본질-논리 순서와 물리 순서는 다르다]]
@@ -92,6 +102,8 @@ scan node opens rent relation
 - [[개념-DBMS의 역할과 저장소 관리자 (Storage Manager)]]
 - [[개념-Heap Page 구조]]
 - [[개념-MVCC (PostgreSQL)]]
+
+---
 
 ## 참고
 

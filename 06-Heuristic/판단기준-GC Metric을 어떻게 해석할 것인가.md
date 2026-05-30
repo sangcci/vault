@@ -21,17 +21,23 @@ GC pause       ^      ^
 같은 시점이면 GC 영향 의심
 ```
 
+---
+
 ## 효과적인 상황
 
 - JVM memory chart를 보고 정상 sawtooth와 이상 증가를 구분할 때.
 - G1 GC pause가 실제 응답 시간 문제인지 판단할 때.
 - observability dashboard에서 heap, GC, CPU, thread, latency를 함께 볼 때.
 
+---
+
 ## 실패하는 상황
 
 - heap used 하나만 보고 leak을 단정하면 안 된다.
 - 평균 pause만 보면 p95/p99 latency spike를 놓칠 수 있다.
 - container memory limit, `-Xmx`, metaspace, direct memory를 같이 보지 않으면 전체 메모리 압박을 놓친다.
+
+---
 
 ## 체크 순서
 
@@ -43,11 +49,15 @@ check CPU and allocation rate
 check thread count and DB connection usage
 ```
 
+---
+
 ## 관련 노트
 
 - [[개념-JVM Heap Metric]]
 - [[개념-G1 Evacuation Pause]]
 - [[04-Principle/본질-옵저버빌리티 (Observability)|옵저버빌리티]]
+
+---
 
 ## 참고
 

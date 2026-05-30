@@ -19,6 +19,8 @@ Inner 인덱스 있음 + Outer 소량         Nested Loop
 양쪽 인덱스 있음 + 대용량 + 디스크 I/O Merge Join
 ```
 
+---
+
 ## 효과적인 상황
 
 **Nested Loop**
@@ -34,6 +36,8 @@ Inner 인덱스 있음 + Outer 소량         Nested Loop
 - 데이터가 버퍼 풀에 없고 디스크 I/O가 불가피할 때
 - 순차 접근으로 OS readahead 활용 가능
 
+---
+
 ## 실패하는 상황
 
 **Nested Loop**
@@ -47,6 +51,8 @@ Inner 인덱스 있음 + Outer 소량         Nested Loop
 - 인덱스 없어 Sort 노드 추가 시 대용량에서 정렬 비용 큼
 - 인덱스가 있어도 heap이 non-clustered → heap 접근은 여전히 랜덤
 
+---
+
 ## 비용 비교
 
 ```
@@ -56,6 +62,8 @@ Nested Loop    O(N × log M)    낮음
 Hash Join      O(N + M)        Build 테이블 전체
 Merge Join     O(N + M)        Mark 위치 정도
 ```
+
+---
 
 ## 진단 방법
 

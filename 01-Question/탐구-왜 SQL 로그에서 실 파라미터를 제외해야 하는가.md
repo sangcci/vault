@@ -9,6 +9,8 @@ difficulty: Medium
 
 - 왜 운영(Prod) 환경의 SQL 로그에서 실제 파라미터(Value)를 제외하고 쿼리 구조(Skeleton)만 남겨야 하는가?
 
+---
+
 ## 로깅 예시 (Logging Example)
 
 ```python
@@ -27,6 +29,8 @@ def secure_logging(email, password):
     # execute(sql_skeleton, [email, password])
 ```
 
+---
+
 ## 핵심 메커니즘 (Mechanism)
 
 ### 1. 개인정보 및 민감 데이터 보호 (Security)
@@ -41,6 +45,8 @@ def secure_logging(email, password):
 ### 3. 성능 영향 (Performance)
 - **문자열 결합 비용**: 실제 값을 쿼리에 바인딩하여 로그용 문자열을 만드는 과정 자체가 CPU와 메모리 자원을 소모함.
 
+---
+
 ## 해결책 (Solutions)
 
 - **로그 레벨 분리**:
@@ -48,9 +54,13 @@ def secure_logging(email, password):
     - `BasicBinder=TRACE`: 실제 파라미터 값 출력 (위험, 개발 환경에서만 사용).
 - **파라미터 마스킹**: 필요한 경우 특정 필드(비밀번호, 주민번호 등)만 마스킹 처리하여 로그에 남김.
 
+---
+
 ## 결론 (Conclusion)
 
 - 로그는 **"무엇이 일어났는가"**를 파악하는 용도이지 **"데이터 자체를 복제하는 수단"**이 아님. SQL 구조 파악만으로도 로직 오류의 90% 이상은 식별 가능하므로, 보안을 위해 파라미터는 제거하는 것이 원칙임.
+
+---
 
 ## 연결 지식
 - [[판단기준-운영 환경 로그 레벨 및 보안 관리 전략]]

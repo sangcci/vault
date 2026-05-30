@@ -10,16 +10,22 @@ difficulty: Low
 > (사전적) B-tree 인덱스로 TID(물리적 주소)를 찾고 heap에서 해당 row만 읽는 스캔 방식.
 > (이해용) 색인에서 페이지 번호 찾아 그 페이지만 펼치는 방식. 단, 페이지가 책 곳곳에 흩어져 있음.
 
+---
+
 ## 해결하는 문제
 
 - 소량 row 조회 시 Seq Scan 대비 압도적으로 빠름
 - 특정 값이나 범위 조건의 정밀 탐색
+
+---
 
 ## 치르는 비용
 
 - heap 접근이 랜덤 I/O (non-clustered 환경)
 - 같은 heap 페이지를 중복 접근 가능
 - 인덱스 파일 + heap 파일 두 곳을 읽음
+
+---
 
 ## 동작 원리
 
@@ -70,12 +76,16 @@ Index Scan using idx_boarding_date on rent_participants
   Index Cond: (boarding_date = '2025-09-11')
 ```
 
+---
+
 ## 관련 본질
 
 - [[본질-논리 순서와 물리 순서는 다르다]]
 - [[본질-간접 참조 (Indirection)]]
 - [[개념-SQL 물리 실행 흐름]]
 - [[개념-DBMS의 역할과 저장소 관리자 (Storage Manager)]]
+
+---
 
 ## 참고
 

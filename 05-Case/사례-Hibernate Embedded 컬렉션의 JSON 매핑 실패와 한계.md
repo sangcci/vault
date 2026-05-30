@@ -16,6 +16,8 @@ difficulty: Medium
     private List<Image> detailImages = new ArrayList<>();
     ```
 
+---
+
 ## 실제 발생한 일 (What Happened)
 - Hibernate 6.6(Spring Boot 3.4)으로 버전업을 진행했음에도 불구하고, 애플리케이션 기동 시 동일한 `AnnotationException` 발생:
     ```bash
@@ -23,9 +25,13 @@ difficulty: Medium
     ```
 - Hibernate 6.6에서 해결되었다고 알려진 `HHH-15862`는 기본 타입 배열에 집중되어 있으며, **`@Embeddable` 객체의 컬렉션**을 JSON으로 매핑하는 경우 여전히 내부 `PropertyBinder`에서 예외를 던지는 것으로 파악됨.
 
+---
+
 ## 근본 원인 (Root Cause)
 - **추상화의 불일치**: Hibernate의 `JSON` 타입 지원이 아직 `@Embeddable` 객체 리스트와 같은 복잡한 구조의 '컬렉션' 전체를 한 번에 처리하는 단계까지 완벽하게 도달하지 못함.
 - **제약 조건**: Hibernate 엔진 내부에서 `isCollection() && isEmbedded()` 조건이 맞물릴 때 명시적으로 예외를 던지는 로직이 특정 조건(JSON 매핑 시)에서 여전히 작동함.
+
+---
 
 ## 교훈 및 조치 (Lessons & Fixes)
 

@@ -9,6 +9,8 @@ difficulty: Medium
 
 > surrogate key가 정규화에 반하는 이유는 무엇일까
 
+---
+
 ## 파생 노트
 
 - [[개념-대리키 (Surrogate Key)]] — surrogate key의 정의와 정규화와의 관계

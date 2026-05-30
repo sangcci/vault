@@ -10,6 +10,8 @@ type: Concept
 > (사전적) Cache Stampede는 특정 cache key가 동시에 miss되면서 많은 요청이 같은 backend 연산을 병렬로 수행해 원본 저장소에 부하를 몰아넣는 현상이다.
 > (이해용) 인기 메뉴 캐시가 비는 순간 손님 1000명이 동시에 주방으로 뛰어가는 상황이다.
 
+---
+
 ## 해결하는 문제
 
 - cache evict 이후 DB connection 부족이 생기는 이유를 설명한다.
@@ -25,11 +27,15 @@ cache key expired
   +-- request N -> DB
 ```
 
+---
+
 ## 치르는 비용
 
 - mutex/lock을 쓰면 tail latency가 늘 수 있다.
 - stale-while-revalidate를 쓰면 잠깐 오래된 값을 보여줄 수 있다.
 - TTL jitter를 쓰면 만료 시점 예측이 어려워진다.
+
+---
 
 ## 동작 원리
 
@@ -49,11 +55,15 @@ if cache miss:
 - TTL jitter: 만료 시점을 흩뜨린다.
 - stale-while-revalidate: 오래된 값을 주고 뒤에서 갱신한다.
 
+---
+
 ## 관련 본질
 
 - [[개념-캐시 Evict Race Condition]]
 - [[개념-TransactionAwareCacheManagerProxy]]
 - [[본질-정합성과 무결성의 차이]]
+
+---
 
 ## 참고
 

@@ -18,6 +18,8 @@ difficulty: Low
 | DB | vm-db | 4096MB | 100GB | 2 |
 | Cache | vm-cache | 2048MB | 20GB | 1 |
 
+---
+
 ## 실제 발생한 일 (What Happened)
 
 ### Step 1. Host 필수 패키지 설치
@@ -186,6 +188,8 @@ sudo ufw route allow proto tcp to 192.168.122.10 port 80
 
 → [[탐구-Cloudflare Tunnel은 어떻게 포트 개방 없이 외부 접속을 가능하게 하는가]]
 
+---
+
 ## 근본 원인 (Root Cause)
 
 각 단계에서 마주친 문제들은 모두 독립된 사례 노트로 분리:
@@ -197,6 +201,8 @@ sudo ufw route allow proto tcp to 192.168.122.10 port 80
 | ufw/iptables 충돌 | [[사례-ufw와 iptables-persistent 충돌]] |
 | FORWARD chain DROP | [[사례-DNAT 후 FORWARD chain에서 패킷 차단]] |
 | ISP 포트 차단 | [[사례-ISP 포트 차단으로 인한 Cloudflare Tunnel 전환]] |
+
+---
 
 ## 교훈 및 조치 (Lessons & Fixes)
 

@@ -9,6 +9,8 @@ difficulty: High
 
 > rdb에서 from과 where 동작 원리를 이해했음. 기존에는 그냥 from이 먼저 실행하고 where이 동작하는 정도였는데, from테이블이 저장된 disk page를 불러들여 memory buffer 영역에 적재한 후에 where 스캔을 한개씩 실행하는 것(인덱스 유무에 따라 다르겠지만)으로 이해했음. 이런식으로 sql 동작을 전체를 이해하고 싶음.
 
+---
+
 ## 파생 노트
 
 - [[개념-SQL 물리 실행 흐름]]

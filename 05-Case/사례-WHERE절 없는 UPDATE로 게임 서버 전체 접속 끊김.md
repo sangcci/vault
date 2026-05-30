@@ -11,6 +11,8 @@ difficulty: Medium
 - 회원 테이블에 WHERE 절 없는 UPDATE 쿼리 실수로 실행
 - 출처: 유튜브 "코딩하는 기술사" — WHERE절 없는 UPDATE 사건
 
+---
+
 ## 실제 발생한 일
 
 ```sql
@@ -30,10 +32,14 @@ WHERE 없는 UPDATE
   → 게임 서버 전체 세션 강제 종료 → 전체 유저 접속 끊김
 ```
 
+---
+
 ## 근본 원인
 
 - [[현상-커넥션 풀 고갈 (Connection Pool Exhaustion)]]
 - [[개념-Lock 범위 (Row Lock vs Table Lock)]]
+
+---
 
 ## 교훈 및 조치
 
@@ -43,6 +49,8 @@ WHERE 없는 UPDATE
 - 실행 전 `SELECT`로 영향 범위 먼저 확인
 - 대량 UPDATE는 배치/LIMIT으로 분할 처리
 - 트랜잭션은 짧게 유지
+
+---
 
 ## 파생 판단기준
 

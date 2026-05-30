@@ -10,6 +10,8 @@ difficulty: Medium
 > (사전적) 데이터베이스 스키마의 변경 이력을 코드처럼 버전 관리하여, 모든 환경에서 동일한 스키마 상태를 보장하는 기법.
 > (이해용) **"SQL ALTER TABLE을 git commit처럼 관리하는 것."**
 
+---
+
 ## 해결하는 문제
 
 - **Schema Drift**: dev/stag/prod DB 스키마가 점진적으로 달라지는 현상
@@ -17,11 +19,15 @@ difficulty: Medium
 - **배포 사고**: 코드 배포와 스키마 변경 타이밍이 안 맞아 앱이 터지는 상황
 - **멱등성 부재**: 같은 SQL을 두 번 실행했을 때 오류 발생
 
+---
+
 ## 치르는 비용
 
 - 마이그레이션 파일 관리 부담 (팀 협업 시 버전 충돌 가능)
 - 스키마 롤백 불가 → Fix-Forward 전략 강제
 - 대형 테이블 변경 시 운영 중 락(Lock) 위험 → Expand-Contract 패턴 필요
+
+---
 
 ## 두 가지 접근 방식
 
@@ -38,6 +44,8 @@ difficulty: Medium
   }
 ```
 
+---
+
 ## 주요 툴 비교
 
 | | Flyway | Liquibase | Alembic | Prisma Migrate |
@@ -48,6 +56,8 @@ difficulty: Medium
 | 롤백 | 없음 (유료) | 명시적 지원 | downgrade() | 없음 |
 | 학습 비용 | 낮음 | 중간 | 중간 | 낮음 |
 | 생태계 | JVM (any) | JVM (any) | Python | Node/TS |
+
+---
 
 ## Flyway 동작 원리
 
@@ -64,6 +74,8 @@ flyway_schema_history
 | 2       | add phone     | 0987654321 | true    |
 ```
 
+---
+
 ## Flyway 주요 한계
 
 ```
@@ -79,6 +91,8 @@ flyway_schema_history
    → V1_create.sql  (언더스코어 하나)   → 무시됨, 오류 없음
    → v1__create.sql (소문자 v)          → Linux에서 무시됨
 ```
+
+---
 
 ## 안전한 컬럼 추가 패턴 (Expand-Contract)
 
@@ -97,11 +111,15 @@ ALTER TABLE users ALTER COLUMN phone SET NOT NULL;
 ALTER TABLE users ADD COLUMN phone VARCHAR(20) NOT NULL;  ❌
 ```
 
+---
+
 ## 관련 본질
 
 - [[본질-코드와 상태의 비대칭성 (Code-State Asymmetry)]] — 마이그레이션 툴이 필요한 근본 이유
 - [[본질-멱등성 (Idempotency)]] — 체크섬 검증으로 중복 실행 방지
 - [[본질-환경 격리 (Environment Isolation)]] — Schema Drift 방지가 목표
+
+---
 
 ## 관련 개념
 

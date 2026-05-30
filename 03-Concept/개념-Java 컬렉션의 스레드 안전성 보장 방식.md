@@ -14,11 +14,15 @@ difficulty: Medium
 > (사전적) Java 컬렉션은 기본 구현, 동기화 래퍼, 동시성 전용 컬렉션으로 나뉘며, 각 방식은 서로 다른 메커니즘으로 스레드 안전성을 보장한다.
 > (이해용) "같은 장부를 여러 명이 볼 때, 한 명씩만 보게 막을지, 장부 구조 자체를 동시 접근에 맞게 바꿀지의 선택지".
 
+---
+
 ## 해결하는 문제
 
 - 여러 스레드가 같은 `List`, `Map`, `Set`을 동시에 읽고 쓸 때 생기는 [[현상-경쟁 조건]].
 - 컬렉션 내부 구조가 바뀌는 도중 다른 스레드가 끼어들어 상태가 깨지는 문제.
 - `containsKey` 후 `put`, 순회 중 수정처럼 복합 연산에서 의미가 무너지는 문제.
+
+---
 
 ## 치르는 비용
 
@@ -26,7 +30,11 @@ difficulty: Medium
 - `ConcurrentHashMap` 같은 동시성 컬렉션은 성능은 좋지만, 보장 범위를 정확히 모르면 복합 연산에서 실수하기 쉽다.
 - `CopyOnWriteArrayList`는 읽기에는 강하지만, 쓸 때마다 복사가 일어나서 쓰기 비용이 크다.
 
+---
+
 ## 동작 원리
+
+---
 
 ## 1. 기본 컬렉션은 왜 thread-safe가 아닌가
 
@@ -42,6 +50,8 @@ Thread B: list.add(B)
 Oracle 문서도 일반 구현에 대해 명시적으로 말한다.
 
 > "None are synchronized (thread-safe)." — [Oracle Java Tutorial: Collections Implementations](https://docs.oracle.com/javase/tutorial/collections/implementations/index.html)
+
+---
 
 ## 2. synchronized 래퍼 방식
 
@@ -73,6 +83,8 @@ synchronized (list) {
 
 > "It is imperative that the user manually synchronize on the returned collection when traversing it via Iterator, Spliterator or Stream" — [JDK Collections API](https://docs.oracle.com/en/java/javase/22/docs/api/java.base/java/util/Collections.html)
 
+---
+
 ## 3. 동시성 전용 컬렉션 방식
 
 `java.util.concurrent`의 컬렉션은 "그냥 전체에 큰 락 하나"를 거는 식이 아니다. 읽기와 갱신의 성격을 나눠서, 실제 서버 환경에서 더 높은 동시성을 노린다.
@@ -98,6 +110,8 @@ ConcurrentHashMap
 
 여기서 많이 헷갈리는 지점이 있다. **메서드 단위 thread-safe**와 **복합 로직 전체 원자성**은 같은 말이 아니다.
 
+---
+
 ## 4. 왜 복합 연산은 여전히 위험한가
 
 아래 코드는 `ConcurrentHashMap`이어도 의미가 깨질 수 있다.
@@ -120,6 +134,8 @@ Thread B: put(key, B)
 
 > "The entire method invocation is performed atomically." — [JDK ConcurrentHashMap API](https://docs.oracle.com/en/java/javase/22/docs/api/java.base/java/util/concurrent/ConcurrentHashMap.html)
 
+---
+
 ## 5. 대표 선택 기준
 
 | 상황 | 적합한 선택 |
@@ -129,6 +145,8 @@ Thread B: put(key, B)
 | 읽기 많고 경쟁 높은 서버 환경 | `ConcurrentHashMap` 등 동시성 컬렉션 |
 | 읽기 압도적, 쓰기 매우 드묾 | `CopyOnWriteArrayList` |
 | 레거시 호환만 필요 | `Vector`, `Hashtable` (신규 코드엔 비추천) |
+
+---
 
 ## 비교 요약
 
@@ -148,12 +166,16 @@ synchronized 래퍼
   단점: 복합 연산 안전성은 직접 이해해야 함
 ```
 
+---
+
 ## 관련 본질
 
 - [[개념-스레드 안전성 (Thread Safety)]]
 - [[본질-동시성 (Concurrency)]]
 - [[본질-원자성 (Atomicity)]]
 - [[본질-격리성 (Isolation)]]
+
+---
 
 ## 참고
 

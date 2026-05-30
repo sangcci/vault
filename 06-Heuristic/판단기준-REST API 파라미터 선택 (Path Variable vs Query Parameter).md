@@ -10,6 +10,8 @@ difficulty: Low
 - 특정 리소스 **단건 식별** (검증/수정/삭제) → **Path Variable**
 - 리소스 **목록 필터링/검색** → **Query Parameter**
 
+---
+
 ## 효과적인 상황
 
 ```text
@@ -37,17 +39,23 @@ GET /users/{userId}/reservations/{status}/{page}  ← 엔드포인트 파편화
 GET /users/{userId}/reservations?status=PENDING&page=0
 ```
 
+---
+
 ## 실패하는 상황
 
 - Query Parameter로 단건 리소스를 식별하면 URL의 자원 표현이 모호해짐
   - `GET /reservations?id=1` → REST 관례 위반, 캐싱/로깅 어려움
 - Path Variable로 다중 조건 필터링 시도 → 조합 수만큼 엔드포인트 증가
 
+---
+
 ## 오해: 프론트 URL이 깔끔하면 백엔드도 Query Parameter를 안 쓴다?
 
 프론트는 브라우저 주소창 표시를 위해 URL을 별도 관리할 수 있음.
 백엔드는 독립적으로 Query Parameter를 적극 활용.
 개발자 도구 Network 탭의 실제 요청을 보면 Query Parameter가 광범위하게 사용됨.
+
+---
 
 ## 출처
 
