@@ -105,3 +105,12 @@
 2026-05-29 00:00 [CREATE] [[개념-Domain Service와 Policy]] · 한 aggregate에 넣기 어려운 순수 도메인 규칙을 분리하는 객체를 정리함
 2026-05-29 00:00 [CREATE] [[개념-Filter와 Index Cond]] · EXPLAIN에서 index 탐색 조건과 tuple 읽은 뒤 평가되는 필터 조건의 차이를 정리함
 2026-05-29 00:00 [CREATE] [[개념-Buffers shared hit와 shared read]] · PostgreSQL EXPLAIN의 shared hit와 shared read가 memory buffer와 disk read를 어떻게 구분하는지 정리함
+2026-05-29 00:00 [CREATE] [[개념-서브쿼리 실행 계획]] · 서브쿼리가 SQL 괄호 순서가 아니라 planner의 비용 기반 선택에 따라 InitPlan·SubPlan·join으로 실행될 수 있음을 정리함
+2026-05-29 00:00 [CREATE] [[개념-InitPlan과 SubPlan]] · EXPLAIN에서 서브쿼리가 한 번 실행되는지 반복 실행되는지 구분하는 기준을 정리함
+2026-05-29 00:00 [CREATE] [[개념-Semi Join과 Anti Join]] · EXISTS·IN·NOT EXISTS가 존재성 검사 join으로 최적화되는 방식을 정리함
+2026-05-29 00:00 [UPDATE] [[개념-SQL 물리 실행 흐름]] · 서브쿼리도 문법 순서가 아니라 planner 선택에 따라 join·InitPlan·SubPlan으로 바뀔 수 있음을 보강함
+2026-05-29 00:00 [UPDATE] [[개념-EXPLAIN ANALYZE]] · InitPlan·SubPlan·Semi Join·Anti Join과 loops를 통해 서브쿼리 실행 비용을 읽는 방법을 추가함
+2026-05-29 00:00 [CREATE] [[개념-HikariCP]] · HikariCP가 모든 저장소 connection manager가 아니라 JDBC DataSource connection pool이라는 역할을 정리함
+2026-05-29 00:00 [CREATE] [[개념-PlatformTransactionManager]] · Spring에서 @Transactional의 실제 begin·commit·rollback을 담당하는 transaction 전략 인터페이스를 정리함
+2026-05-29 00:00 [CREATE] [[개념-TransactionSynchronizationManager]] · 현재 Java thread에 transaction resource를 bind하는 Spring 내부 delegate를 정리함
+2026-05-29 00:00 [UPDATE] [[개념-Spring 트랜잭션 관리 (Transaction Management)]] · Tomcat 외 Kafka·Scheduler·Batch thread에서도 ThreadLocal 기반 트랜잭션이 동작하는 구조와 HikariCP의 책임 경계를 보강함

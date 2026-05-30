@@ -86,6 +86,29 @@ Index Scan using idx_orders_user_id on orders
 - `Index Cond`: `WHERE` 조건이 index 탐색 조건으로 내려감.
 - heap 접근 전 후보 TID를 줄일 수 있음.
 
+**서브쿼리 실행 계획 읽기**
+
+```text
+InitPlan
+```
+
+- outer row와 독립적인 subquery가 한 번 실행된 결과를 parent plan에서 parameter로 쓴다.
+
+```text
+SubPlan
+```
+
+- outer row 값에 의존하거나 join으로 풀리지 못한 subquery다.
+- `loops`가 크면 outer row마다 반복 실행되는 병목을 의심한다.
+
+```text
+Hash Semi Join / Nested Loop Semi Join
+Hash Anti Join / Nested Loop Anti Join
+```
+
+- `IN`, `EXISTS`, `NOT EXISTS`가 존재성 검사 join으로 바뀐 경우다.
+- SQL 괄호 순서가 아니라 planner가 선택한 plan tree 기준으로 실행된다.
+
 **EXPLAIN vs EXPLAIN ANALYZE**
 
 | | EXPLAIN | EXPLAIN ANALYZE |
@@ -98,6 +121,9 @@ Index Scan using idx_orders_user_id on orders
 
 - [[본질-옵저버빌리티 (Observability)]]
 - [[개념-SQL 물리 실행 흐름]]
+- [[개념-서브쿼리 실행 계획]]
+- [[개념-InitPlan과 SubPlan]]
+- [[개념-Semi Join과 Anti Join]]
 - [[개념-Seq Scan]]
 - [[개념-Index Scan]]
 

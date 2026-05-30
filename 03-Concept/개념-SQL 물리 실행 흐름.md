@@ -53,7 +53,7 @@ Storage / Buffer Manager
   - tuple visibility와 predicate 평가
 ```
 
-`FROM table`은 “테이블 이름을 읽는다”가 아니다. planner가 relation 접근 path를 고르고, executor의 scan node가 heap page 또는 index page를 통해 raw row를 가져오는 출발점이다.
+`FROM table`은 “테이블 이름을 읽는다”가 아니다. planner가 relation 접근 path를 고르고, executor의 scan node가 heap page 또는 index page를 통해 raw row를 가져오는 출발점이다. 서브쿼리도 마찬가지로 SQL에 적힌 괄호 순서를 그대로 실행하는 것이 아니라 [[개념-서브쿼리 실행 계획]]에 따라 join, `InitPlan`, `SubPlan` 등으로 바뀔 수 있다.
 
 ```text
 SELECT * FROM rent WHERE status = 'OPEN';
@@ -88,6 +88,7 @@ scan node opens rent relation
 ## 관련 본질
 
 - [[본질-논리 순서와 물리 순서는 다르다]]
+- [[개념-서브쿼리 실행 계획]]
 - [[개념-DBMS의 역할과 저장소 관리자 (Storage Manager)]]
 - [[개념-Heap Page 구조]]
 - [[개념-MVCC (PostgreSQL)]]
