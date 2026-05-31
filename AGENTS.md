@@ -46,6 +46,7 @@ Before writing ANY note, analyze the user input and propose a structural plan.
 Every knowledge note MUST include:
 - **Visual/Logic Evidence**: ASCII diagram or pseudo code is mandatory.
 - **Reference**: Link to related notes using `[[link]]` syntax.
+- **Slide Separator**: For slide-friendly notes, insert `---` between major `##` sections. Keep YAML frontmatter untouched.
 - **Citation**: Every factual claim MUST cite its source. Priority order:
   1. Official documentation (e.g., PostgreSQL Docs, Java SE Docs, RFC)
   2. Reputable tech blogs (e.g., Martin Fowler, Cloudflare Blog, AWS Blog, Netflix Tech Blog)

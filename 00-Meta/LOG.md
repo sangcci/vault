@@ -458,3 +458,7 @@
 2026-05-30 13:23 [UPDATE] [[판단기준-REST API 파라미터 선택 (Path Variable vs Query Parameter)]] · 슬라이드 플러그인에서 섹션 단위로 분리되도록 2단계 제목 사이에 구분선을 추가함
 2026-05-30 13:23 [UPDATE] [[판단기준-접근 제어 모델 선택 (DAC vs RBAC vs ReBAC)]] · 슬라이드 플러그인에서 섹션 단위로 분리되도록 2단계 제목 사이에 구분선을 추가함
 2026-05-30 13:23 [UPDATE] [[판단기준-Heap vs BST 선택]] · 슬라이드 플러그인에서 섹션 단위로 분리되도록 2단계 제목 사이에 구분선을 추가함
+2026-05-31 13:37 [UPDATE] [[개념-뮤텍스 (Mutex)]] · Java synchronized와 ReentrantLock의 실제 락 획득·대기·해제 흐름을 쉬운 비유와 공식 인용으로 보강함
+2026-05-31 22:02 [CREATE] [[탐구-Transactional은 왜 RuntimeException에만 롤백할까]] · Spring 트랜잭션 기본 롤백 규칙이 Java 예외 철학을 따르는 이유를 탐구 질문으로 연결함
+2026-05-31 22:02 [UPDATE] [[개념-Checked vs Unchecked Exception]] · Checked와 Unchecked 예외를 복구 가능성의 분류라는 관점으로 보강함
+2026-05-31 22:02 [UPDATE] [[개념-Spring 트랜잭션 관리 (Transaction Management)]] · @Transactional의 RuntimeException 기본 롤백 규칙과 checked exception 실무 충돌을 정리함

@@ -104,6 +104,44 @@ resource 반환 또는 정리
 
 즉 AOP가 하는 일은 **트랜잭션 경계를 잡는 것**이고, 그 경계 안에서 실제 Connection / EntityManager를 묶어 관리하는 건 `TransactionManager`와 `TransactionSynchronizationManager` 계층이다.
 
+### @Transactional 롤백 규칙
+
+`@Transactional`은 예외가 밖으로 전파됐다고 해서 항상 롤백하지 않는다. 기본값은 Java의 Checked/Unchecked Exception 철학을 따른다.
+
+> "In its default configuration, the Spring Framework’s transaction infrastructure code marks a transaction for rollback only in the case of runtime, unchecked exceptions." — [Spring Framework Reference, Rolling Back a Declarative Transaction](https://docs.spring.io/spring-framework/reference/data-access/transaction/declarative/rolling-back.html)
+
+> "Checked exceptions that are thrown from a transactional method do not result in a rollback in the default configuration." — [Spring Framework Reference, Rolling Back a Declarative Transaction](https://docs.spring.io/spring-framework/reference/data-access/transaction/declarative/rolling-back.html)
+
+```text
+@Transactional method
+  │
+  ├─ 정상 종료
+  │     └─ commit
+  │
+  ├─ RuntimeException / Error 전파
+  │     └─ rollback
+  │
+  └─ Checked Exception 전파
+        └─ 기본값: rollback 아님
+             필요 시 @Transactional(rollbackFor = Exception.class)
+```
+
+쉬운 비유로 보면 Spring은 Checked Exception을 "복구 가능한 도로 공사"로 보고, RuntimeException을 "엔진 폭발"로 본다. 도로 공사는 우회해서 계속 갈 수 있다고 보고 트랜잭션을 무조건 죽이지 않는다. 엔진 폭발은 계속 가면 더 망가지므로 롤백한다.
+
+하지만 실무 서버에서는 도로 공사도 주문 처리 실패가 되는 경우가 많다. 예를 들어 외부 API 실패, 파일 처리 실패, SQL 실패를 그 자리에서 복구하지 못하면 전체 usecase를 취소해야 한다. 이때는 다음처럼 롤백 규칙을 명시한다.
+
+```java
+@Transactional(rollbackFor = Exception.class)
+public void placeOrder() throws IOException {
+    orderRepository.save(order);
+    externalClient.requestPayment(); // IOException 발생 시 기본값이면 rollback 안 됨
+}
+```
+
+핵심은 예외 타입이 곧 트랜잭션 의사결정 신호가 된다는 점이다. Checked Exception을 밖으로 던지는 서비스라면, 그 예외가 비즈니스적으로 커밋 가능한 실패인지 전체 롤백해야 하는 실패인지 `rollbackFor`로 드러내야 한다.
+
+---
+
 ### Tomcat 밖에서도 동작하는 이유
 
 `@Transactional`은 HTTP 요청 전용 기능이 아니다. 실행 주체가 어떤 thread를 제공하느냐만 다를 뿐, proxy advice와 transaction manager는 현재 thread를 기준으로 동작한다.

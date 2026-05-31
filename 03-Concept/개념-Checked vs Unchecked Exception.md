@@ -52,6 +52,30 @@ difficulty: Medium
 | Spring 트랜잭션 | 기본적으로 **롤백하지 않음** | 기본적으로 **롤백** |
 | 용도 | 복구 가능한 외부 실패 (I/O, 네트워크) | 프로그래밍 오류, 비즈니스 검증 실패 |
 
+### 자바 예외 철학: 복구 가능성의 분류
+
+Checked와 Unchecked의 본질은 `throws` 문법이 아니라 실패를 보는 관점이다. Checked Exception은 호출자가 복구 방법을 고민해야 하는 공개 계약이고, Unchecked Exception은 호출자가 보통 복구할 수 없는 프로그래밍 오류에 가깝다.
+
+> "Any `Exception` that can be thrown by a method is part of the method's public programming interface." — [Oracle Java Tutorial: Unchecked Exceptions — The Controversy](https://docs.oracle.com/javase/tutorial/essential/exceptions/runtime.html)
+
+> "If a client can reasonably be expected to recover from an exception, make it a checked exception. If a client cannot do anything to recover from the exception, make it an unchecked exception." — [Oracle Java Tutorial: Unchecked Exceptions — The Controversy](https://docs.oracle.com/javase/tutorial/essential/exceptions/runtime.html)
+
+```text
+실패 발생
+  │
+  ├─ 호출자가 복구 가능?
+  │     └─ YES → Checked Exception
+  │             예: 파일 없음, 네트워크 실패, 외부 시스템 응답 실패
+  │
+  └─ 호출자가 복구 불가능?
+        └─ Unchecked Exception
+                예: null 참조, 잘못된 인자, 깨진 불변식
+```
+
+이 관점 때문에 [[개념-Spring 트랜잭션 관리 (Transaction Management)]]도 기본적으로 Checked Exception에는 커밋 가능성을 남기고, Unchecked Exception에는 롤백을 건다. 다만 현대 서버 애플리케이션에서는 `IOException`, `SQLException`도 그 자리에서 복구하지 않고 전체 작업 실패로 처리하는 경우가 많아, Spring의 기본 철학과 실무 기대가 충돌할 수 있다.
+
+---
+
 ### Checked Exception과 LSP 위반
 
 ```text
