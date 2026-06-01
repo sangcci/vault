@@ -462,3 +462,4 @@
 2026-05-31 22:02 [CREATE] [[탐구-Transactional은 왜 RuntimeException에만 롤백할까]] · Spring 트랜잭션 기본 롤백 규칙이 Java 예외 철학을 따르는 이유를 탐구 질문으로 연결함
 2026-05-31 22:02 [UPDATE] [[개념-Checked vs Unchecked Exception]] · Checked와 Unchecked 예외를 복구 가능성의 분류라는 관점으로 보강함
 2026-05-31 22:02 [UPDATE] [[개념-Spring 트랜잭션 관리 (Transaction Management)]] · @Transactional의 RuntimeException 기본 롤백 규칙과 checked exception 실무 충돌을 정리함
+2026-06-01 03:27 [CREATE] [[본질-가시성 (Visibility)]] · 관찰자에게 상태와 변화가 보이는 조건을 시간·공간·권한·동기화 경계로 정리함
