@@ -2,7 +2,7 @@
 aliases: [Throughput, Latency]
 tags: [본질, 작성중]
 created: 2026-02-03
-updated: 2026-02-04
+updated: 2026-06-14
 type: Principle
 difficulty: Medium
 ---
@@ -38,10 +38,53 @@ difficulty: Medium
 
 ---
 
+## Latency의 본질
+Latency는 하나의 작업이 시작되고 결과를 받을 때까지 기다리는 시간이다.
+
+> "The time it takes to service a request." — [Google SRE Book, Monitoring Distributed Systems](https://sre.google/sre-book/monitoring-distributed-systems/)
+
+```text
+request start ─────────────── response received
+              ↑ 기다린 시간 ↑
+                 Latency
+```
+
+Latency는 시스템이 살아 있는지를 묻는 값이 아니라, 살아 있는 시스템이 얼마나 늦게 답하는지를 보는 값이다.
+
+```text
+Availability = 응답 가능한가
+Latency      = 응답까지 얼마나 기다리는가
+Throughput   = 단위 시간에 얼마나 많이 처리하는가
+```
+
+---
+
+## p95와 p99의 위치
+p95와 p99는 별도 본질이 아니라 Latency 분포를 읽는 방식이다.
+
+> "Latency increases are often a leading indicator of saturation. Measuring your 99th percentile response time over some small window (e.g., one minute) can give a very early signal of saturation." — [Google SRE Book, Monitoring Distributed Systems](https://sre.google/sre-book/monitoring-distributed-systems/)
+
+```text
+응답 시간 정렬
+[빠름 ................. 느림]
+                 ↑      ↑
+                p95    p99
+
+평균 = 전체를 뭉갠 값
+p95  = 느린 사용자 경험을 드러내는 값
+p99  = 더 극단적인 꼬리 지연을 보는 값
+```
+
+평균 응답 시간이 낮아도 일부 요청이 매우 느리면 사용자는 시스템이 느리다고 느낄 수 있다.
+
+> "If you run a web service with an average latency of 100 ms at 1,000 requests per second, 1% of requests might easily take 5 seconds." — [Google SRE Book, Monitoring Distributed Systems](https://sre.google/sre-book/monitoring-distributed-systems/)
+
+---
+
 ## Appears As
 - **TPS/RPS**: 초당 트랜잭션/요청 수 (처리량)
 - **Response Time/RTT**: 응답 시간 (지연시간)
-- **P95, P99 Percentiles**: 지연시간 분포의 하위 5%, 1% 경험
+- **P95, P99 Percentiles**: 지연시간 분포에서 느린 쪽 사용자 경험을 확인하는 값
 
 ---
 
