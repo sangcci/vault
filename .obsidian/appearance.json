@@ -1,6 +1,8 @@
 {
   "cssTheme": "Minimal",
-  "enabledCssSnippets": [],
+  "enabledCssSnippets": [
+    "obsidian-minimal-tweaks"
+  ],
   "interfaceFontFamily": "Apple SD Gothic Neo",
   "textFontFamily": "Apple SD Gothic Neo",
   "monospaceFontFamily": "Apple SD Gothic Neo",

@@ -1,0 +1,116 @@
+/* text font */
+/* --------- */
+
+/* It seems possible to set the text font within either `Appeareance > Font` or `Minimal Theme Settings` > `Typography`, but I'd rather do it here together with my other tweaks */
+body.minimal-theme .markdown-preview-view, 
+body.minimal-theme .markdown-source-view {
+  --font-text: "Helvetica Neue", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Microsoft YaHei Light", sans-serif !important;
+}
+
+
+/* line height */
+/* ----------- */
+
+/* Apparently it is possible to set the text font within `Minimal Theme Settings` > `Typography`, but I'd rather do it here together with my other tweaks */
+body.minimal-theme .markdown-preview-view, 
+body.minimal-theme .markdown-source-view {
+  --line-height: 1.6 !important;
+}
+
+
+/* embeds */
+/* ------ */
+
+.markdown-preview-view .markdown-embed,
+.markdown-preview-view .file-embed {
+  padding: 1em 0;
+  border: 0;
+}
+
+.file-embed-link, .markdown-embed-link {
+  top: 1em;
+}
+
+.markdown-embed-title {
+  margin-bottom: 1em;
+}
+
+.markdown-reading-view .markdown-preview-view:not(.is-readable-line-width)>.markdown-preview-sizer {
+  max-width: 95%;
+}
+
+
+/* text highlights */
+/* --------------- */
+
+.theme-dark {
+  --text-highlight-bg: #404000;
+}
+
+.theme-light {
+  --text-highlight-bg: #fcf8e3;
+}
+
+
+/* blockquotes */
+/* ----------- */
+
+.theme-dark, .theme-light {
+  --blockquote-color: --text-normal;
+}
+
+.markdown-source-view blockquote,
+.markdown-preview-view blockquote {
+  border-left: 1px solid var(--background-modifier-border);
+  padding: 0 0 0 1em;
+}
+
+.markdown-preview-view blockquote > p:first-child {
+  margin-top: 1em;
+}
+
+.markdown-preview-view blockquote > p:last-child {
+  margin-bottom: 1.5em;
+}
+
+
+/* links */
+/* ----- */
+
+.internal-link {
+  text-decoration: none;
+}
+
+.external-link {
+  background: none;
+  padding-right: 0;
+}
+
+
+/* hr, horizontal rules */
+/* -------------------- */
+/* inspired by https://codepen.io/andrewmowe/details/gwbNrK */
+
+.markdown-source-view hr,
+.markdown-preview-view hr {
+  border: 0;
+  text-align: center;
+}
+
+.markdown-source-view hr:before,
+.markdown-preview-view hr:before {
+  content: "· · ·";
+  color: var(--text-muted);
+}
+
+
+/* footnotes */
+/* --------- */
+
+.markdown-preview-view section.footnotes ol li {
+  margin-bottom: 0.5em;
+}
+
+.markdown-preview-view section.footnotes a.footnote-backref {
+  margin-left: 0.25em;
+}
