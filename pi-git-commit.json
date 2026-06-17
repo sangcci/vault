@@ -1,0 +1,18 @@
+{
+  "message": {
+    "language": "ko"
+  },
+  "lint": {
+    "conventional": true,
+    "types": ["feat", "fix", "docs", "test", "refactor", "chore"],
+    "scopes": ["test"],
+    "requireScope": true,
+    "maxHeaderLength": 72,
+    "maxSubjectLength": 60,
+    "allowBody": true,
+    "allowFooter": true
+  },
+  "commands": {
+    "sem": "sem --json"
+  }
+}
