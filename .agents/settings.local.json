@@ -20,18 +20,5 @@
       "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(f'{len\\(d[\\\\\"result\\\\\"]\\)}장 남음'\\)\")",
       "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(f'{len\\(d[\\\\\"result\\\\\"]\\)}장'\\)\")"
     ]
-  },
-  "hooks": {
-    "PostToolUse": [
-      {
-        "matcher": "Write|Edit",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "node \"/Users/sangcci/Library/Mobile Documents/iCloud~md~obsidian/Documents/note/.agents/hooks/log-note.js\""
-          }
-        ]
-      }
-    ]
   }
 }

@@ -1,0 +1,27 @@
+{
+  "language": "ko",
+  "vault": {
+    "root": "."
+  },
+  "notes": {
+    "requireCitation": true,
+    "requireVisualEvidence": true,
+    "requireSlideSeparator": true,
+    "folders": {
+      "Question": "01-Question",
+      "Phenomenon": "02-Phenomenon",
+      "Concept": "03-Concept",
+      "Principle": "04-Principle",
+      "Case": "05-Case",
+      "Heuristic": "06-Heuristic"
+    }
+  },
+  "anki": {
+    "url": "http://localhost:8765",
+    "deckName": "💻::Keyword",
+    "modelName": "🧑🏻‍💻 Interview v2"
+  },
+  "obsidian": {
+    "command": "obsidian"
+  }
+}
