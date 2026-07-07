@@ -30,9 +30,10 @@ function hasMechanism(code: string): boolean {
 
 function noteExistsForCard(cwd: string, type: string, question: string): boolean {
   const candidates: Record<string, string[]> = {
-    Concept: ["03-Concept"],
-    Principle: ["04-Principle"],
-    Phenomenon: ["02-Phenomenon"],
+    Concept: ["02-Principle", "01-Problem"],
+    Principle: ["02-Principle"],
+    Phenomenon: ["01-Problem"],
+    Evidence: ["01-Problem", "02-Principle"],
   };
   const folders = candidates[type] ?? [];
   const lowerQuestion = question.toLowerCase();

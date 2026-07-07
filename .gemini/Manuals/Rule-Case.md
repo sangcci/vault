@@ -1,37 +1,11 @@
-# Case Note Rules (사례)
+# Deprecated: Case Note Rules
 
-## Purpose
+`05-Case/` 구조는 더 이상 사용하지 않는다.
 
-To record real-world **incidents**, debugging logs, or war stories.
+실제 경험이나 장애 로그는 다음 방식으로 흡수한다.
 
-## File Naming
+- 재발 가능한 실무 문제이면 `01-Problem/`
+- 반복 원리나 판단 기준이면 `02-Principle/`
+- 개인 환경·도구 메모이면 지식 시스템에 새 노트로 만들지 않는다.
 
-- Format: `05-Case/사례-<Title>.md`
-- Example: `사례-DB Connection Pool 고갈.md`
-
-## Template
-
-```markdown
----
-aliases: []
-tags: [사례, 작성중]
-type: Case
-difficulty: Low
----
-
-## 상황 (Situation)
-
-- What was the environment?
-
-## 실제 발생한 일 (What Happened)
-
-- The raw facts.
-
-## 근본 원인 (Root Cause)
-
-- Connected to [[본질-...]] or [[현상-...]]
-
-## 교훈 및 조치 (Lessons & Fixes)
-
-- Action items.
-```
+새 노트 작성 규칙은 `Rule-Core.md`와 `00-Meta/Templates/`를 따른다.

@@ -2,12 +2,11 @@
 
 ## Purpose
 
-To document **invariant laws** or fundamental truths that do not change over time.
+여러 Problem을 관통하는 반복 원리와 판단 기준을 정리한다.
 
 ## File Naming
 
-- Format: `04-Principle/본질-<Title>.md`
-- Example: `본질-동시성.md`
+- Format: `02-Principle/본질-<Title>.md`
 
 ## Template
 
@@ -16,31 +15,36 @@ To document **invariant laws** or fundamental truths that do not change over tim
 aliases: []
 tags: [본질, 작성중]
 type: Principle
-difficulty: High
+difficulty: Medium
 ---
 
-**핵심 질문**: "<This principle answers this fundamental question>"
+# Principle: 본질 제목
 
-## 한 문장 정의 (Definition)
+**핵심 질문**: 이 본질은 어떤 반복 문제를 해결하는가?
 
-> (사전적) ...
-> (이해용) ...
+## 한 문장 정의
 
-## 사용 예시 (Examples)
+문제 해결 관점의 한 문장 정의.
 
-1. (Real-world usage 1)
-2. (Real-world usage 2)
-3. (Real-world usage 3)
+---
 
-## 트레이드오프 (Trade-off)
+## 판단 기준
 
-- What do we gain and what do we lose?
+언제 이 원리를 적용하고, 언제 적용하지 않는가?
 
-## 왜 사라지지 않는가 (Persistence)
+```text
+상황 → 판단 기준 → 선택
+```
 
-- Why is this important regardless of technology changes?
+---
 
-## 다른 모습들 (Polymorphism)
+## 대표 문제
 
-- How does this appear in OS? In DB? In Network?
+- [[관련 Problem]]
+
+---
+
+## 참고
+
+> "exact quote" — [Source](https://example.com)
 ```

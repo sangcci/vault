@@ -1,42 +1,11 @@
-# Concept Note Rules (개념)
+# Deprecated: Concept Note Rules
 
-## Purpose
+`03-Concept/` 구조는 더 이상 사용하지 않는다.
 
-To define technical **tools, terms, or solutions** used to control phenomena.
+도구/기술 용어는 단독 개념 노트로 만들기보다, 다음 중 하나로 정리한다.
 
-## File Naming
+- 실무 장애·설계 실패로 이어지면 `01-Problem/`
+- 반복 판단 기준이나 원리이면 `02-Principle/`
+- 사용자의 원문 질문이면 `03-Question/`
 
-- Format: `03-Concept/개념-<Title>.md`
-- Example: `개념-가상 메모리.md`
-
-## Template
-
-```markdown
----
-aliases: []
-tags: [개념, 작성중]
-type: Concept
-difficulty: Medium
----
-
-## 한 문장 정의 (Definition)
-
-> (사전적) Accurate technical definition.
-> (이해용) Intuitive analogy or simple explanation.
-
-## 해결하는 문제 (Problem Solved)
-
-- What phenomenon does this solve?
-
-## 치르는 비용 (Cost/Trade-off)
-
-- Nothing is free. What is the cost? (e.g., Memory overhead, Complexity)
-
-## 동작 원리 (Mechanism)
-
-- How does it work?
-
-## 관련 본질 (Related Principles)
-
-- [[본질-...]]
-```
+새 노트 작성 규칙은 `Rule-Core.md`와 `00-Meta/Templates/`를 따른다.

@@ -3,13 +3,10 @@ import * as path from "node:path";
 import type { ExtensionAPI } from "@earendil-works/pi-coding-agent";
 import type { KnowledgeArchitectConfig, NoteType, ValidationResult } from "./types";
 
-const TYPE_BY_FOLDER: Array<{ folder: string; type: NoteType; tag: string; prefix: string }> = [
-  { folder: "01-Question", type: "Question", tag: "탐구", prefix: "탐구-" },
-  { folder: "02-Phenomenon", type: "Phenomenon", tag: "현상", prefix: "현상-" },
-  { folder: "03-Concept", type: "Concept", tag: "개념", prefix: "개념-" },
-  { folder: "04-Principle", type: "Principle", tag: "본질", prefix: "본질-" },
-  { folder: "05-Case", type: "Case", tag: "사례", prefix: "사례-" },
-  { folder: "06-Heuristic", type: "Heuristic", tag: "판단기준", prefix: "판단기준-" },
+const TYPE_BY_FOLDER: Array<{ folder: string; type: NoteType; tag: string; prefix?: string; numericPrefix?: boolean }> = [
+  { folder: "01-Problem", type: "Problem", tag: "문제", numericPrefix: true },
+  { folder: "02-Principle", type: "Principle", tag: "본질", prefix: "본질-" },
+  { folder: "03-Question", type: "Question", tag: "탐구", prefix: "탐구-" },
 ];
 
 function normalizePath(cwd: string, inputPath: string): string {
@@ -46,19 +43,24 @@ function hasSlideSeparator(content: string): boolean {
 
 function requiredSections(type: NoteType): string[] {
   switch (type) {
+    case "Problem":
+      return ["## 상황", "## 관찰된 증거", "## 원인", "## 해결 방향", "## 연결되는 본질", "## 참고"];
+    case "Principle":
+      return ["**핵심 질문**:", "## 한 문장 정의", "## 판단 기준", "## 대표 문제", "## 참고"];
     case "Question":
       return ["## 핵심 질문", "## 파생 노트"];
-    case "Phenomenon":
-      return ["## 한 문장 정의", "## 발생 환경", "## 관찰되는 증상", "## 추측되는 원인"];
-    case "Concept":
-      return ["## 한 문장 정의", "## 해결하는 문제", "## 치르는 비용", "## 동작 원리", "## 관련 본질", "## 참고"];
-    case "Principle":
-      return ["**핵심 질문**:", "## 한 문장 정의", "## 사용 예시", "## 트레이드오프", "## 왜 사라지지 않는가", "## 다른 모습들"];
-    case "Case":
-      return ["## 상황", "## 실제 발생한 일", "## 근본 원인", "## 교훈 및 조치"];
-    case "Heuristic":
-      return ["## 판단 기준", "## 효과적인 상황", "## 실패하는 상황"];
   }
+}
+
+function validateFileName(baseName: string, kind: { folder: string; prefix?: string; numericPrefix?: boolean }): string | undefined {
+  if (kind.numericPrefix) {
+    if (!/^\d{2,}-/.test(baseName)) return `[Naming] ${kind.folder} 노트 파일명은 '01-', '02-' 같은 숫자 prefix로 시작해야 합니다.`;
+    return undefined;
+  }
+  if (kind.prefix && !baseName.startsWith(kind.prefix)) {
+    return `[Naming] ${kind.folder} 노트 파일명은 '${kind.prefix}' prefix로 시작해야 합니다.`;
+  }
+  return undefined;
 }
 
 export function validateKnowledgeNote(
@@ -72,9 +74,8 @@ export function validateKnowledgeNote(
   if (!kind) return { ok: true, violations };
 
   const baseName = path.basename(filePath);
-  if (!baseName.startsWith(kind.prefix)) {
-    violations.push(`[Naming] ${kind.folder} 노트 파일명은 '${kind.prefix}' prefix로 시작해야 합니다.`);
-  }
+  const namingViolation = validateFileName(baseName, kind);
+  if (namingViolation) violations.push(namingViolation);
 
   if (!content.startsWith("---")) {
     violations.push("[YAML] 파일 최상단에 YAML frontmatter가 필요합니다.");

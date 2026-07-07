@@ -2,12 +2,11 @@
 
 ## Purpose
 
-To explore the **internal mechanisms** and "Why" of a technology.
+원문 질문과 탐구 맥락을 보존한다. Question은 가능하면 삭제하지 않고 `03-Question/`에 둔다.
 
 ## File Naming
 
-- Format: `01-Question/탐구-<Title>.md`
-- Example: `탐구-DBMS는 왜 OS의 가상 메모리를 믿지 않을까.md`
+- Format: `03-Question/탐구-<Title>.md`
 
 ## Template
 
@@ -19,23 +18,22 @@ type: Question
 difficulty: Medium
 ---
 
-## 핵심 질문 (Core Question)
+# Question: 원문 질문
 
-> (What specifically are we trying to solve?)
+## 핵심 질문
 
-## 가설 및 추론 (Hypothesis)
+사용자 원문 질문을 유지한다.
 
-- ...
+---
 
-## 검증 및 팩트 (Verification)
+## 왜 중요한가
 
-- ...
+이 질문이 어떤 Problem 또는 Principle과 연결되는가?
 
-## 결론 (Conclusion)
+---
 
-- ...
+## 파생 노트
 
-## 연결된 개념 (Links)
-
-- [[개념-...]]
+- [[관련 Problem]]
+- [[관련 Principle]]
 ```

@@ -2,27 +2,24 @@ export const KNOWLEDGE_ARCHITECT_RULES = `
 # Knowledge Architect — Project-local Extension Rules
 
 ## 1. System Philosophy
-- Objective: 모든 지식은 구조적으로 다룬다.
+- Objective: 모든 지식은 실무 문제 해결 흐름으로 구조화한다.
 - Language: 모든 노트와 카드는 한국어로 작성한다.
-- 3-Tool System: Obsidian은 구조화, Anki는 즉시 회상, LLM은 실행·검증을 담당한다.
-- PACER Framework:
-  | Type | 설명 | 담당 도구 |
-  |---|---|---|
-  | P (절차형) | How-to, 코딩 패턴 | LLM 시나리오 연습 |
-  | A (비유형) | 유사성, 비유, 연결 | Obsidian 링크·비판 |
-  | C (개념형) | 이론, 원리, 정의 | Obsidian 구조화 → Anki 한 줄 |
-  | E (근거형) | 통계, 연구 수치 | Obsidian 수집 → Anki 맥락 포함 |
-  | R (참고형) | 기준값, 날짜, 수치 | Anki 간격 반복 |
+- 3-Tool System: Obsidian은 구조화, Anki는 회상, LLM은 실행·검증을 담당한다.
+- Primary Flow: Problem → Principle → Question.
+  - Problem: 실무에서 터지는 증상, 장애, 설계 실패, 디버깅 상황.
+  - Principle: 여러 Problem을 관통하는 반복 원리와 판단 기준.
+  - Question: 원문 질문과 탐구 맥락. 삭제하지 않고 보존한다.
 
 ## 2. Directory Structure & Naming
 | Folder | Type | Prefix | Purpose |
 | :--- | :--- | :--- | :--- |
-| \`01-Question/\` | Question | \`탐구-\` | Mechanism & Why |
-| \`02-Phenomenon/\` | Phenomenon | \`현상-\` | Symptoms & Errors |
-| \`03-Concept/\` | Concept | \`개념-\` | Tools & Solutions |
-| \`04-Principle/\` | Principle | \`본질-\` | Invariant Laws |
-| \`05-Case/\` | Case | \`사례-\` | Incidents & Logs |
-| \`06-Heuristic/\` | Heuristic | \`판단기준-\` | Decision Strategy |
+| \`01-Problem/\` | Problem | \`01-\`, \`02-\` | 실무 문제, 장애, 설계 실패 |
+| \`02-Principle/\` | Principle | \`본질-\` | 반복 원리, 판단 기준 |
+| \`03-Question/\` | Question | \`탐구-\` | 원문 질문, 탐구 맥락 |
+
+- Problem 파일명은 \`문제-\`가 아니라 숫자 prefix를 사용한다. 예: \`72-운영 배포 후 설정이 다르게 적용됨.md\`.
+- Principle은 구현체 이름보다 반복 원리를 드러낸다.
+- Question은 사용자 원문 질문을 가능한 유지한다.
 
 ## 3. Workflow: Architect First
 Before writing ANY knowledge note:
@@ -45,21 +42,42 @@ Every knowledge note must include:
   - Priority: official docs → reputable tech blogs → reputable communities
   - Format: \`> "exact verbatim quote" — [Source Name](URL)\`
 
-## 5. Boundary Rules
+## 5. Note Templates
+### Problem
+Required sections:
+- \`## 상황\`
+- \`## 관찰된 증거\`
+- \`## 원인\`
+- \`## 해결 방향\`
+- \`## 연결되는 본질\`
+- \`## 참고\`
+
+### Principle
+Required sections:
+- \`**핵심 질문**:\`
+- \`## 한 문장 정의\`
+- \`## 판단 기준\`
+- \`## 대표 문제\`
+- \`## 참고\`
+
+### Question
+Required sections:
+- \`## 핵심 질문\`
+- \`## 파생 노트\`
+
+## 6. Boundary Rules
 - Explicit Only: 입력에 명시되었거나 직접 함의된 주제만 다룬다.
 - No Hallucination: 목록을 채우려고 관련 주제를 지어내지 않는다.
 - Atomicity: 노트 하나는 주제 하나만 다룬다.
+- Practicality: CS 지식만을 위한 노트보다 백엔드 실무 문제로 연결되는 노트를 우선한다.
 - DRY: 다른 노트의 내용을 현재 노트에서 길게 설명하지 않는다. 설명이 시작되면 별도 노트로 분리하고 \`[[link]]\`로 연결한다.
 
-## 6. Auto-Classification Guide
-- Question (탐구): 사용자 원문 질문. 재작성 금지. Anki 대상 아님.
-- Phenomenon (현상): 문제/증상/에러/병목. C-type. Anki Keyword 후보.
-- Concept (개념): 도구/기술 용어/해결책. C/A-type. Obsidian 구조화 후 Anki Keyword 후보.
-- Principle (본질): 사라지지 않는 원리/법칙. C-type. Anki Keyword 후보이며 Anki RelatedConcepts 기준.
-- Case (사례): 실제 경험/관찰/장애 로그. E-type. Anki 대상 아님.
-- Heuristic (판단기준): 반복되는 A vs B 의사결정. Anki 대상 아님.
+## 7. Auto-Classification Guide
+- Problem: 장애, 성능 저하, 운영 사고, 설계 실패, 디버깅 상황. Anki Scenario/Code Review/Implementation 후보.
+- Principle: Problem을 반복적으로 설명하는 원리와 판단 기준. Anki 후보.
+- Question: 사용자 원문 질문. 재작성 최소화. Anki 대상 아님.
 
-## 7. Metadata
+## 8. Metadata
 Every note must start with:
 \`\`\`yaml
 ---
@@ -71,17 +89,14 @@ type: [Note_Type]
 \`\`\`
 Status: 작성중, 검증됨, 완료
 
-## 8. Anki Rules
+## 9. Anki Rules
 - AnkiConnect curl 직접 호출보다 \`anki_add_keyword_card\` tool을 우선 사용한다.
 - 카드 생성 전 사용자에게 preview를 보여주고 명시 승인을 받아야 한다.
-- Deck: \`💻::Keyword\` only.
-- Model: \`🧑🏻‍💻 Interview v2\`.
-- Question: 용어명만.
-- Answer: HTML 한 줄 한국어 명사구. \`~입니다\`, \`~합니다\`, \`~한다\`, \`~이다\` 지양.
-- Code: 항상 필수. 한국어 ASCII diagram 또는 pseudocode.
-- RelatedConcepts: 구현체가 아니라 한국어 본질 이름만 1~3개.
+- 기존 Keyword 카드는 유지하되, 신규 카드는 Problem/Principle 기반 Scenario, Code Review, Implementation 중심 개편을 우선 고려한다.
+- Deck: \`💻::Keyword\` only until Anki schema is explicitly migrated.
+- Model: \`🧑🏻‍💻 Interview v2\` until Anki schema is explicitly migrated.
 
-## 9. Change History
+## 10. Change History
 - LOG.md 작성은 더 이상 필요 없다.
 - 노트 변경 이력은 pi-git-commit extension이 담당한다.
 `;

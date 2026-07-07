@@ -1,33 +1,7 @@
-# Heuristic Note Rules (판단기준)
+# Deprecated: Heuristic Note Rules
 
-## Purpose
+`06-Heuristic/` 구조는 더 이상 사용하지 않는다.
 
-To document **decision-making strategies** or rules of thumb for engineers.
+판단 기준은 새 구조에서 `02-Principle/`로 작성한다. 판단 기준이 특정 장애나 설계 실패에서 출발한다면 먼저 `01-Problem/`으로 정리하고, 반복 원리를 `02-Principle/`로 연결한다.
 
-## File Naming
-
-- Format: `06-Heuristic/판단기준-<Title>.md`
-- Example: `판단기준-시스템 설계 체크리스트.md`
-
-## Template
-
-```markdown
----
-aliases: []
-tags: [판단기준, 작성중]
-type: Heuristic
-difficulty: High
----
-
-## 판단 기준 (Criteria)
-
-- When to choose A vs B?
-
-## 효과적인 상황 (Effective When)
-
-- ...
-
-## 실패하는 상황 (Fails When)
-
-- ...
-```
+새 노트 작성 규칙은 `Rule-Core.md`와 `00-Meta/Templates/`를 따른다.

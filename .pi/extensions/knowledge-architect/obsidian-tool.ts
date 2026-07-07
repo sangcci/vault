@@ -26,7 +26,7 @@ export function registerObsidianTools(pi: ExtensionAPI, getConfig: () => Knowled
     ],
     parameters: Type.Object({
       query: Type.String({ description: "Core Korean or English keyword to search" }),
-      path: Type.Optional(Type.String({ description: "Optional folder scope, e.g. 03-Concept" })),
+      path: Type.Optional(Type.String({ description: "Optional folder scope, e.g. 01-Problem, 02-Principle, or 03-Question" })),
     }),
     async execute(_toolCallId, params, _signal, _onUpdate, ctx) {
       const args = ["search", `query=${params.query}`, "format=json"];

@@ -1,4 +1,4 @@
-export type NoteType = "Question" | "Phenomenon" | "Concept" | "Principle" | "Case" | "Heuristic";
+export type NoteType = "Problem" | "Principle" | "Question";
 
 export interface KnowledgeArchitectConfig {
   language: "ko";

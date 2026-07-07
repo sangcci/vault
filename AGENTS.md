@@ -13,9 +13,17 @@
 
 - Knowledge Architect system prompt 주입
 - 지식 노트 작성 전 구조화 workflow 안내
-- `01-Question/` ~ `06-Heuristic/` 노트 작성/수정 검증
+- `01-Problem/`, `02-Principle/`, `03-Question/` 노트 작성/수정 검증
 - Obsidian 중복 검색 tool 제공
 - Anki Keyword 카드 생성 tool 제공
+
+## 현재 노트 구조
+
+| Folder | Type | Purpose |
+|---|---|---|
+| `01-Problem/` | Problem | 실무 문제, 장애, 설계 실패 |
+| `02-Principle/` | Principle | 반복 원리, 판단 기준 |
+| `03-Question/` | Question | 원문 질문과 탐구 맥락 |
 
 ## 변경 이력
 

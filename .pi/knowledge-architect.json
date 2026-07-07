@@ -8,12 +8,9 @@
     "requireVisualEvidence": true,
     "requireSlideSeparator": true,
     "folders": {
-      "Question": "01-Question",
-      "Phenomenon": "02-Phenomenon",
-      "Concept": "03-Concept",
-      "Principle": "04-Principle",
-      "Case": "05-Case",
-      "Heuristic": "06-Heuristic"
+      "Problem": "01-Problem",
+      "Principle": "02-Principle",
+      "Question": "03-Question"
     }
   },
   "anki": {

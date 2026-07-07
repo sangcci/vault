@@ -1,185 +1,130 @@
 # Note Templates
 
-### Question — `01-Question/탐구-<Title>.md`
+현재 노트 구조는 3-layer입니다.
+
+## Problem — `01-Problem/NN-<Title>.md`
+
 ```markdown
 ---
-aliases: []
-tags: [탐구, 작성중]
-type: Question
+aliases: [English_Name, Search_Keyword]
+tags: [문제, 작성중]
 difficulty: Medium
+type: Problem
 ---
 
-## 핵심 질문
-
-> User's exact words. Do NOT fix grammar or logic errors. Do NOT rephrase.
-
-## 파생 노트
-
-- [[...]]
-```
-> WARNING: Derived notes must NOT be left empty. This note serves as the entry point to all linked notes.
-
-### Phenomenon — `02-Phenomenon/현상-<Title>.md`
-```markdown
----
-aliases: []
-tags: [현상, 작성중]
-type: Phenomenon
-difficulty: Medium
----
-
-## 한 문장 정의
-
-> (사전적) ...
-> (이해용) ...
-
-## 발생 환경
-
-- When does this happen?
-
-## 관찰되는 증상
-
-- Latency spike? CPU saturation?
-
-## 추측되는 원인
-
-- [[개념-...]] or [[본질-...]]
-
-## 관련 사례
-
-- [[사례-...]]
-```
-
-### Concept — `03-Concept/개념-<Title>.md`
-```markdown
----
-aliases: []
-tags: [개념, 작성중]
-type: Concept
-difficulty: Medium
----
-
-## 한 문장 정의
-
-> (사전적) Accurate technical definition.
-> (이해용) Intuitive analogy.
-
-## 해결하는 문제
-
-- What phenomenon does this solve?
-
-## 치르는 비용
-
-- What is the trade-off?
-
-## 동작 원리
-
-- How does it work?
-
-## 관련 본질
-
-- [[본질-...]]
-
-## 참고
-
-- [Source Name](URL) — "verbatim quote if applicable"
-```
-
-### Principle — `04-Principle/본질-<Title>.md`
-```markdown
----
-aliases: []
-tags: [본질, 작성중]
-type: Principle
-difficulty: High
----
-
-**핵심 질문**: "<fundamental question this principle answers>"
-
-## 한 문장 정의
-
-> (사전적) ...
-> (이해용) ...
-
-## 사용 예시
-
-1. ...
-2. ...
-3. ...
-
-## 트레이드오프
-
-- What do we gain and lose?
-
-## 왜 사라지지 않는가
-
-- Why does this persist regardless of tech changes?
-
-## 다른 모습들
-
-- How does this appear in OS? DB? Network?
-```
-
-### Case — `05-Case/사례-<Title>.md`
-```markdown
----
-aliases: []
-tags: [사례, 작성중]
-type: Case
-difficulty: Low
-# Input: A real event you experienced, observed, or a public incident report
-# Trigger: "I did X and Y happened", "There was a problem with Z"
----
+# Problem: NN-문제 제목
 
 ## 상황
 
-- Environment, context
+어떤 서비스/업무/코드 흐름에서 문제가 발생했는가?
 
-## 실제 발생한 일
+---
 
-- Facts only. No interpretation. When explaining another concept, stop and use [[link]] instead.
+## 관찰된 증거
 
-## 근본 원인
+- 로그
+- 메트릭
+- SQL
+- 에러 메시지
 
-- [[본질-...]] or [[현상-...]]
-
-## 교훈 및 조치
-
-- What will you do differently next time?
-
-## 파생 판단기준
-
-- [[판단기준-...]]
+```text
+request → service → db
+              ↓
+          bottleneck
 ```
-> Omit 파생 판단기준 if no generalizable rule emerges from the lessons.
 
-### Heuristic — `06-Heuristic/판단기준-<Title>.md`
+---
+
+## 원인
+
+왜 이 구조에서 문제가 발생하는가?
+
+---
+
+## 해결 방향
+
+무엇을 확인하고 어떻게 완화/해결할 것인가?
+
+---
+
+## 연결되는 본질
+
+- [[본질-...]]
+
+---
+
+## 참고
+
+> "exact quote" — [Source](https://example.com)
+```
+
+## Principle — `02-Principle/본질-<Title>.md`
+
 ```markdown
 ---
-aliases: []
-tags: [판단기준, 작성중]
-type: Heuristic
-difficulty: High
-# Input: Recurring decision situations, A vs B trade-offs
-# Trigger: "When should I use X?", "How do I choose between X and Y?"
-# Origin: Derived from Case, or created independently
+aliases: [English_Name, Search_Keyword]
+tags: [본질, 작성중]
+difficulty: Medium
+type: Principle
+---
+
+# Principle: 본질 제목
+
+**핵심 질문**: 이 본질은 어떤 반복 문제를 해결하는가?
+
+## 한 문장 정의
+
+문제 해결 관점의 한 문장 정의.
+
 ---
 
 ## 판단 기준
 
-- If condition A → choose X
-- If condition B → choose Y
-
-## 효과적인 상황
-
-- ...
-
-## 실패하는 상황
-
-- ...
-
-## 출처
-
-- [[사례-...]]
+```text
+상황 → 기준 → 선택
 ```
-> Omit 출처 if not derived from a Case note.
+
+---
+
+## 대표 문제
+
+- [[관련 Problem]]
+
+---
+
+## 참고
+
+> "exact quote" — [Source](https://example.com)
+```
+
+## Question — `03-Question/탐구-<Title>.md`
+
+```markdown
+---
+aliases: [Search_Keyword]
+tags: [탐구, 작성중]
+difficulty: Medium
+type: Question
+---
+
+# Question: 원문 질문
+
+## 핵심 질문
+
+사용자 원문 질문을 유지한다.
+
+---
+
+## 왜 중요한가
+
+이 질문이 어떤 Problem 또는 Principle과 연결되는가?
+
+---
+
+## 파생 노트
+
+- [[관련 Problem]]
+- [[관련 Principle]]
+```
+
+레거시 `Phenomenon`, `Concept`, `Case`, `Heuristic` 템플릿은 더 이상 사용하지 않습니다.
