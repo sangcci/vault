@@ -40,7 +40,7 @@ difficulty: Medium
 
 ## 대표 문제
 
-- [[관련 Problem]]
+- `관련 Problem`
 
 ---
 

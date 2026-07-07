@@ -34,6 +34,6 @@ difficulty: Medium
 
 ## 파생 노트
 
-- [[관련 Problem]]
-- [[관련 Principle]]
+- `관련 Problem`
+- `관련 Principle`
 ```

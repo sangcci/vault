@@ -49,7 +49,7 @@ request → service → db
 
 ## 연결되는 본질
 
-- [[본질-...]]
+- `본질-...`
 
 ---
 
@@ -88,7 +88,7 @@ type: Principle
 
 ## 대표 문제
 
-- [[관련 Problem]]
+- `관련 Problem`
 
 ---
 
@@ -123,8 +123,8 @@ type: Question
 
 ## 파생 노트
 
-- [[관련 Problem]]
-- [[관련 Principle]]
+- `관련 Problem`
+- `관련 Principle`
 ```
 
 레거시 `Phenomenon`, `Concept`, `Case`, `Heuristic` 템플릿은 더 이상 사용하지 않습니다.
