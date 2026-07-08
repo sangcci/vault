@@ -75,3 +75,29 @@
 1. `ka_keyword_delete_candidate` 113장을 삭제할지 suspend할지 승인받는다.
 2. `ka_keyword_convert` 69장은 Problem 카드 생성 후 처리한다.
 3. `ka_keyword_keep` 48장은 Keyword 덱에 남긴다.
+
+---
+
+## 2026-07-08 Suspend 처리 결과
+
+`ka_keyword_delete_candidate` 태그가 붙은 Keyword 카드 113장을 삭제하지 않고 suspend 처리했다.
+
+검증 결과:
+
+```text
+total Keyword cards        230
+ka_keyword_keep             48
+ka_keyword_convert          69
+ka_keyword_delete_candidate 113
+suspended delete_candidate  113
+active delete_candidate       0
+active Keyword cards        117
+```
+
+의도:
+
+```text
+- 삭제 대신 suspend로 복구 가능성을 남긴다.
+- Problem 카드 생성 전까지 convert 후보 69장은 유지한다.
+- keep 후보 48장은 Keyword 회상용으로 유지한다.
+```
