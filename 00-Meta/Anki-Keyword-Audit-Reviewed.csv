@@ -1,0 +1,231 @@
+noteId,Question,Category,OriginalDecision,Decision,Reason,MatchedProblem,MatchedPrinciple,AnswerPreview
+1770453924647,하이퍼바이저 (Hypervisor),Infra,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,물리 하드웨어 위에서 여러 가상 머신을 만들고 관리하는 소프트웨어 계층
+1770465930762,임계 구역 (Critical Section),OS,KEEP,KEEP,반복 원리/판단 기준으로 유지 가치 있음,,본질-임계 구역과 활동성,동시에 실행되면 공유 상태가 깨질 수 있어 한 번에 하나만 보호해야 하는 코드 구간
+1770465930959,Semaphore,OS,REVIEW,KEEP,REVIEW 재분류: Problem 카드 정답에서 반복 참조할 핵심 원리/지표,,,Semaphore는 counter로 동시에 진입 가능한 실행 수를 제한하는 동기화 도구
+1770467468806,가상 네트워크 (Virtual Network),Infra,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,소프트웨어로 만든 논리적 네트워크 — 물리 장비 없이 격리된 통신 환경을 구성
+1770467468957,B-Tree,DB,REVIEW,CONVERT,REVIEW 재분류: B-Tree가 Problem 06-인덱스를 추가했는데도 조회 쿼리가 느림와 연결됨,06-인덱스를 추가했는데도 조회 쿼리가 느림,,하나의 노드에 여러 키를 저장해 트리 높이를 낮춘 자가 균형 탐색 트리
+1770467477957,Namespaces,OS,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,Namespaces는 프로세스가 볼 수 있는 시스템 자원 범위를 분리하는 Linux 격리 기능이다.
+1770478067623,문맥 교환 (Context Switch),OS,CONVERT,CONVERT,Problem 노트와 직접 매칭됨,33-스레드를 많이 만들었는데 처리량이 늘지 않고 문맥 교환만 증가함,본질-선점과 문맥 교환 비용,OS가 실행 중인 프로세스를 멈추고 다른 프로세스로 CPU를 넘기는 과정
+1770478067925,유니온 파일 시스템 (UnionFS),OS,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,여러 디렉토리 계층을 겹쳐서 하나의 파일 시스템처럼 보여주는 기술
+1770478068225,Module,Software Engineering,DELETE,DELETE,Problem 중심 훈련과 직접 연결 약함; 필요 시 Problem 카드로 재작성,,,Module은 코드를 논리적으로 나누는 설계 단위다.
+1770478068376,함수적 종속성 (Functional Dependency),DB,REVIEW,CONVERT,REVIEW 재분류: 함수적 종속가 Problem 51-한 테이블에 여러 사실을 넣어 수정할 때마다 데이터가 불일치함와 연결됨,51-한 테이블에 여러 사실을 넣어 수정할 때마다 데이터가 불일치함,,속성 A의 값이 정해지면 속성 B의 값이 하나로 결정되는 관계 (A → B)
+1770805533457,동시성의 이득 (Concurrency Benefit),OS,KEEP,KEEP,반복 원리/판단 기준으로 유지 가치 있음,,,CPU가 I/O를 기다리는 유휴 시간에 다른 작업을 처리해서 전체 효율을 높이는 것
+1770805533607,동시성의 트레이드오프,OS,KEEP,KEEP,반복 원리/판단 기준으로 유지 가치 있음,,,동시성을 과도하게 높이면 작업 교체 비용이 실제 작업 비용을 초과
+1770813178448,멱등성 (Idempotency),Distributed System,KEEP,KEEP,반복 원리/판단 기준으로 유지 가치 있음,,본질-요청 멱등성과 중복 방어,같은 요청을 여러 번 보내도 결과가 한 번 보낸 것과 동일한 성질
+1770813178594,멱등성 키 (Idempotency Key),API Design,KEEP,KEEP,반복 원리/판단 기준으로 유지 가치 있음,,,재시도된 같은 요청을 서버가 알아보고 중복 처리하지 않게 하는 고유 값
+1770813178894,모듈성 (Modularity),Software Engineering,DELETE,DELETE,Problem 중심 훈련과 직접 연결 약함; 필요 시 Problem 카드로 재작성,,,시스템을 독립적인 부품(모듈)으로 나눠서 한 번에 한 부분만 이해하고 수정할 수 있게 만드는 것
+1770813179043,과도한 모듈화의 부작용,Software Engineering,DELETE,DELETE,Problem 중심 훈련과 직접 연결 약함; 필요 시 Problem 카드로 재작성,,,너무 잘게 쪼개면 모듈 간 통신 비용이 증가하고 전체 흐름 파악이 더 어려워짐
+1770813179494,암달의 법칙 (Amdahl's Law),Architecture,REVIEW,DELETE,REVIEW 재분류: 현재 Problem 카드 훈련과 직접 연결 약함,,,프로그램의 순차적 구간이 병렬화의 성능 향상 한계를 결정한다는 법칙
+1770813818846,상속의 트레이드오프 (Inheritance),Software Design,DELETE,DELETE,Problem 중심 훈련과 직접 연결 약함; 필요 시 Problem 카드로 재작성,,,"코드 재사용은 쉽지만, 부모-자식 간 결합도가 강해져 부모 변경 시 자식이 연쇄적으로 깨질 수 있음"
+1770813819294,선점형 스케줄링 트레이드오프 (Preemptive Scheduling),OS,KEEP,KEEP,반복 원리/판단 기준으로 유지 가치 있음,,,OS가 실행 중인 프로세스를 강제로 멈추고 다른 프로세스에 CPU를 넘기는 방식
+1770813819445,선점 (Preemption),OS,KEEP,KEEP,반복 원리/판단 기준으로 유지 가치 있음,,본질-선점과 문맥 교환 비용,Preemption은 OS가 실행 중인 process/thread에서 CPU 제어권을 강제로 회수할 수 있는 성질이다. • 무한 루프나 독점 실행이 시스템 전체를 멈추지 않게 한다
+1770813819596,Reliability,Architecture,REVIEW,KEEP,REVIEW 재분류: Problem 카드 정답에서 반복 참조할 핵심 원리/지표,,,Reliability는 결함이 있어도 시스템이 올바른 결과를 계속 내는 성질이다.
+1770813819746,신뢰성 극대화의 트레이드오프,Architecture,KEEP,KEEP,반복 원리/판단 기준으로 유지 가치 있음,,,데이터를 완벽히 보호하려면 복제·검증 과정이 늘어나 응답 지연과 인프라 비용이 증가
+1770813819893,카오스 엔지니어링 (Chaos Engineering),Infra,REVIEW,DELETE,REVIEW 재분류: 현재 Problem 카드 훈련과 직접 연결 약함,,,운영 환경에 의도적으로 장애를 주입해서 시스템의 복원력을 사전에 검증하는 방법
+1770814279452,연관 관계 (Association),Software Design,CONVERT,CONVERT,Problem 노트와 직접 매칭됨,05-양방향 연관관계 직렬화로 순환 참조가 발생함,,두 객체가 서로를 참조하며 메시지를 주고받는 협력 관계
+1770814279620,Composition,Software Design,DELETE,DELETE,Problem 중심 훈련과 직접 연결 약함; 필요 시 Problem 카드로 재작성,,,Composition은 부품 객체가 주인 객체와 생명주기를 함께하는 강한 소유 관계다.
+1770814279769,연관 관계의 순환 참조 위험,Software Design,CONVERT,CONVERT,Problem 노트와 직접 매칭됨,05-양방향 연관관계 직렬화로 순환 참조가 발생함,,두 객체가 서로를 참조하면 GC가 해제하지 못해 메모리 누수가 발생할 수 있음
+1770814279919,시스템 연동의 근본적 어려움 (Integration),Architecture,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,서로 다른 시스템의 데이터 구조와 프로토콜이 맞지 않아 오해와 장애가 전파됨
+1770814280068,연동 결합도 낮추기 전략,Architecture,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,표준 프로토콜과 공통 포맷(JSON/gRPC)으로 인터페이스를 추상화하여 내부 변경이 전파되지 않게 함
+1770814280217,Circuit Breaker,Infra,REVIEW,DELETE,REVIEW 재분류: 현재 Problem 카드 훈련과 직접 연결 약함,,,Circuit Breaker는 외부 장애가 반복될 때 호출을 잠시 차단해 연쇄 장애를 막는 패턴이다.
+1770814280520,영속성과 WAL (Durability & Write-Ahead Log),DB,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,"데이터 변경 전에 로그를 먼저 디스크에 기록해서, 시스템이 꺼져도 복구할 수 있게 보장하는 기법"
+1770817122999,원자성 미보장의 위험 (Atomicity Violation),DB,KEEP,KEEP,반복 원리/판단 기준으로 유지 가치 있음,,,"작업이 '하다 만' 상태로 남거나, 도중에 다른 작업이 끼어들어 데이터가 오염됨"
+1770817159052,원자성의 트레이드오프 (Atomicity Cost),DB,KEEP,KEEP,반복 원리/판단 기준으로 유지 가치 있음,,,원자성을 보장하려면 락(Lock)이나 트랜잭션으로 다른 작업을 차단해야 해서 대기 시간이 발생
+1770817163128,응집도↑ 결합도↓의 본질,Software Design,DELETE,DELETE,Problem 중심 훈련과 직접 연결 약함; 필요 시 Problem 카드로 재작성,,,"한 곳만 고쳐도 되는가(응집), 하나 고쳤을 때 다른 곳이 터지지 않는가(결합) — 유지보수의 핵심 지표"
+1770817182700,응집도 (Cohesion),Software Design,DELETE,DELETE,Problem 중심 훈련과 직접 연결 약함; 필요 시 Problem 카드로 재작성,,,모듈 내부의 요소들이 하나의 목적을 위해 얼마나 긴밀하게 뭉쳐있는가의 정도
+1770817193151,결합도 (Coupling),Software Design,DELETE,DELETE,Problem 중심 훈련과 직접 연결 약함; 필요 시 Problem 카드로 재작성,,,모듈이 다른 모듈의 내부 구현에 얼마나 의존하고 있는가의 정도
+1770817197326,일관성 (Consistency),Distributed System,KEEP,KEEP,반복 원리/판단 기준으로 유지 가치 있음,,본질-캐시 일관성과 경합,"데이터가 어디서 읽든, 언제 읽든 서로 모순되지 않는 상태를 유지하는 약속"
+1770817363976,CAP의 Consistency,Distributed System,DELETE,DELETE,Problem 중심 훈련과 직접 연결 약함; 필요 시 Problem 카드로 재작성,,,CAP의 Consistency는 분산 시스템의 모든 노드가 같은 데이터를 보는 목표다.
+1770817386699,Linearizability,Distributed System,DELETE,DELETE,Problem 중심 훈련과 직접 연결 약함; 필요 시 Problem 카드로 재작성,,,Linearizability는 쓰기 완료 후 모든 읽기가 최신값을 보는 강한 일관성 모델이다.
+1770817765282,장애 (Failure),Infra,CONVERT,CONVERT,Problem 노트와 직접 매칭됨,10-동시 요청 로그가 섞여 장애 원인을 추적하기 어려움,본질-장애 전파와 복구 경계,시스템이 약속한 서비스를 정상적으로 제공하지 못해 사용자가 영향을 받는 상태
+1770817765427,이상 현상,DB,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,"이상 현상은 중복 저장된 데이터에서 삽입, 수정, 삭제 시 의도치 않은 부작용이 생기는 문제다."
+1770817765575,Fault,Infra,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,Fault는 시스템 내부에 존재하는 결함이나 원인이다.
+1770817765872,조합의 유연성 (Composition),Software Design,DELETE,DELETE,Problem 중심 훈련과 직접 연결 약함; 필요 시 Problem 카드로 재작성,,,상속과 달리 실행 중에 부품(객체)을 갈아끼워 동작을 바꿀 수 있는 런타임 유연성
+1770817766027,조합의 트레이드오프 (Composition Cost),Software Design,DELETE,DELETE,Problem 중심 훈련과 직접 연결 약함; 필요 시 Problem 카드로 재작성,,,"유연성은 높아지지만, 부품 객체에 요청을 전달하는 위임(Delegation) 코드가 늘어남"
+1770817766177,Throughput,Performance,REVIEW,KEEP,REVIEW 재분류: Problem 카드 정답에서 반복 참조할 핵심 원리/지표,,,Throughput은 단위 시간당 처리하는 작업 수를 나타내는 성능 지표다.
+1770817766327,처리량-지연시간 트레이드오프,Performance,KEEP,KEEP,반복 원리/판단 기준으로 유지 가치 있음,,,처리량-지연시간 트레이드오프는 batching으로 전체 처리량을 높이면 개별 요청 대기가 늘 수 있다는 관계다.
+1770817766476,P99 Latency,Performance,REVIEW,KEEP,REVIEW 재분류: Problem 카드 정답에서 반복 참조할 핵심 원리/지표,,,P99 Latency는 요청 100개 중 99개가 완료되는 시간의 상한을 보는 tail latency 지표다.
+1770818627282,추상화 (Abstraction),Software Design,KEEP,KEEP,반복 원리/판단 기준으로 유지 가치 있음,,본질-추상화 비용과 변경 가능성,내부의 복잡한 구현은 숨기고 '무엇을 하는가'만 인터페이스로 드러내는 것
+1770818627475,추상화 과다의 트레이드오프,Software Design,DELETE,DELETE,Problem 중심 훈련과 직접 연결 약함; 필요 시 Problem 카드로 재작성,,,추상화 계층이 너무 많으면 실제 동작을 파악하기 위해 여러 층을 파고들어야 하는 인지적 과부하 발생
+1770971866251,쾌적한 API 응답 시간,Performance,REVIEW,DELETE,REVIEW 재분류: 현재 Problem 카드 훈련과 직접 연결 약함,,,쾌적한 API 응답 시간의 경험적 목표는 보통 평균 200ms 이하에서 시작한다.
+1770971883798,즉각 반응 임계값,Performance,REVIEW,DELETE,REVIEW 재분류: 현재 Problem 카드 훈련과 직접 연결 약함,,,즉각 반응 임계값은 사용자가 지연을 거의 느끼지 않는 약 100ms 수준의 응답 시간 기준이다.
+1770972096177,비밀번호 해시는 왜 일부러 느리게 계산해야 하는가?,Security,KEEP,KEEP,반복 원리/판단 기준으로 유지 가치 있음,,,DB 유출 후 비밀번호 해시값을 안 공격자가 원래 비밀번호를 알아내기 위해 hash brute force 할 수 있기 때문
+1770972096476,Access Token 수명,Security,REVIEW,CONVERT,REVIEW 재분류: Access Token가 Problem 48-인증서는 있는데 이 공개키를 믿어도 되는지 검증하지 못함와 연결됨,48-인증서는 있는데 이 공개키를 믿어도 되는지 검증하지 못함,,Access Token 수명은 탈취 피해 시간을 줄이기 위해 짧게 잡는 인증 만료 시간이다.
+1770972096624,SLA 99.9%,Infra,REVIEW,DELETE,REVIEW 재분류: 현재 Problem 카드 훈련과 직접 연결 약함,,,SLA 99.9%는 연간 다운타임을 약 8.76시간 이내로 제한하는 가용성 목표다.
+1771034623511,유닉스 파이프의 메모리 안전성,OS,REVIEW,CONVERT,REVIEW 재분류: 파이프가 Problem 37-파이프라인에서 소비자가 느려지자 생산자 프로세스가 멈춘 것처럼 보임와 연결됨,37-파이프라인에서 소비자가 느려지자 생산자 프로세스가 멈춘 것처럼 보임,,커널이 고정 크기 버퍼(64KB)와 역압(Backpressure)으로 흐름을 제어하므로 100GB 데이터도 메모리 부족 없이 처리
+1771034625260,파이프 버퍼 Writer Blocking,OS,REVIEW,CONVERT,REVIEW 재분류: Lock가 Problem 19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤와 연결됨,19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤,,파이프 버퍼 Writer Blocking은 pipe buffer가 가득 찼을 때 kernel이 writer를 재워 흐름을 조절하는 현상이다.
+1771034625834,쉘 파이프 시스템 콜,Shell,DELETE,DELETE,Problem 중심 훈련과 직접 연결 약함; 필요 시 Problem 카드로 재작성,,,쉘 파이프 시스템 콜은 두 process의 표준 입출력을 pipe로 연결하기 위해 쓰는 kernel 호출 묶음이다.
+1771056436078,Slotted Page — RID 불변성,DB,REVIEW,CONVERT,REVIEW 재분류: Slotted Page가 Problem 53-ctid나 물리 위치를 안정적인 row 식별자로 사용하려다 깨짐와 연결됨,53-ctid나 물리 위치를 안정적인 row 식별자로 사용하려다 깨짐,,"인덱스가 레코드를 직접 가리키지 않고 슬롯(중간 층)을 거치므로, 레코드가 이동해도 ID가 변하지 않음"
+1771057909571,인덱스-페이지 추상화 관계,DB,KEEP,KEEP,반복 원리/판단 기준으로 유지 가치 있음,,,B+Tree의 논리적 노드 1개 = 디스크의 물리적 페이지 1개로 대응
+1771060881254,Noisy Neighbor,Infra,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,Noisy Neighbor는 같은 물리 자원을 공유하는 다른 tenant가 자원을 과점해 내 성능이 흔들리는 현상이다.
+1771060881404,Mutex,OS,REVIEW,KEEP,REVIEW 재분류: Problem 카드 정답에서 반복 참조할 핵심 원리/지표,,,한 번에 하나의 thread만 임계 구역에 들어가게 해 공유 상태 수정을 직렬화하는 동기화 도구
+1771060881704,Race Condition,OS,REVIEW,CONVERT,REVIEW 재분류: Race Condition가 Problem 03-동시 요청으로 재고나 예약 수량 갱신이 소실됨와 연결됨,03-동시 요청으로 재고나 예약 수량 갱신이 소실됨,,Race Condition은 여러 thread가 공유 상태를 읽고 쓰는 순서에 따라 결과가 달라지는 현상이다.
+1771060882003,교착 상태,OS,REVIEW,CONVERT,REVIEW 재분류: 교착가 Problem 19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤와 연결됨,19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤,,교착 상태는 thread들이 서로 가진 자원을 기다리며 영원히 진행하지 못하는 상태다.
+1771684140919,이벤트 루프 (Event Loop),OS,CONVERT,CONVERT,Problem 노트와 직접 매칭됨,35-이벤트 루프에 CPU 작업을 올려 모든 요청이 지연됨,,커널의 epoll_wait()으로 준비된 I/O를 감지해 콜백을 실행하는 단일 스레드 무한 루프
+1771684154091,단일 스레드 모델의 이득 (Single Thread),OS,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,스레드가 하나이므로 동기화 비용(Lock)이 완전히 사라지고 원자성이 자연스럽게 보장
+1771834385167,서킷 브레이커,Infra,REVIEW,DELETE,REVIEW 재분류: 현재 Problem 카드 훈련과 직접 연결 약함,,,서킷 브레이커는 외부 시스템 장애가 반복될 때 호출을 잠시 차단해 장애 전파를 막는 패턴이다.
+1772462133679,화이트박스 재사용 (White-box Reuse),Software Design,DELETE,DELETE,Problem 중심 훈련과 직접 연결 약함; 필요 시 Problem 카드로 재작성,,,상속을 통한 재사용에서 부모의 내부 구현이 자식에게 그대로 노출되는 것
+1772462135063,IoC,Software Engineering,DELETE,DELETE,Problem 중심 훈련과 직접 연결 약함; 필요 시 Problem 카드로 재작성,,,IoC는 객체 생성과 조립의 제어권을 개발자 코드가 아니라 framework/container로 넘기는 원리다.
+1772462136438,CGLIB 프록시 DI,Spring,KEEP,KEEP,반복 원리/판단 기준으로 유지 가치 있음,,,인터페이스 없는 일반 클래스도 스프링이 CGLIB로 런타임에 상속 프록시를 만들어 DI 가능
+1772462137763,하드웨어 타이머와 OS 선점,OS,KEEP,KEEP,반복 원리/판단 기준으로 유지 가치 있음,,,CPU가 무한 루프에 빠져도 하드웨어 타이머가 주기적으로 인터럽트를 발생시켜 커널에게 제어권을 돌려주는 최후의 보루
+1772462139387,Concurrency,OS,REVIEW,KEEP,REVIEW 재분류: Problem 카드 정답에서 반복 참조할 핵심 원리/지표,,,Concurrency는 여러 작업을 동시에 다루는 구조를 설계하는 성질이다.
+1772462140513,락 상태에서 선점당해도 안전한 이유,OS,KEEP,KEEP,반복 원리/판단 기준으로 유지 가치 있음,,,"OS가 CPU 실행권은 뺏어도, 논리적인 '락 소유권'은 뺏지 않기 때문"
+1772643527209,환경 격리 (Environment Isolation),Architecture,KEEP,KEEP,반복 원리/판단 기준으로 유지 가치 있음,,,개발/테스트/운영 환경을 완전히 분리해서 실험이 실제 데이터에 영향을 주지 않게 보장하는 원칙
+1772643528101,외부 설정 관리 (Externalized Configuration),Spring,CONVERT,CONVERT,Problem 노트와 직접 매칭됨,14-DNAT 설정 후에도 VM 서비스에 외부 접속이 되지 않음,,"설정값을 코드 밖(환경변수, 설정 파일)에 두어 빌드 결과물 수정 없이 환경별 동작을 제어"
+1772643529502,WireMock 스터빙 (Stubbing),Testing,REVIEW,CONVERT,REVIEW 재분류: WireMock가 Problem 58-테스트가 실제 외부 API를 호출해 느리고 불안정해짐와 연결됨,58-테스트가 실제 외부 API를 호출해 느리고 불안정해짐,,실제 외부 서버 대신 가짜 HTTP 서버를 로컬에 띄워 미리 정의한 응답을 반환하는 테스트 기법
+1772723451009,설정 섀도잉 (Configuration Shadowing),Architecture,REVIEW,CONVERT,REVIEW 재분류: Configuration Shadowing가 Problem 54-설정 파일을 고쳤는데 운영에서 다른 값이 적용됨와 연결됨,54-설정 파일을 고쳤는데 운영에서 다른 값이 적용됨,,"우선순위가 높은 설정이 낮은 설정을 덮어써서, 분명히 존재하는 설정이 적용되지 않는 현상"
+1772723451558,설정 우선순위,Architecture,KEEP,KEEP,반복 원리/판단 기준으로 유지 가치 있음,,본질-설정 우선순위와 출처 추적,설정 우선순위는 여러 설정값이 충돌할 때 어떤 값이 최종 적용되는지 정하는 규칙이다.
+1772777956210,간접 참조 (Indirection),Architecture,KEEP,KEEP,반복 원리/판단 기준으로 유지 가치 있음,,본질-Heap 객체와 메타데이터 간접 참조,요청자와 자원 사이에 중간 매핑 층을 두어 서로가 상대의 내부를 모르게 만드는 원리
+1773235447574,프로세스 (Process),Infra,CONVERT,CONVERT,Problem 노트와 직접 매칭됨,37-파이프라인에서 소비자가 느려지자 생산자 프로세스가 멈춘 것처럼 보임,본질-PID 1과 자식 프로세스 수거 책임,"실행 중인 프로그램으로, 주소 공간·CPU 상태·열린 자원을 포함하는 컨텍스트 전체"
+1773235488443,시스템 콜 (System Call),Infra,KEEP,KEEP,반복 원리/판단 기준으로 유지 가치 있음,,본질-시스템 콜과 커널 경계,사용자 프로세스가 커널 서비스를 요청하기 위해 호출하는 OS 제공 API
+1773556321084,코드와 상태의 비대칭성 (Code-State Asymmetry),DB,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,"코드는 배포 시 교체, 상태는 이전 상태 위에 누적"
+1773556321685,스키마 마이그레이션 (Schema Migration),DB,REVIEW,CONVERT,REVIEW 재분류: Schema Migration가 Problem 55-코드 배포와 DB 스키마 변경 순서가 맞지 않아 장애가 발생함와 연결됨,55-코드 배포와 DB 스키마 변경 순서가 맞지 않아 장애가 발생함,,스키마 변경 이력을 코드처럼 버전 관리해 모든 환경의 스키마를 동기화
+1773556322105,Schema Drift (스키마 드리프트),DB,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,dev·stag·prod DB 스키마가 점진적으로 달라지는 환경 격리 실패 현상
+1773556323404,Expand-Contract 패턴,DB,REVIEW,CONVERT,REVIEW 재분류: Expand-Contract가 Problem 55-코드 배포와 DB 스키마 변경 순서가 맞지 않아 장애가 발생함와 연결됨,55-코드 배포와 DB 스키마 변경 순서가 맞지 않아 장애가 발생함,,Expand-Contract 패턴은 schema 변경을 여러 배포 단계로 나눠 대용량 table lock과 장애를 피하는 전략이다.
+1773641939353,BFS (너비 우선 탐색),Architecture,CONVERT,CONVERT,Problem 노트와 직접 매칭됨,46-가중치가 다른 경로 문제에 BFS를 써서 최단 거리를 틀림,,균등 가중치 그래프에서 최단 경로를 O(V+E)로 탐색하는 알고리즘
+1773641957196,BFS,Algorithm,CONVERT,CONVERT,Problem 노트와 직접 매칭됨,46-가중치가 다른 경로 문제에 BFS를 써서 최단 거리를 틀림,,BFS는 간선 가중치가 모두 같을 때 가까운 정점부터 탐색하는 그래프 탐색 알고리즘이다.
+1773757962718,epoll,OS,REVIEW,CONVERT,REVIEW 재분류: epoll가 Problem 35-이벤트 루프에 CPU 작업을 올려 모든 요청이 지연됨와 연결됨,35-이벤트 루프에 CPU 작업을 올려 모든 요청이 지연됨,,Linux 커널이 준비된 fd만 O(1)으로 반환하는 I/O 이벤트 알림 API
+1773758019220,Process Scheduler,OS,REVIEW,CONVERT,REVIEW 재분류: Process Scheduler가 Problem 34-CPU 스케줄링 정책을 잘못 잡아 짧은 요청이 긴 작업 뒤에서 밀림와 연결됨,34-CPU 스케줄링 정책을 잘못 잡아 짧은 요청이 긴 작업 뒤에서 밀림,,Process Scheduler는 OS kernel이 실행 가능한 thread를 CPU에 배치하는 구성요소다.
+1773915480218,정적 바인딩 (Static Binding),Software Design,DELETE,DELETE,Problem 중심 훈련과 직접 연결 약함; 필요 시 Problem 카드로 재작성,,,컴파일 타임에 참조 타입 기준으로 필드·static 메서드를 확정
+1773915480219,동적 바인딩 (Dynamic Binding),Software Design,DELETE,DELETE,Problem 중심 훈련과 직접 연결 약함; 필요 시 Problem 카드로 재작성,,,런타임에 실제 객체 타입 기준으로 인스턴스 메서드를 결정 (VTable)
+1773915480221,제네릭 타입 소거 (Type Erasure),Software Design,CONVERT,CONVERT,Problem 노트와 직접 매칭됨,41-제네릭 타입과 오버로딩을 믿었는데 런타임 타입이 사라져 다르게 동작함,,컴파일 시 제네릭 타입 파라미터를 Object(또는 상한 타입)로 교체·제거
+1774325065621,그리디 알고리즘 (Greedy Algorithm),Architecture,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,각 단계에서 지역 최적 선택을 반복해 전체 최적해를 구하려는 알고리즘 패러다임
+1774325065642,"이진 탐색 트리 (BST, Binary Search Tree)",Data Structure,DELETE,DELETE,Problem 중심 훈련과 직접 연결 약함; 필요 시 Problem 카드로 재작성,,,모든 노드에서 left &lt; node &lt; right를 재귀적으로 만족하는 이진 트리
+1774325065667,힙 (Heap),Data Structure,DELETE,DELETE,Problem 중심 훈련과 직접 연결 약함; 필요 시 Problem 카드로 재작성,,,부모가 항상 자식보다 크거나(Max) 작은(Min) 완전 이진 트리 — 배열로 구현
+1774325908264,RIP,Network,REVIEW,DELETE,REVIEW 재분류: 현재 Problem 카드 훈련과 직접 연결 약함,,,RIP는 hop count를 metric으로 쓰는 distance-vector 동적 라우팅 프로토콜이다.
+1774325908287,OS Thread와 User Thread의 차이,OS,REVIEW,CONVERT,REVIEW 재분류: User Thread가 Problem 36-await으로 중간에 끊긴 로직 사이에 다른 요청이 끼어들어 상태가 꼬임와 연결됨,36-await으로 중간에 끊긴 로직 사이에 다른 요청이 끼어들어 상태가 꼬임,,"OS Thread는 커널 스케줄러가 선점형으로 CPU 배치와 blocking을 관리하고, User Thread는 런타임이 OS Thread 위에서 관리한다. 선점 - 타이머 인터럽트 런타임 - suspend/resu"
+1774330367106,N+1 문제 (N+1 Query Problem),JPA,REVIEW,CONVERT,REVIEW 재분류: N+1가 Problem 04-목록 조회 API에서 연관 데이터 접근으로 SQL이 폭증함와 연결됨,04-목록 조회 API에서 연관 데이터 접근으로 SQL이 폭증함,,1건의 목록 조회 후 N건 각각에 개별 쿼리가 발생해 총 N+1회 DB를 다녀오는 현상
+1774330367129,JDBC Fetch Size,DB,REVIEW,CONVERT,REVIEW 재분류: JDBC Fetch가 Problem 25-대량 조회 API가 DB보다 애플리케이션 전송 구간에서 느림와 연결됨,25-대량 조회 API가 DB보다 애플리케이션 전송 구간에서 느림,,ResultSet이 한 번의 네트워크 라운드트립에 가져오는 행 수를 지정하는 설정값
+1774330367156,복합키 (Composite Key),DB,CONVERT,CONVERT,Problem 노트와 직접 매칭됨,52-복합키를 기본키로 썼다가 FK 전파와 인덱스 순서 때문에 변경이 어려워짐,,두 개 이상의 컬럼을 조합하여 기본키를 구성하는 방식
+1774330367178,트랜잭션 실행 컨텍스트,Architecture,KEEP,KEEP,반복 원리/판단 기준으로 유지 가치 있음,,,트랜잭션 실행 컨텍스트는 proxy·decorator·context manager·callback으로 사용자 코드 앞뒤에 begin과 commit/rollback을 끼우는 구조다.
+1774330367205,AOP (Aspect-Oriented Programming),Spring,KEEP,KEEP,반복 원리/판단 기준으로 유지 가치 있음,,,횡단 관심사(트랜잭션·로깅·보안)를 Aspect로 분리해 지정 시점에 자동 삽입하는 패러다임
+1774330367230,Checked Exception,Java,CONVERT,CONVERT,Problem 노트와 직접 매칭됨,42-Checked Exception을 그대로 전파해 서비스 인터페이스가 예외에 오염됨,,Checked Exception은 호출자가 복구 가능성을 검토하도록 Java 컴파일러가 처리 선언을 강제하는 예외다.
+1774330367258,Tomcat 요청 처리,Tomcat,CONVERT,CONVERT,Problem 노트와 직접 매칭됨,19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤,,"Tomcat 요청 처리는 TCP 연결을 받아 NIO 이벤트로 감지한 뒤 Worker Thread에서 Servlet을 실행하는 흐름이다. • Acceptor, Poller, Worker가 역할을 나눠 처리한다"
+1774330539205,Lost Update,DB,REVIEW,CONVERT,REVIEW 재분류: Lost Update가 Problem 03-동시 요청으로 재고나 예약 수량 갱신이 소실됨와 연결됨,03-동시 요청으로 재고나 예약 수량 갱신이 소실됨,,두 transaction이 같은 값을 읽고 수정해 한쪽 변경이 무시되는 현상
+1774330539230,코루틴 (Coroutine),Kotlin,DELETE,DELETE,Problem 중심 훈련과 직접 연결 약함; 필요 시 Problem 카드로 재작성,,,코루틴은 서브루틴과 달리 중간에 suspend로 멈추고 resume으로 이어 실행할 수 있는 실행 단위다.
+1774330539256,MDC (Mapped Diagnostic Context),Architecture,REVIEW,CONVERT,REVIEW 재분류: MDC가 Problem 10-동시 요청 로그가 섞여 장애 원인을 추적하기 어려움와 연결됨,10-동시 요청 로그가 섞여 장애 원인을 추적하기 어려움,,ThreadLocal에 키-값을 저장해 로그 출력 시 요청 컨텍스트 정보를 자동으로 함께 기록하는 메커니즘
+1774330539279,값의 신뢰성 (Value Trustworthiness),Architecture,KEEP,KEEP,반복 원리/판단 기준으로 유지 가치 있음,,,값이 바뀌지 않고(불변성) + 같은 입력에 같은 결과(예측 가능성) + 유효하지 않은 상태 불가(자기 검증)인 성질
+1774330539305,이벤트 기반과 비동기의 독립성,Architecture,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,이벤트 기반(결합도 감소)과 비동기(성능 향상)는 목적이 다른 독립된 개념 — 함께 쓰면 시너지
+1774330539331,파일 추상화 (Everything is a File),Architecture,REVIEW,KEEP,REVIEW 재분류: Problem 카드 정답에서 반복 참조할 핵심 원리/지표,,,Unix에서 디스크·소켓·장치·파이프 등 모든 I/O를 단일 API(open·read·write·close)로 통일하는 설계 철학
+1774330691253,Netfilter와 iptables,Network,REVIEW,CONVERT,REVIEW 재분류: Netfilter가 Problem 14-DNAT 설정 후에도 VM 서비스에 외부 접속이 되지 않음와 연결됨,14-DNAT 설정 후에도 VM 서비스에 외부 접속이 되지 않음,,Linux 커널의 패킷 처리 프레임워크 — Netfilter(커널)를 iptables(유저)가 호출해 규칙을 등록하는 계층 구조
+1774330691279,DNAT과 SNAT,Network,REVIEW,CONVERT,REVIEW 재분류: DNAT가 Problem 14-DNAT 설정 후에도 VM 서비스에 외부 접속이 되지 않음와 연결됨,14-DNAT 설정 후에도 VM 서비스에 외부 접속이 되지 않음,,"DNAT은 목적지 주소, SNAT은 출발지 주소를 변환하는 패킷 주소 변환 기술"
+1774936911468,Atomic UPDATE,DB,REVIEW,CONVERT,REVIEW 재분류: Atomic UPDATE가 Problem 03-동시 요청으로 재고나 예약 수량 갱신이 소실됨와 연결됨,03-동시 요청으로 재고나 예약 수량 갱신이 소실됨,,읽기 - 계산(검증) - 쓰기 과정을 하나의 UPDATE 문으로 처리해 Lost Update를 막는 방식
+1774937681585,fail2ban,Security,CONVERT,CONVERT,Problem 노트와 직접 매칭됨,15-Cloudflare Tunnel 환경에서 fail2ban으로 공격자 IP를 차단하지 못함,,fail2ban은 log pattern에 걸린 IP를 firewall rule로 자동 차단하는 침입 방어 도구다.
+1774937692684,Cloudflare WAF,Security,REVIEW,CONVERT,REVIEW 재분류: Cloudflare WAF가 Problem 49-iptables나 fail2ban으로 막으려 했지만 공격자가 이미 프록시나 CDN 뒤에 있음와 연결됨,49-iptables나 fail2ban으로 막으려 했지만 공격자가 이미 프록시나 CDN 뒤에 있음,,Cloudflare WAF는 Cloudflare Edge에서 HTTP 요청을 검사해 원본 서버 도달 전에 악성 요청을 막는 L7 방화벽이다.
+1774937704281,Cloudflare Tunnel IP 마스킹,Network,CONVERT,CONVERT,Problem 노트와 직접 매칭됨,15-Cloudflare Tunnel 환경에서 fail2ban으로 공격자 IP를 차단하지 못함,,Cloudflare Tunnel IP 마스킹은 원본 서버가 client IP 대신 Cloudflare 인프라 IP를 source IP로 보는 현상이다.
+1774937727934,Cloudflare Tunnel 환경에서 IP 기반 공격 차단,Security,CONVERT,CONVERT,Problem 노트와 직접 매칭됨,15-Cloudflare Tunnel 환경에서 fail2ban으로 공격자 IP를 차단하지 못함,,Cloudflare Tunnel을 쓰면 원본 서버가 client IP를 직접 보지 않으므로 서버의 IP 기반 차단 효과가 약해진다.
+1775041094438,EXPLAIN ANALYZE,DB,REVIEW,CONVERT,REVIEW 재분류: EXPLAIN가 Problem 06-인덱스를 추가했는데도 조회 쿼리가 느림와 연결됨,06-인덱스를 추가했는데도 조회 쿼리가 느림,,EXPLAIN ANALYZE는 PostgreSQL 실행 계획과 실제 실행 시간·row 수를 함께 보여주는 진단 명령이다.
+1775041100425,Hash Join,DB,REVIEW,CONVERT,REVIEW 재분류: Hash Join가 Problem 20-JOIN 쿼리가 데이터가 늘자 갑자기 느려짐와 연결됨,20-JOIN 쿼리가 데이터가 늘자 갑자기 느려짐,,한쪽 테이블을 hash table로 만들어 다른 테이블의 row를 빠르게 맞춰보는 join 방식
+1775041100449,Nested Loop Join,DB,REVIEW,CONVERT,REVIEW 재분류: Nested Loop가 Problem 20-JOIN 쿼리가 데이터가 늘자 갑자기 느려짐와 연결됨,20-JOIN 쿼리가 데이터가 늘자 갑자기 느려짐,,바깥 테이블 row마다 안쪽 테이블에서 맞는 row를 반복해서 찾는 join 방식
+1775041100475,Merge Join,DB,REVIEW,CONVERT,REVIEW 재분류: Merge Join가 Problem 20-JOIN 쿼리가 데이터가 늘자 갑자기 느려짐와 연결됨,20-JOIN 쿼리가 데이터가 늘자 갑자기 느려짐,,정렬된 두 입력을 앞에서부터 나란히 훑으며 같은 key를 맞추는 join 방식
+1775041100509,Seq Scan,DB,REVIEW,CONVERT,REVIEW 재분류: Seq Scan가 Problem 06-인덱스를 추가했는데도 조회 쿼리가 느림와 연결됨,06-인덱스를 추가했는데도 조회 쿼리가 느림,,heap page를 처음부터 끝까지 물리 순서대로 읽고 조건에 맞는 row만 남기는 방식
+1775041105900,Index Scan,DB,REVIEW,CONVERT,REVIEW 재분류: Index Scan가 Problem 06-인덱스를 추가했는데도 조회 쿼리가 느림와 연결됨,06-인덱스를 추가했는데도 조회 쿼리가 느림,,index에서 찾은 row 위치를 따라가 heap page의 실제 row를 읽는 방식
+1775041105954,Heap Page 구조,DB,REVIEW,CONVERT,REVIEW 재분류: Heap Page가 Problem 53-ctid나 물리 위치를 안정적인 row 식별자로 사용하려다 깨짐와 연결됨,53-ctid나 물리 위치를 안정적인 row 식별자로 사용하려다 깨짐,,Heap Page 구조는 PostgreSQL row가 8KB page 안에서 item pointer와 tuple로 배치되는 방식이다.
+1775041105987,트랜잭션 가시성,DB,KEEP,KEEP,반복 원리/판단 기준으로 유지 가치 있음,,,트랜잭션 가시성은 snapshot이 특정 row version을 볼 수 있는지 xmin/xmax로 판단하는 MVCC 규칙이다.
+1775137312453,HTTP Keep-Alive,Network,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,HTTP/1.1에서 TCP 연결을 요청마다 끊지 않고 여러 요청에 재사용하는 메커니즘
+1775137319618,HTTP Host 헤더,Network,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,클라이언트가 같은 IP로 연결하더라도 어떤 도메인으로 요청했는지 서버에 알려주는 요청 헤더
+1775199827939,Repository 패턴,Architecture,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,domain logic이 저장 방식에 직접 의존하지 않도록 조회·저장 책임을 분리하는 패턴 • 테스트 대역과 저장소 교체가 쉬워진다
+1775204516618,Lazy Loading,JPA,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,Lazy Loading은 실제 접근 시점까지 연관 데이터 조회를 미루는 로딩 전략이다.
+1775226382682,무상태성 (Statelessness),Architecture,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,client별 진행 상태를 server에 저장하지 않고 각 요청에 담긴 정보만으로 처리하는 성질
+1775226395025,Context Window,LLM,REVIEW,CONVERT,REVIEW 재분류: Context Window가 Problem 61-RAG를 붙였는데 관련 없는 문서가 들어가 답변 품질이 나빠짐와 연결됨,61-RAG를 붙였는데 관련 없는 문서가 들어가 답변 품질이 나빠짐,,LLM이 한 번의 요청에서 처리할 수 있는 최대 토큰 수
+1775226791775,RAG (Retrieval-Augmented Generation),DB,CONVERT,CONVERT,Problem 노트와 직접 매칭됨,61-RAG를 붙였는데 관련 없는 문서가 들어가 답변 품질이 나빠짐,,LLM이 답변 전 외부 저장소에서 관련 정보를 검색해 컨텍스트에 주입하는 기법
+1775226804723,Vector DB,DB,REVIEW,CONVERT,REVIEW 재분류: Vector가 Problem 61-RAG를 붙였는데 관련 없는 문서가 들어가 답변 품질이 나빠짐와 연결됨,61-RAG를 붙였는데 관련 없는 문서가 들어가 답변 품질이 나빠짐,,텍스트를 고차원 벡터로 변환해 저장하고 의미적 유사도 기반으로 검색하는 데이터베이스
+1775443237299,Blocking I/O,OS,REVIEW,CONVERT,REVIEW 재분류: Lock가 Problem 19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤와 연결됨,19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤,,Blocking I/O는 I/O가 끝날 때까지 user thread가 다음 작업을 진행하지 못하는 실행 방식이다. • OS는 대기 thread를 sleep시킬 수 있지만 애플리케이션 입장에서는 thread 재사용이 
+1775443239794,JavaScript 비동기 진화,JavaScript,DELETE,DELETE,Problem 중심 훈련과 직접 연결 약함; 필요 시 Problem 카드로 재작성,,,"JavaScript 비동기 진화는 callback, Promise, async/await로 비동기 결과를 순차적으로 다루기 쉽게 만든 흐름이다."
+1775462168838,JVM 메모리 영역,JVM,CONVERT,CONVERT,Problem 노트와 직접 매칭됨,43-Heap 사용량만 보고 JVM 메모리 부족 원인을 놓침,본질-JVM 런타임 영역과 생명주기,JVM 메모리 영역은 Java 실행 중 데이터가 놓이는 위치를 역할별로 나눈 구조다.
+1775462168861,Heap 상속 레이아웃,JVM,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,Heap 상속 레이아웃은 객체 메모리에 부모 field를 먼저 두고 자식 field를 그 뒤에 배치하는 구조다.
+1775462168877,Method Area,JVM,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,Method Area는 JVM이 클래스 메타데이터와 런타임 상수 정보를 저장하는 메모리 영역이다. 지금은 Metaarea? 버전업하면서 명칭 바뀐거같음
+1775463821061,GROUP BY의 Functional Dependency,DB,REVIEW,CONVERT,REVIEW 재분류: Functional Dependency가 Problem 51-한 테이블에 여러 사실을 넣어 수정할 때마다 데이터가 불일치함와 연결됨,51-한 테이블에 여러 사실을 넣어 수정할 때마다 데이터가 불일치함,,GROUP BY에서 PK가 있으면 functional dependency 때문에 같은 group의 비집계 컬럼 값이 하나로 결정된다.
+1775554433265,JPA 순환 참조,JPA,CONVERT,CONVERT,Problem 노트와 직접 매칭됨,05-양방향 연관관계 직렬화로 순환 참조가 발생함,,JPA 순환 참조는 양방향 Entity를 JSON으로 직렬화할 때 서로를 계속 따라가 StackOverflowError가 나는 문제다.
+1775554443773,JPQL 벌크 연산의 1차 캐시 문제,JPA,CONVERT,CONVERT,Problem 노트와 직접 매칭됨,57-JPQL 벌크 업데이트 후 같은 트랜잭션에서 오래된 값을 읽음,,JPQL UPDATE/DELETE는 1차 캐시를 우회해 DB에 직접 반영
+1775554455474,ReBAC,Security,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,주체와 객체 사이의 관계를 기반으로 접근 권한을 결정하는 인가 모델
+1775554464100,JPA EntityManager,JPA,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,엔티티 생명주기를 관리하고 DB 동기화를 조율하는 영속성 컨텍스트 관리자
+1775554473798,JPA 영속성 컨텍스트,JPA,KEEP,KEEP,반복 원리/판단 기준으로 유지 가치 있음,,본질-영속성 컨텍스트와 DB 상태 동기화,"JPA 영속성 컨텍스트는 Entity를 관리하며 동일성, 변경 감지, 쓰기 지연을 제공하는 1차 저장 공간이다."
+1775554490272,JPA 쓰기 지연,JPA,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,JPA 쓰기 지연은 Entity 변경 SQL을 즉시 실행하지 않고 flush 시점까지 모아두는 기능이다.
+1776145003666,명령어 재배치 (Instruction Reordering),OS,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,성능 최적화를 위해 CPU/컴파일러가 실행 순서를 임의로 변경하는 현상
+1776145003714,메모리 배리어 (Memory Barrier),OS,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,특정 지점 전후의 메모리 연산 순서를 강제하고 가시성을 전파하는 명령어
+1776145003764,CAS (Compare-and-Swap)와 낙관적 락,OS,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,예상값과 일치할 때만 새 값으로 바꾸는 원자적 명령어
+1776145003814,ABA 문제의 해결 메커니즘 (Versioning),OS,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,값은 같아도 버전이 다르면 실패 처리하여 변화 이력을 감지
+1776187485321,Design Pattern,Software Design,DELETE,DELETE,Problem 중심 훈련과 직접 연결 약함; 필요 시 Problem 카드로 재작성,,,Design Pattern은 반복되는 설계 문제와 해결 구조에 붙인 공통 이름이다.
+1776237788740,SQL 집계함수,DB,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,SQL 집계함수는 여러 row의 값을 하나의 결과값으로 줄이는 함수다.
+1776322650951,Digital Signature,Security,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,Digital Signature는 데이터 무결성과 서명자 신원을 확인하기 위해 hash를 private key로 서명하는 기술이다.
+1776322653518,PKI,Security,REVIEW,CONVERT,REVIEW 재분류: PKI가 Problem 48-인증서는 있는데 이 공개키를 믿어도 되는지 검증하지 못함와 연결됨,48-인증서는 있는데 이 공개키를 믿어도 되는지 검증하지 못함,,"공개키를 숨기기 위한 것이 아니라, 그 공개키가 진짜 소유자의 키인지 검증하기 위한 신뢰 구조"
+1776322658516,Hash 충돌 저항 (Collision Resistance),Security,CONVERT,CONVERT,Problem 노트와 직접 매칭됨,40-HashMap 조회가 항상 O1이라고 믿었는데 충돌과 리사이즈로 느려짐,,같은 해시를 만드는 다른 데이터를 찾는 것이 현실적으로 불가능한 성질
+1776322658539,전자서명 위조 불가 (Unforgeability),Security,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,데이터와 서명을 동시에 교체해도 private key 없이는 위조 불가
+1776667985841,커넥션 풀 고갈 (Connection Pool Exhaustion),DB,CONVERT,CONVERT,Problem 노트와 직접 매칭됨,01-외부 API 호출을 트랜잭션 안에 넣어 커넥션 풀이 고갈됨,,커넥션 풀의 모든 커넥션이 점유되어 새 요청이 커넥션을 기다리는 상태 커넥션 고갈 → 스레드 고갈 → 서비스 전체 장애
+1776668000266,Lock 범위,DB,REVIEW,CONVERT,REVIEW 재분류: Lock가 Problem 19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤와 연결됨,19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤,,Lock 범위는 DB가 동시성 충돌을 막기 위해 잠그는 데이터 단위다.
+1776668029539,PROPAGATION_NOT_SUPPORTED,Spring,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,PROPAGATION_NOT_SUPPORTED는 기존 transaction을 잠시 중단하고 비트랜잭션으로 메서드를 실행하는 전파 옵션이다.
+1776668029563,@Transactional(readOnly = true),JPA,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,@Transactional(readOnly = true)는 읽기 트랜잭션을 열고 ORM/DB에 수정 의도가 없다는 힌트를 전달한다.
+1776940398834,JPA Flush 타이밍,JPA,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,트랜잭션 commit 직전 SQL을 DB로 전송하는 시점
+1777435825088,Git Reset 모드,Git,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,"Git reset 모드는 HEAD, staging area, working tree를 어디까지 되돌릴지 정하는 옵션이다."
+1777435827740,Git Worktree,Git,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,하나의 저장소에서 복수의 작업 디렉토리를 동시에 체크아웃해 브랜치를 독립 공간으로 분리하는 기능
+1777435830465,AOP Self-Invocation,Spring,KEEP,KEEP,반복 원리/판단 기준으로 유지 가치 있음,,,같은 빈 내부에서 메서드를 직접 호출하면 프록시를 우회해 @Transactional·@Cacheable 등이 무시되는 현상
+1777435833165,Local Cache,Spring,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,Local Cache는 process 내부 memory에 값을 저장해 network 없이 재사용하는 cache다.
+1777435835840,분산 추적,Infra,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,분산 추적은 하나의 요청에 같은 traceId를 전파해 여러 서비스의 실행 흐름을 이어 보는 관찰 기법이다.
+1777901478121,캐시 키 공간 폭발 (Cache Key Space Explosion),Infra,KEEP,KEEP,반복 원리/판단 기준으로 유지 가치 있음,,본질-캐시 키 공간과 참조 지역성,검색 조건 조합이 너무 많아 캐시 키가 계속 늘고 재사용이 거의 사라지는 현상
+1777903837767,Redis (Remote Dictionary Server),Infra,CONVERT,CONVERT,Problem 노트와 직접 매칭됨,27-도메인 코드에 DB Redis FCM 같은 기술 이름이 새어 나옴,,"인메모리 키-값 데이터 구조 서버, 자료구조 종류에 따라 역할이 결정됨"
+1777907776550,Cold Cache,Infra,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,Cold Cache는 필요한 데이터가 cache에 아직 없어 원본 저장소에서 처음 읽어야 하는 상태다.
+1777943435333,flyway.postgresql.transactional-lock,DB,REVIEW,CONVERT,REVIEW 재분류: Lock가 Problem 19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤와 연결됨,19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤,,flyway.postgresql.transactional-lock은 PostgreSQL에서 Flyway lock을 트랜잭션 단위로 잡을지 정하는 설정이다.
+1777972300865,PostgreSQL 테이블 잠금 모드,DB,KEEP,KEEP,반복 원리/판단 기준으로 유지 가치 있음,,본질-잠금 모드와 충돌 매트릭스,PostgreSQL 테이블 잠금 모드는 table 접근 충돌을 제어하는 lock level 집합이다.
+1777972312482,AccessShareLock,DB,REVIEW,CONVERT,REVIEW 재분류: Lock가 Problem 19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤와 연결됨,19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤,,SELECT가 획득하는 최약 잠금 모드 — AccessExclusiveLock하고만 충돌
+1777972323731,AccessExclusiveLock,DB,REVIEW,CONVERT,REVIEW 재분류: Lock가 Problem 19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤와 연결됨,19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤,,모든 잠금 모드와 충돌하는 최강 잠금 — SELECT조차 블로킹하는 유일한 모드
+1777972335357,ShareUpdateExclusiveLock,DB,REVIEW,CONVERT,REVIEW 재분류: Lock가 Problem 19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤와 연결됨,19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤,,VACUUM / CREATE INDEX CONCURRENTLY가 획득하는 잠금 — DML과 공존하는 약한 DDL 잠금
+1778297325141,논리 순서와 물리 순서,DB,KEEP,KEEP,반복 원리/판단 기준으로 유지 가치 있음,,본질-논리 순서와 물리 접근 비용,조회·정렬 기준인 논리 순서와 저장·접근 위치인 물리 순서를 간접 참조로 분리해 성능과 유연성을 얻는 원리
+1778567147338,스레드 안전성,Java,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,여러 스레드가 동시에 같은 상태에 접근해도 프로그램의 의미와 결과가 깨지지 않도록 보장하는 성질
+1778567169278,Optimistic Lock,DB,REVIEW,CONVERT,REVIEW 재분류: Lock가 Problem 19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤와 연결됨,19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤,,먼저 수정하게 두고 commit/update 시 version 불일치로 충돌을 잡는 방식
+1778647155111,트랜잭션 리소스 생명주기 관리,Spring,KEEP,KEEP,반복 원리/판단 기준으로 유지 가치 있음,,,TransactionManager가 트랜잭션 시작 시 실제 리소스를 획득해 실행 문맥에 바인딩하고 종료 시 commit·rollback·release를 수행하는 구조
+1778726692804,옵저버빌리티,Infra,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,시스템의 외부 신호만으로 내부 상태를 추론하고 장애 원인을 재구성할 수 있는 능력
+1778726692850,Log System,Infra,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,Log system은 이벤트와 오류 기록을 저장·검색해 장애 원인과 실행 흐름을 추적하는 도구다.
+1778726692874,metrics 시스템 선택의 트레이드오프,Infra,REVIEW,KEEP,REVIEW 재분류: Problem 카드 정답에서 반복 참조할 핵심 원리/지표,,,"수집 방식·저장 기간·확장 방식·운영 주체를 기준으로 메트릭 도구의 단순성, 확장성, 비용을 맞바꾸는 선택 기준"
+1778728307277,캡슐화,Architecture,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,캡슐화는 외부에 필요한 계약만 공개하고 내부 구현을 숨겨 변경 영향이 퍼지지 않게 막는 설계 원리다. • 사용자는 공개 API에만 의존하게 된다
+1780074426497,SQL 물리 실행,DB,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,"SQL 물리 실행은 SQL이 parser, planner, executor를 거쳐 실제 page와 tuple 접근으로 내려가는 과정이다."
+1780074426503,DBMS Storage Manager,DB,REVIEW,CONVERT,REVIEW 재분류: RAG가 Problem 61-RAG를 붙였는데 관련 없는 문서가 들어가 답변 품질이 나빠짐와 연결됨,61-RAG를 붙였는데 관련 없는 문서가 들어가 답변 품질이 나빠짐,,DBMS Storage Manager는 disk와 memory buffer 사이의 page 이동을 관리하는 모듈이다.
+1780074426506,Index Cond,DB,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,Index Cond는 PostgreSQL이 index 탐색 단계에서 후보 tuple을 줄이는 조건이다.
+1780074426507,Buffers: shared hit,DB,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,필요한 shared block을 storage 계층까지 가지 않고 shared buffer에서 찾은 횟수
+1780074426510,Implementation 계층,Architecture,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,"Implementation 계층은 application service와 domain 사이에서 조회, 저장, not found 처리 같은 usecase 행위를 나누는 계층이다."
+1780074426512,Application Service,Architecture,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,Application Service는 외부 요청 하나에 대응하는 usecase 흐름과 transaction boundary를 조합하는 계층이다.
+1780074426514,Domain Service,Architecture,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,Domain Service는 특정 aggregate 하나에 넣기 어려운 순수 domain 판단이나 계산을 분리한 객체다.
+1780074426518,의존성 방향 (Dependency Direction),Architecture,KEEP,KEEP,반복 원리/판단 기준으로 유지 가치 있음,,본질-모듈 경계와 의존성 방향,한 코드 단위가 다른 코드 단위를 참조하고 변경 영향이 전파되는 방향
+1780074426520,Port and Adapter,Architecture,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,Port and Adapter는 core가 외부 기술을 interface로만 알고 adapter가 구현을 맡게 하는 구조다.
+1780074426523,Command Query 분리,Architecture,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,상태를 변경하는 모델과 조회하는 모델을 분리해 각각의 목적에 맞게 설계하는 방식
+1780074426525,무결성,DB,KEEP,KEEP,반복 원리/판단 기준으로 유지 가치 있음,,본질-암호학적 무결성과 부인방지,무결성은 데이터 값이 제약조건과 규칙을 만족하는 성질이다.
+1780074426527,이벤트의 불변성,Architecture,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,한 번 발생한 사건 기록을 수정하지 않고 이후 사건으로 상태를 보정하는 성질
+1780678667207,Stack 영역,JVM,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,Stack 영역은 thread마다 따로 존재하며 메서드 호출 프레임과 지역 변수를 저장하는 JVM 메모리 영역이다.
+1780678667217,Heap 영역,JVM,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,Heap 영역은 객체 인스턴스와 배열이 저장되는 JVM 공유 메모리 영역이다.
+1780678667237,PC Register,JVM,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,PC Register는 각 thread가 현재 실행 중인 JVM 명령 위치를 기억하는 작은 메모리 영역이다.
+1780678667270,Native Method Stack,JVM,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,Native Method Stack은 Java가 아닌 native method 실행에 필요한 호출 정보를 저장하는 thread별 stack 영역이다.
+1780678667298,Tomcat Acceptor,Tomcat,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,Tomcat Acceptor는 서버 소켓에서 새 TCP 연결을 accept하는 thread 역할이다.
+1780678667315,Tomcat Poller,Tomcat,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,Tomcat Poller는 NIO Selector로 socket의 읽기/쓰기 준비 상태를 감지하는 역할이다.
+1780678667352,Tomcat Worker Thread,Tomcat,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,Tomcat Worker Thread는 준비된 HTTP 요청을 Servlet/Spring MVC까지 실행하는 thread다.
+1780678667365,Unchecked Exception,Java,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,Unchecked Exception은 컴파일러가 처리 선언을 강제하지 않는 Java 예외다.
+1780678667398,pg_advisory_xact_lock,DB,REVIEW,CONVERT,REVIEW 재분류: Lock가 Problem 19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤와 연결됨,19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤,,pg_advisory_xact_lock은 PostgreSQL advisory lock을 현재 트랜잭션이 끝날 때 자동 해제되게 잡는 함수다.
+1780678667431,pg_advisory_lock,DB,REVIEW,CONVERT,REVIEW 재분류: Lock가 Problem 19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤와 연결됨,19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤,,pg_advisory_lock은 PostgreSQL advisory lock을 세션 단위로 잡고 명시적으로 해제하는 함수다.
+1780679008924,Cgroups,OS,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,"Cgroups는 Linux에서 프로세스 그룹의 CPU, memory 같은 자원 사용량을 제한하는 기능이다."
+1780679008957,Refresh Token,Security,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,Refresh Token은 Access Token을 다시 발급받기 위해 오래 보관하는 인증 토큰이다.
+1780679009057,최종적 일관성,Distributed System,KEEP,KEEP,반복 원리/판단 기준으로 유지 가치 있음,,,"일시적 불일치를 허용하되, 새 변경이 멈추면 복제본들이 같은 값으로 수렴하는 일관성 모델"
+1780679009124,정합성,DB,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,여러 데이터 상태가 시간과 관계 속에서 서로 모순되지 않는 성질
+1780679251319,Loki,Infra,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,로그 본문이 아니라 label 메타데이터를 인덱싱하고 로그 본문은 압축 chunk로 저장하는 로그 집계 시스템
+1780679251435,Aggregation,Software Design,DELETE,DELETE,Problem 중심 훈련과 직접 연결 약함; 필요 시 Problem 카드로 재작성,,,전체 객체가 부분 객체를 가지지만 부분 객체가 전체와 독립적으로 생존할 수 있는 약한 소유 관계
+1780679251469,Parallelism,OS,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,여러 작업이 물리적으로 같은 순간에 실제 실행되는 성질
+1780679251502,Latency,Performance,REVIEW,KEEP,REVIEW 재분류: Problem 카드 정답에서 반복 참조할 핵심 원리/지표,,,Latency는 하나의 요청이 시작해서 완료되기까지 걸리는 시간.&nbsp; 하나의 일을 얼마나 빨리 끝내는지 체크
+1780679251535,Component,Software Engineering,DELETE,DELETE,Problem 중심 훈련과 직접 연결 약함; 필요 시 Problem 카드로 재작성,,,명확한 인터페이스를 통해 독립적으로 배포하거나 교체할 수 있는 물리적 소프트웨어 부품
+1780679856756,비선점 (Non-preemption),OS,KEEP,KEEP,반복 원리/판단 기준으로 유지 가치 있음,,,Non-preemption은 실행 주체가 스스로 양보할 때까지 OS가 CPU 제어권을 강제로 빼앗지 않는 방식이다.
+1780679856813,임계 구역 해결의 3대 조건,OS,KEEP,KEEP,반복 원리/판단 기준으로 유지 가치 있음,,본질-임계 구역과 활동성,공유 상태를 보호하는 임계 구역 해법이 상호 배제·진행·한정 대기를 만족해야 한다는 정당성 기준
+1780679856905,SQL 집계함수 인자,DB,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,SQL 집계함수 인자는 각 row마다 하나의 값으로 평가되는 scalar expression이어야 한다.
+1780679856938,Dirty Checking,JPA,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,Dirty Checking은 JPA가 관리 중인 Entity의 변경을 snapshot과 비교해 자동으로 UPDATE SQL을 만드는 기능이다.
+1780679856971,Dijkstra,Algorithm,DELETE,DELETE,Problem 중심 훈련과 직접 연결 약함; 필요 시 Problem 카드로 재작성,,,음수 가중치가 없는 그래프에서 시작점부터 가장 가까운 정점을 차례로 확정해 최단 거리를 구하는 알고리즘
+1781097725862,개발자 실무,Architecture,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,"개발자의 실무는 주어진 일을 이해하고, 그 일을 개발이라는 수단으로 풀어내는 활동"
+1781097861225,기술적 사고력,Architecture,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,기술적 사고력은 상황을 보고 문제·방법·예측·트레이드오프를 함께 따져 선택을 설명하는 힘
+1781098464020,개발 실무를 느끼는 4단계,Architecture,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,개발 실무를 느끼는 4단계는 요구사항 느끼기 → 코드 느끼기 → 개념 정리 → 상황 정리
+1781098664343,서비스 상황 분석 척도,Architecture,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,서비스의 기술 선택을 규모·성장·변경·팀·운영 역량 기준으로 현재 상황에 맞게 판단하는 프레임
+1781098758268,UI 요구사항 질문화,Architecture,KEEP,KEEP,반복 원리/판단 기준으로 유지 가치 있음,,본질-요구사항 질문화와 숨은 정책 발견,UI 요구사항 질문화는 화면에 보이는 요소 뒤의 중복·노출·페이징·정렬 같은 숨은 정책을 질문으로 개발 조건화하는 과정
+1781098864141,요구사항 흐름에서 봐야 할 것,Architecture,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,사용자 행동이 화면·API·정책·DB·예외를 거쳐 다시 사용자 결과로 돌아오는 연결 경로를 보는 관점
+1781099055839,Mapping Table 이름 판단,DB,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,Mapping Table 이름 판단은 연결된 두 개념 중 어떤 개념이 중심이고 어떤 개념이 부수 정보인지 정해 이름 순서에 반영하는 기준
+1781099169738,UI 조회 API 분리 기준,Architecture,CONVERT,CONVERT,Problem 노트와 직접 매칭됨,04-목록 조회 API에서 연관 데이터 접근으로 SQL이 폭증함,본질-명령 모델과 조회 모델의 변경 이유 분리,UI 조회 API 분리 기준은 화면 단위가 아니라 포함된 개념들의 변경 가능성과 Front 결합도를 기준으로 API를 묶거나 나누는 판단
+1781411194418,자원 경합 (Resource Contention),Architecture,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,여러 실행 주체가 같은 제한 자원을 동시에 요구해 대기와 지연이 생기는 상태
+1781424657080,초기화 비용과 재사용,Architecture,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,비싼 준비 과정을 매번 반복하지 않고 이미 준비된 자원을 다시 써서 지연시간과 부하를 줄이는 원리
+1781505475525,Git 파일 상태,Git,KEEP,KEEP,반복 원리/판단 기준으로 유지 가치 있음,,본질-Git 상태 영역과 이력 재작성 경계,working directory의 파일이 Git 추적 대상인지와 staging area에 올라갔는지를 구분하는 상태 모델
+1781706192871,데이터 참조와 도메인 의존 구분,Architecture,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,값을 보유했는지가 아니라 상대 도메인의 규칙 변경이 내 로직으로 전파되는지로 의존 여부를 판단하는 기준
+1781706482895,인공 식별자,DB,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,변경 가능한 비즈니스 값과 안정적인 참조 대상을 분리해 변경 전파를 줄이는 의미 없는 식별자
+1781707342440,변경 경계,Architecture,CONVERT,CONVERT,Problem 노트와 직접 매칭됨,65-멀티모듈로 나눴지만 변경 경계가 아니라 폴더만 늘어남,본질-연관 방향과 변경 경계,같은 데이터를 다루는지가 아니라 같은 이유로 바뀌는지를 기준으로 유지보수 단위를 나누는 기준
+1781707359290,API 경계,Architecture,REVIEW,DELETE,REVIEW 재분류: 연결 Problem을 특정하지 못한 단독 용어 카드,,,행위자·권한·트래픽·변경 라이프사이클이 다른 요청을 서로 다른 API 유지보수 단위로 나누는 기준

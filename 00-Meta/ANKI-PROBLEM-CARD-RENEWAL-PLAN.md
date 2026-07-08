@@ -8,7 +8,11 @@
 
 앞으로 Anki의 주 학습 단위는 `01-Problem/` 노트다. `02-Principle/`은 보조 회상용 Keyword로 유지하고, `03-Question/`은 Anki 대상으로 삼지 않는다.
 
+덱은 복잡하게 나누지 않는다. 문제 해결 카드는 **단일 덱**으로 유지하고, 카드 내부의 `CardType` 필드만 `Scenario / Code Review / Implementation`으로 구분한다.
+
 ```text
+Deck: 💻::Problem Solving
+
 Problem note
   ↓
 Scenario card       문제 상황 → 원인/첫 대응
@@ -24,6 +28,7 @@ Implementation card 해결 방향 → 구현 체크포인트
 
 ```text
 00-Meta/Anki-Keyword-Audit.csv
+00-Meta/Anki-Keyword-Audit-Reviewed.csv
 ```
 
 초기 자동 분류:
@@ -33,7 +38,16 @@ Implementation card 해결 방향 → 구현 체크포인트
 | KEEP | 39 | Principle 회상용으로 유지 후보 |
 | CONVERT | 25 | Problem 카드로 전환 후보 |
 | DELETE | 26 | 삭제 후보 |
-| REVIEW | 140 | 수동 검토 필요 |
+| REVIEW | 140 | 보수적 자동 분류로 남겨둔 수동 검토 후보 |
+
+REVIEW 재분류 후:
+
+| Decision | Count | 의미 |
+|---|---:|---|
+| KEEP | 48 | Keyword로 유지 후보 |
+| CONVERT | 69 | Problem 카드로 전환 후보 |
+| DELETE | 113 | 삭제 또는 suspend 후보 |
+| REVIEW | 0 | 남은 미분류 없음 |
 
 ### 2.1 KEEP 기준
 
@@ -65,13 +79,25 @@ Implementation card 해결 방향 → 구현 체크포인트
 
 ### 2.4 REVIEW 처리 방식
 
-`REVIEW`는 자동 삭제하지 않는다. 다음 순서로 재분류한다.
+초기 `REVIEW` 140장은 “모호해서 보류”라기보다, 자동 매칭을 보수적으로 잡았기 때문에 생겼다. 예를 들어 `N+1 문제`, `Lost Update`, `EXPLAIN ANALYZE`는 실제 Problem과 연결되지만, 파일명과 정확히 매칭되지 않아 REVIEW로 남았다.
+
+재분류 기준:
 
 ```text
-1. 연결되는 Problem이 있는가? → CONVERT
-2. 반복 Principle인가? → KEEP
-3. 둘 다 아니고 단독 용어인가? → DELETE
+1. 특정 Problem의 증상/원인/해결로 바로 바뀌는가? → CONVERT
+2. 여러 Problem 정답에서 반복 참조할 원리/지표인가? → KEEP
+3. 연결 Problem을 특정하지 못한 단독 용어인가? → DELETE
 ```
+
+REVIEW 140장 재분류 결과:
+
+```text
+CONVERT 44
+KEEP     9
+DELETE  87
+```
+
+따라서 최종 감사 작업은 `Anki-Keyword-Audit-Reviewed.csv`를 기준으로 한다.
 
 ---
 
@@ -194,14 +220,15 @@ Answer: 구현 단계 + 필수 저장 상태 + 예외/동시성 처리
 
 ### Phase 2. Problem 카드 모델 결정
 
-선택지:
+덱은 하나만 둔다.
 
 ```text
-A. 기존 Interview v2 모델을 임시 재사용
-B. Problem 전용 모델 생성: 🧑🏻‍💻 Problem Solving v1
+Deck: 💻::Problem Solving
+Model: 🧑🏻‍💻 Problem Solving v1
+CardType: Scenario | Code Review | Implementation
 ```
 
-추천은 B다. 기존 Keyword 모델은 한 줄 정의 회상에 맞춰져 있어 Scenario/Code Review/Implementation 카드와 맞지 않는다.
+추천은 새 모델을 만들되, 덱은 하나로 유지하는 방식이다. 기존 Keyword 모델은 한 줄 정의 회상에 맞춰져 있어 Scenario/Code Review/Implementation 카드와 맞지 않는다.
 
 ### Phase 3. P1 Problem부터 생성
 
@@ -233,8 +260,8 @@ B. Problem 전용 모델 생성: 🧑🏻‍💻 Problem Solving v1
 다음 작업은 둘 중 하나다.
 
 ```text
-A. REVIEW 140장 재분류를 계속해서 최종 삭제/유지/전환 목록 확정
-B. P1 Problem 상위 10개로 Problem 카드 샘플 세트 설계
+A. `Anki-Keyword-Audit-Reviewed.csv` 기준으로 삭제/suspend 후보를 사용자 승인받기
+B. P1 Problem 상위 10개로 단일 덱 Problem 카드 샘플 세트 설계
 ```
 
-추천: B를 먼저 한다. 샘플 카드 품질을 확인한 뒤 Keyword 삭제 기준을 확정하는 편이 안전하다.
+추천: B를 먼저 한다. 샘플 카드 품질을 확인한 뒤 Keyword 삭제/suspend를 실행하는 편이 안전하다.
