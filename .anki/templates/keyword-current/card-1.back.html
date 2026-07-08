@@ -1,0 +1,53 @@
+<div class="anki-card back-card">
+  <!-- Header -->
+  <div class="answer-header">
+    <div class="category-label">
+      <svg class="category-icon" width="14" height="14" viewBox="0 0 24 24" fill="none">
+        <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span>{{Category}}</span>
+    </div>
+    <div class="question-text-small">{{Question}}</div>
+  </div>
+
+  <hr id="answer">
+
+  <!-- Answer -->
+  <div class="card-section">
+    <div class="section-label">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/>
+      </svg>
+      <span>Answer</span>
+    </div>
+    <div class="section-content">{{Answer}}</div>
+  </div>
+
+  <!-- Code (optional) -->
+  {{#Code}}
+  <div class="card-section">
+    <div class="section-label">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+        <path d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke="currentColor" stroke-width="2"/>
+      </svg>
+      <span>Code</span>
+    </div>
+    <div class="section-content">
+      <pre><code>{{Code}}</code></pre>
+    </div>
+  </div>
+  {{/Code}}
+
+  <!-- Related Concepts (optional) -->
+  {{#RelatedConcepts}}
+  <div class="card-section">
+    <div class="section-label">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+        <path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" stroke="currentColor" stroke-width="2"/>
+      </svg>
+      <span>Related</span>
+    </div>
+    <div class="section-content">{{RelatedConcepts}}</div>
+  </div>
+  {{/RelatedConcepts}}
+</div>

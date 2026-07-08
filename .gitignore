@@ -19,3 +19,8 @@
 
 # Temp Note
 98-Temp/
+
+# Anki - local backups / card data exports
+*.apkg
+.anki/exports/*
+!.anki/exports/.gitkeep
