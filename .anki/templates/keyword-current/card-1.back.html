@@ -4,25 +4,21 @@
     <div class="question-text-small">{{Question}}</div>
   </div>
 
-  <hr id="answer">
+  <div class="divider"></div>
 
-  <div class="card-section">
-    <div class="section-label">Answer</div>
-    <div class="section-content">{{Answer}}</div>
-  </div>
+  <div class="label">Answer</div>
+  <div class="answer">{{Answer}}</div>
 
   {{#Code}}
-  <div class="card-section">
-    <div class="section-label">Code</div>
-    <div class="section-content">
-      <pre><code>{{Code}}</code></pre>
-    </div>
+  <div class="support-block">
+    <div class="label">Code</div>
+    <pre><code>{{Code}}</code></pre>
   </div>
   {{/Code}}
 
   {{#RelatedConcepts}}
   <div class="related-box">
-    <div class="section-label">Related</div>
+    <div class="label">Related</div>
     {{RelatedConcepts}}
   </div>
   {{/RelatedConcepts}}

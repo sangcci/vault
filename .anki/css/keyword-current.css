@@ -77,11 +77,7 @@ hr#answer,
   background: var(--line);
 }
 
-.card-section {
-  margin-top: 18px;
-  padding: 0;
-}
-
+.label,
 .section-label {
   margin-bottom: 8px;
   color: var(--muted) !important;
@@ -91,9 +87,13 @@ hr#answer,
   text-transform: uppercase;
 }
 
-.section-content {
+.answer {
   color: var(--text) !important;
   font-size: 17px;
+}
+
+.support-block {
+  margin-top: 22px;
 }
 
 .related-box {
