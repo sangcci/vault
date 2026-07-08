@@ -8,4 +8,4 @@
 - 반복 판단 기준이나 원리이면 `02-Principle/`
 - 사용자의 원문 질문이면 `03-Question/`
 
-새 노트 작성 규칙은 `Rule-Core.md`와 `00-Meta/Templates/`를 따른다.
+새 노트 작성 규칙은 `Rule-Core.md`를 따른다.

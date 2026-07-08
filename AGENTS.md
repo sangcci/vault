@@ -15,7 +15,7 @@
 - 지식 노트 작성 전 구조화 workflow 안내
 - `01-Problem/`, `02-Principle/`, `03-Question/` 노트 작성/수정 검증
 - Obsidian 중복 검색 tool 제공
-- Anki Keyword 카드 생성 tool 제공
+- Anki 운영 규칙 안내 및 legacy Keyword 카드 생성 tool 제공
 
 ## 현재 노트 구조
 

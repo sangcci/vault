@@ -42,7 +42,9 @@ Every knowledge note must include:
   - Priority: official docs → reputable tech blogs → reputable communities
   - Format: \`> "exact verbatim quote" — [Source Name](URL)\`
 
-## 5. Note Templates
+## 5. Canonical Note Shape
+템플릿 파일을 복사하지 않는다. AI가 아래 최소 구조를 직접 생성한다.
+
 ### Problem
 Required sections:
 - \`## 상황\`
@@ -51,6 +53,12 @@ Required sections:
 - \`## 해결 방향\`
 - \`## 연결되는 본질\`
 - \`## 참고\`
+
+Optional but useful sections:
+- \`## 의심 문제\`
+- \`## 확인 방법\`
+- \`## 해결책 후보\`
+- \`## 트레이드오프\`
 
 ### Principle
 Required sections:
@@ -90,11 +98,14 @@ type: [Note_Type]
 Status: 작성중, 검증됨, 완료
 
 ## 9. Anki Rules
-- AnkiConnect curl 직접 호출보다 \`anki_add_keyword_card\` tool을 우선 사용한다.
-- 카드 생성 전 사용자에게 preview를 보여주고 명시 승인을 받아야 한다.
-- 기존 Keyword 카드는 유지하되, 신규 카드는 Problem/Principle 기반 Scenario, Code Review, Implementation 중심 개편을 우선 고려한다.
-- Deck: \`💻::Keyword\` only until Anki schema is explicitly migrated.
-- Model: \`🧑🏻‍💻 Interview v2\` until Anki schema is explicitly migrated.
+- Primary recall deck: \`💻::Problem Solving\`.
+- Primary model: \`🧑🏻‍💻 Problem Solving v1\`.
+- Problem 카드 필드: \`Question\`, \`Answer\`, \`CardType\`, \`Problem\`, \`Principles\`.
+- \`CardType\`은 \`Scenario\`, \`Code Review\`, \`Implementation\` 중 하나를 사용한다.
+- 카드 생성/삭제/모델 변경 전에는 사용자에게 preview 또는 변경 요약을 보여주고 명시 승인을 받아야 한다.
+- \`💻::Keyword\`는 유지 카드 53장 중심의 보조 덱이다. 신규 Keyword 카드는 예외적으로만 만든다.
+- \`anki_add_keyword_card\` tool은 legacy Keyword 카드 생성용이다. Problem Solving 카드는 현재 명시 승인 후 AnkiConnect로 처리한다.
+- Anki 모델/CSS/템플릿/덱 옵션 설정은 \`.anki/\`에 export해 git으로 관리한다. 카드 데이터와 리뷰 기록은 git으로 관리하지 않는다.
 
 ## 10. Change History
 - LOG.md 작성은 더 이상 필요 없다.

@@ -15,7 +15,7 @@
 | Tool | Role |
 |---|---|
 | **Obsidian** | 구조화 — Problem과 Principle의 관계, 링크 |
-| **Anki** | 회상 — 현재는 `💻::Keyword`, 이후 Scenario/Code Review/Implementation 중심 개편 예정 |
+| **Anki** | 회상 — `💻::Problem Solving` 중심, `💻::Keyword`는 유지 카드 보조 덱 |
 | **LLM** | 실행·검증 — 시나리오 연습, 판단기준 검증, 마이그레이션 보조 |
 
 ## 작성 원칙

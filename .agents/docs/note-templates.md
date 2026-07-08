@@ -1,6 +1,8 @@
-# Note Templates
+# Note Shape Guide
 
 현재 노트 구조는 3-layer입니다.
+
+`00-Meta/Templates/`의 물리 템플릿 파일은 더 이상 사용하지 않습니다. 새 노트는 AI가 이 문서와 `AGENTS.md`, `knowledge-architect` 규칙을 기준으로 직접 작성합니다.
 
 ## Problem — `01-Problem/NN-<Title>.md`
 
