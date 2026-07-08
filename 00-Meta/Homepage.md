@@ -1,24 +1,44 @@
 # 최근 노트
 
+## Problem
+
 ```dataview
-TABLE file.folder as "분류", file.mtime as "수정일"
-FROM ""
-WHERE file.folder != "99-Daily"
-  AND file.folder != "00-Meta"
-  AND file.folder != "98-Temp"
-  AND !contains(file.path, ".claude")
+TABLE file.mtime as "수정일"
+FROM "01-Problem"
 SORT file.mtime DESC
-LIMIT 10
+LIMIT 5
 ```
 
-# 오늘의 Task
-### 단기 Task
+## Principle
+
+```dataview
+TABLE file.mtime as "수정일"
+FROM "02-Principle"
+SORT file.mtime DESC
+LIMIT 5
+```
+
+## Question
+
+```dataview
+TABLE file.mtime as "수정일"
+FROM "03-Question"
+SORT file.mtime DESC
+LIMIT 5
+```
+
+# TODO
+
+## 단기 Task
+
 ```dataview
 TASK
 FROM "00-Meta/TODO.md"
 WHERE !completed
 ```
-### 장기 Task
+
+## 장기 Task
+
 ```dataview
 LIST L.text
 FROM "00-Meta/TODO.md"
