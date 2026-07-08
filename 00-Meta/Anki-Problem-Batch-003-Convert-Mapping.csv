@@ -1,0 +1,15 @@
+noteId,Question,Category,BatchProblem,MatchedProblem,Reason
+1771060882003,교착 상태,OS,19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤,19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤,REVIEW 재분류: 교착가 Problem 19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤와 연결됨
+1774330367129,JDBC Fetch Size,DB,25-대량 조회 API가 DB보다 애플리케이션 전송 구간에서 느림,25-대량 조회 API가 DB보다 애플리케이션 전송 구간에서 느림,REVIEW 재분류: JDBC Fetch가 Problem 25-대량 조회 API가 DB보다 애플리케이션 전송 구간에서 느림와 연결됨
+1775041100425,Hash Join,DB,20-JOIN 쿼리가 데이터가 늘자 갑자기 느려짐,20-JOIN 쿼리가 데이터가 늘자 갑자기 느려짐,REVIEW 재분류: Hash Join가 Problem 20-JOIN 쿼리가 데이터가 늘자 갑자기 느려짐와 연결됨
+1775041100449,Nested Loop Join,DB,20-JOIN 쿼리가 데이터가 늘자 갑자기 느려짐,20-JOIN 쿼리가 데이터가 늘자 갑자기 느려짐,REVIEW 재분류: Nested Loop가 Problem 20-JOIN 쿼리가 데이터가 늘자 갑자기 느려짐와 연결됨
+1775041100475,Merge Join,DB,20-JOIN 쿼리가 데이터가 늘자 갑자기 느려짐,20-JOIN 쿼리가 데이터가 늘자 갑자기 느려짐,REVIEW 재분류: Merge Join가 Problem 20-JOIN 쿼리가 데이터가 늘자 갑자기 느려짐와 연결됨
+1775463821061,GROUP BY의 Functional Dependency,DB,22-GROUP BY 후 비집계 컬럼을 조회하자 오류가 발생함,51-한 테이블에 여러 사실을 넣어 수정할 때마다 데이터가 불일치함,REVIEW 재분류: Functional Dependency가 Problem 51-한 테이블에 여러 사실을 넣어 수정할 때마다 데이터가 불일치함와 연결됨
+1776668000266,Lock 범위,DB,19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤,19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤,REVIEW 재분류: Lock가 Problem 19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤와 연결됨
+1777903837767,Redis (Remote Dictionary Server),Infra,29-Redis 메모리 한도에 도달하자 중요 키가 사라지거나 쓰기가 실패함,27-도메인 코드에 DB Redis FCM 같은 기술 이름이 새어 나옴,Problem 노트와 직접 매칭됨
+1777972312482,AccessShareLock,DB,19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤,19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤,REVIEW 재분류: Lock가 Problem 19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤와 연결됨
+1777972323731,AccessExclusiveLock,DB,19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤,19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤,REVIEW 재분류: Lock가 Problem 19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤와 연결됨
+1777972335357,ShareUpdateExclusiveLock,DB,19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤,19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤,REVIEW 재분류: Lock가 Problem 19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤와 연결됨
+1778567169278,Optimistic Lock,DB,19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤,19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤,REVIEW 재분류: Lock가 Problem 19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤와 연결됨
+1780678667398,pg_advisory_xact_lock,DB,19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤,19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤,REVIEW 재분류: Lock가 Problem 19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤와 연결됨
+1780678667431,pg_advisory_lock,DB,19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤,19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤,REVIEW 재분류: Lock가 Problem 19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤와 연결됨
