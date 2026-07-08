@@ -1,0 +1,9 @@
+noteId,Question,Category,BatchProblem,MatchedProblem,Reason
+1770478068376,함수적 종속성 (Functional Dependency),DB,51-한 테이블에 여러 사실을 넣어 수정할 때마다 데이터가 불일치함,51-한 테이블에 여러 사실을 넣어 수정할 때마다 데이터가 불일치함,REVIEW 재분류: 함수적 종속가 Problem 51-한 테이블에 여러 사실을 넣어 수정할 때마다 데이터가 불일치함와 연결됨
+1771056436078,Slotted Page — RID 불변성,DB,53-ctid나 물리 위치를 안정적인 row 식별자로 사용하려다 깨짐,53-ctid나 물리 위치를 안정적인 row 식별자로 사용하려다 깨짐,REVIEW 재분류: Slotted Page가 Problem 53-ctid나 물리 위치를 안정적인 row 식별자로 사용하려다 깨짐와 연결됨
+1772643528101,외부 설정 관리 (Externalized Configuration),Spring,54-설정 파일을 고쳤는데 운영에서 다른 값이 적용됨,14-DNAT 설정 후에도 VM 서비스에 외부 접속이 되지 않음,Problem 노트와 직접 매칭됨
+1772643529502,WireMock 스터빙 (Stubbing),Testing,58-테스트가 실제 외부 API를 호출해 느리고 불안정해짐,58-테스트가 실제 외부 API를 호출해 느리고 불안정해짐,REVIEW 재분류: WireMock가 Problem 58-테스트가 실제 외부 API를 호출해 느리고 불안정해짐와 연결됨
+1772723451009,설정 섀도잉 (Configuration Shadowing),Architecture,54-설정 파일을 고쳤는데 운영에서 다른 값이 적용됨,54-설정 파일을 고쳤는데 운영에서 다른 값이 적용됨,REVIEW 재분류: Configuration Shadowing가 Problem 54-설정 파일을 고쳤는데 운영에서 다른 값이 적용됨와 연결됨
+1774330367156,복합키 (Composite Key),DB,52-복합키를 기본키로 썼다가 FK 전파와 인덱스 순서 때문에 변경이 어려워짐,52-복합키를 기본키로 썼다가 FK 전파와 인덱스 순서 때문에 변경이 어려워짐,Problem 노트와 직접 매칭됨
+1775041105954,Heap Page 구조,DB,53-ctid나 물리 위치를 안정적인 row 식별자로 사용하려다 깨짐,53-ctid나 물리 위치를 안정적인 row 식별자로 사용하려다 깨짐,REVIEW 재분류: Heap Page가 Problem 53-ctid나 물리 위치를 안정적인 row 식별자로 사용하려다 깨짐와 연결됨
+1775554443773,JPQL 벌크 연산의 1차 캐시 문제,JPA,57-JPQL 벌크 업데이트 후 같은 트랜잭션에서 오래된 값을 읽음,57-JPQL 벌크 업데이트 후 같은 트랜잭션에서 오래된 값을 읽음,Problem 노트와 직접 매칭됨
