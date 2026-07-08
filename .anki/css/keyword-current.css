@@ -63,9 +63,10 @@
 
 .question-text-small {
   margin: 0;
-  font-size: 18px;
-  line-height: 1.5;
-  font-weight: 650;
+  font-size: 24px;
+  line-height: 1.42;
+  font-weight: 760;
+  letter-spacing: -0.025em;
   color: var(--text) !important;
 }
 
@@ -89,15 +90,7 @@ hr#answer,
 
 .answer {
   color: var(--text) !important;
-  font-size: 20px;
-  line-height: 1.62;
-  font-weight: 520;
-  letter-spacing: -0.01em;
-}
-
-.answer b,
-.answer strong {
-  font-size: 1.02em;
+  font-size: 17px;
 }
 
 .support-block {
