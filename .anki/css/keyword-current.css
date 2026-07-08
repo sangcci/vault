@@ -89,7 +89,15 @@ hr#answer,
 
 .answer {
   color: var(--text) !important;
-  font-size: 17px;
+  font-size: 20px;
+  line-height: 1.62;
+  font-weight: 520;
+  letter-spacing: -0.01em;
+}
+
+.answer b,
+.answer strong {
+  font-size: 1.02em;
 }
 
 .support-block {
