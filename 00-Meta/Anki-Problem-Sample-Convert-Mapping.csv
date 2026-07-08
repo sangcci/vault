@@ -1,0 +1,7 @@
+noteId,Question,Category,MatchedProblem,Reason
+1771060881704,Race Condition,OS,03-동시 요청으로 재고나 예약 수량 갱신이 소실됨,REVIEW 재분류: Race Condition가 Problem 03-동시 요청으로 재고나 예약 수량 갱신이 소실됨와 연결됨
+1774330367106,N+1 문제 (N+1 Query Problem),JPA,04-목록 조회 API에서 연관 데이터 접근으로 SQL이 폭증함,REVIEW 재분류: N+1가 Problem 04-목록 조회 API에서 연관 데이터 접근으로 SQL이 폭증함와 연결됨
+1774330539205,Lost Update,DB,03-동시 요청으로 재고나 예약 수량 갱신이 소실됨,REVIEW 재분류: Lost Update가 Problem 03-동시 요청으로 재고나 예약 수량 갱신이 소실됨와 연결됨
+1774936911468,Atomic UPDATE,DB,03-동시 요청으로 재고나 예약 수량 갱신이 소실됨,REVIEW 재분류: Atomic UPDATE가 Problem 03-동시 요청으로 재고나 예약 수량 갱신이 소실됨와 연결됨
+1776667985841,커넥션 풀 고갈 (Connection Pool Exhaustion),DB,01-외부 API 호출을 트랜잭션 안에 넣어 커넥션 풀이 고갈됨,Problem 노트와 직접 매칭됨
+1781099169738,UI 조회 API 분리 기준,Architecture,04-목록 조회 API에서 연관 데이터 접근으로 SQL이 폭증함,Problem 노트와 직접 매칭됨

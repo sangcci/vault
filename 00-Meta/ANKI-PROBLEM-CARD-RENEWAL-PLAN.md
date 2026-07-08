@@ -116,13 +116,11 @@ Answer: 핵심 원인 + 첫 확인 지점 + 해결 방향
 
 | Field | 내용 |
 |---|---|
+| Question | 실제 앞면 질문. 코드리뷰 카드는 코드/SQL/설정 조각도 여기에 포함 |
+| Answer | 핵심 원인, 판단, 해결 행동 |
 | CardType | Scenario |
-| Problem | 연결 Problem 노트 |
-| Prompt | 장애/증상 상황 |
-| ExpectedAnswer | 원인, 증거, 해결 방향 |
-| Principles | 연결 Principle |
-| Evidence | 로그/메트릭/SQL/흐름도 |
-| Difficulty | Low/Medium/High |
+| Problem | 연결 Problem 노트명 |
+| Principles | 연결 Principle 1~3개 |
 
 ---
 
@@ -225,6 +223,7 @@ Answer: 구현 단계 + 필수 저장 상태 + 예외/동시성 처리
 ```text
 Deck: 💻::Problem Solving
 Model: 🧑🏻‍💻 Problem Solving v1
+Fields: Question | Answer | CardType | Problem | Principles
 CardType: Scenario | Code Review | Implementation
 ```
 
@@ -251,6 +250,9 @@ CardType: Scenario | Code Review | Implementation
 - 실제 Anki 카드 생성도 preview 후 승인받는다.
 - `03-Question/`은 Anki 카드 생성 대상이 아니다.
 - 카드 하나는 하나의 판단만 묻는다.
+- 필드는 5개만 유지한다: `Question / Answer / CardType / Problem / Principles`.
+- 코드/SQL/설정 조각은 별도 필드를 만들지 않고 `Question`에 포함한다.
+- 난이도, 증거, 체크리스트는 별도 필드로 만들지 않고 필요하면 `Answer`에 짧게 포함한다.
 - Problem 카드의 정답은 “정의”가 아니라 “문제 해결 행동”이어야 한다.
 
 ---
@@ -265,3 +267,50 @@ B. P1 Problem 상위 10개로 단일 덱 Problem 카드 샘플 세트 설계
 ```
 
 추천: B를 먼저 한다. 샘플 카드 품질을 확인한 뒤 Keyword 삭제/suspend를 실행하는 편이 안전하다.
+
+---
+
+## 2026-07-08 Problem 카드 v1 모델 생성
+
+사용자 결정에 따라 필드는 5개로 최소화했다.
+
+```text
+Deck:  💻::Problem Solving
+Model: 🧑🏻‍💻 Problem Solving v1
+Fields:
+- Question
+- Answer
+- CardType
+- Problem
+- Principles
+```
+
+설계 원칙:
+
+```text
+- Scenario / Code Review / Implementation은 덱을 나누지 않고 CardType으로만 구분한다.
+- 코드, SQL, 설정 조각은 별도 Code 필드가 아니라 Question 안에 넣는다.
+- Difficulty는 사용하지 않는다.
+- Evidence, Checklist도 별도 필드로 만들지 않고 Answer에 필요한 만큼만 짧게 포함한다.
+```
+
+생성한 샘플 초안:
+
+```text
+00-Meta/Anki-Problem-Sample-Cards-v1.csv
+```
+
+샘플과 함께 처리할 기존 Keyword convert 후보:
+
+```text
+00-Meta/Anki-Problem-Sample-Convert-Mapping.csv
+```
+
+현재 정책:
+
+```text
+1. 샘플 Problem 카드 10장 preview
+2. 사용자 승인 후 💻::Problem Solving에 추가
+3. 샘플 카드와 겹치는 ka_keyword_convert 후보 6장을 suspend
+4. 이후 같은 방식으로 P1 Problem을 확장
+```
