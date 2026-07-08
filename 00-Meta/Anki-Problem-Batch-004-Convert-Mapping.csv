@@ -1,0 +1,11 @@
+noteId,Question,Category,BatchProblem,MatchedProblem,Reason
+1770478067623,문맥 교환 (Context Switch),OS,33-스레드를 많이 만들었는데 처리량이 늘지 않고 문맥 교환만 증가함,33-스레드를 많이 만들었는데 처리량이 늘지 않고 문맥 교환만 증가함,Problem 노트와 직접 매칭됨
+1771034623511,유닉스 파이프의 메모리 안전성,OS,37-파이프라인에서 소비자가 느려지자 생산자 프로세스가 멈춘 것처럼 보임,37-파이프라인에서 소비자가 느려지자 생산자 프로세스가 멈춘 것처럼 보임,REVIEW 재분류: 파이프가 Problem 37-파이프라인에서 소비자가 느려지자 생산자 프로세스가 멈춘 것처럼 보임와 연결됨
+1771034625260,파이프 버퍼 Writer Blocking,OS,37-파이프라인에서 소비자가 느려지자 생산자 프로세스가 멈춘 것처럼 보임,19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤,REVIEW 재분류: Lock가 Problem 19-락을 걸었는데 처리량이 급락하거나 요청이 멈춤와 연결됨
+1771684140919,이벤트 루프 (Event Loop),OS,35-이벤트 루프에 CPU 작업을 올려 모든 요청이 지연됨,35-이벤트 루프에 CPU 작업을 올려 모든 요청이 지연됨,Problem 노트와 직접 매칭됨
+1773757962718,epoll,OS,35-이벤트 루프에 CPU 작업을 올려 모든 요청이 지연됨,35-이벤트 루프에 CPU 작업을 올려 모든 요청이 지연됨,REVIEW 재분류: epoll가 Problem 35-이벤트 루프에 CPU 작업을 올려 모든 요청이 지연됨와 연결됨
+1774325908287,OS Thread와 User Thread의 차이,OS,36-await으로 중간에 끊긴 로직 사이에 다른 요청이 끼어들어 상태가 꼬임,36-await으로 중간에 끊긴 로직 사이에 다른 요청이 끼어들어 상태가 꼬임,REVIEW 재분류: User Thread가 Problem 36-await으로 중간에 끊긴 로직 사이에 다른 요청이 끼어들어 상태가 꼬임와 연결됨
+1774330691253,Netfilter와 iptables,Network,49-iptables나 fail2ban으로 막으려 했지만 공격자가 이미 프록시나 CDN 뒤에 있음,14-DNAT 설정 후에도 VM 서비스에 외부 접속이 되지 않음,REVIEW 재분류: Netfilter가 Problem 14-DNAT 설정 후에도 VM 서비스에 외부 접속이 되지 않음와 연결됨
+1774937681585,fail2ban,Security,49-iptables나 fail2ban으로 막으려 했지만 공격자가 이미 프록시나 CDN 뒤에 있음,15-Cloudflare Tunnel 환경에서 fail2ban으로 공격자 IP를 차단하지 못함,Problem 노트와 직접 매칭됨
+1774937692684,Cloudflare WAF,Security,49-iptables나 fail2ban으로 막으려 했지만 공격자가 이미 프록시나 CDN 뒤에 있음,49-iptables나 fail2ban으로 막으려 했지만 공격자가 이미 프록시나 CDN 뒤에 있음,REVIEW 재분류: Cloudflare WAF가 Problem 49-iptables나 fail2ban으로 막으려 했지만 공격자가 이미 프록시나 CDN 뒤에 있음와 연결됨
+1776322653518,PKI,Security,48-인증서는 있는데 이 공개키를 믿어도 되는지 검증하지 못함,48-인증서는 있는데 이 공개키를 믿어도 되는지 검증하지 못함,REVIEW 재분류: PKI가 Problem 48-인증서는 있는데 이 공개키를 믿어도 되는지 검증하지 못함와 연결됨
