@@ -14,11 +14,12 @@ const CARD_PARAMS = Type.Object({
     Type.Literal("Evidence"),
   ]),
   category: Type.String({ description: "Short domain label, e.g. DB, Java, Spring, Network" }),
-  difficulty: Type.Union([Type.Literal("Low"), Type.Literal("Medium"), Type.Literal("High")]),
   code: Type.String({ description: "Korean ASCII diagram or pseudocode" }),
   relatedConcepts: Type.Optional(Type.String({ description: "Comma-separated Korean principle names only" })),
-  image: Type.Optional(Type.String({ description: "Optional image field" })),
 });
+
+const KEYWORD_MODEL_EXPORT = [".anki", "models", "keyword-current.json"];
+const KEYWORD_CARD_TAG = "ka_keyword_keep";
 
 function hasBadEnding(answer: string): boolean {
   return /(입니다|합니다|한다|이다)/.test(answer);
@@ -69,17 +70,59 @@ function validateCard(params: any, config: KnowledgeArchitectConfig, cwd: string
   return violations;
 }
 
+function loadExpectedKeywordFields(cwd: string, modelName: string): string[] | undefined {
+  const modelPath = path.join(cwd, ...KEYWORD_MODEL_EXPORT);
+  if (!fs.existsSync(modelPath)) return undefined;
+
+  try {
+    const model = JSON.parse(fs.readFileSync(modelPath, "utf8")) as { modelName?: unknown; fields?: unknown };
+    if (model.modelName !== modelName || !Array.isArray(model.fields) || !model.fields.every((field) => typeof field === "string")) {
+      return undefined;
+    }
+    return model.fields;
+  } catch {
+    return undefined;
+  }
+}
+
+async function validateKeywordModelSchema(config: KnowledgeArchitectConfig, cwd: string): Promise<string | undefined> {
+  const expectedFields = loadExpectedKeywordFields(cwd, config.anki.modelName);
+  if (!expectedFields) {
+    return `[Anki] ${KEYWORD_MODEL_EXPORT.join("/")}에서 '${config.anki.modelName}' 모델 필드를 읽을 수 없습니다.`;
+  }
+
+  const response = await fetch(config.anki.url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      action: "modelFieldNames",
+      version: 6,
+      params: { modelName: config.anki.modelName },
+    }),
+  });
+  const result = await response.json() as { result?: unknown; error?: unknown };
+  const actualFields = result.result;
+  if (result.error || !Array.isArray(actualFields) || !actualFields.every((field) => typeof field === "string")) {
+    return `[Anki] '${config.anki.modelName}'의 필드 목록을 조회하지 못했습니다: ${String(result.error ?? "invalid response")}`;
+  }
+
+  if (expectedFields.join("\u0000") !== actualFields.join("\u0000")) {
+    return `[Anki] 모델 필드가 .anki export와 다릅니다. expected=${expectedFields.join(", ")}; actual=${actualFields.join(", ")}`;
+  }
+  return undefined;
+}
+
 function preview(params: any, config: KnowledgeArchitectConfig): string {
   return [
     `Deck: ${config.anki.deckName}`,
     `Model: ${config.anki.modelName}`,
     `Question: ${params.question}`,
     `Answer: ${params.answer}`,
-    `Type: ${params.type}`,
+    `SourceNoteType: ${params.type} (Obsidian 검증용, Anki에 저장하지 않음)`,
     `Category: ${params.category}`,
-    `Difficulty: ${params.difficulty}`,
     `Code:\n${params.code}`,
     `RelatedConcepts: ${params.relatedConcepts ?? ""}`,
+    `Tags: ${KEYWORD_CARD_TAG}`,
   ].join("\n");
 }
 
@@ -102,6 +145,15 @@ export function registerAnkiTool(pi: ExtensionAPI, getConfig: () => KnowledgeArc
           isError: true,
           content: [{ type: "text", text: `[ANKI CARD BLOCKED]\n${violations.map((v) => `- ${v}`).join("\n")}` }],
           details: { violations },
+        };
+      }
+
+      const schemaViolation = await validateKeywordModelSchema(config, ctx.cwd);
+      if (schemaViolation) {
+        return {
+          isError: true,
+          content: [{ type: "text", text: `[ANKI CARD BLOCKED]\n- ${schemaViolation}` }],
+          details: { schemaViolation },
         };
       }
 
@@ -133,13 +185,11 @@ export function registerAnkiTool(pi: ExtensionAPI, getConfig: () => KnowledgeArc
             fields: {
               Question: params.question,
               Answer: params.answer,
-              Type: params.type,
               Category: params.category,
-              Difficulty: params.difficulty,
               Code: params.code,
               RelatedConcepts: params.relatedConcepts ?? "",
-              Image: params.image ?? "",
             },
+            tags: [KEYWORD_CARD_TAG],
             options: { allowDuplicate: false },
           },
         },
