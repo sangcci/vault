@@ -1,4 +1,0 @@
-noteId,Question,Category,BatchProblem,MatchedProblem,Reason
-1773915480221,제네릭 타입 소거 (Type Erasure),Software Design,41-제네릭 타입과 오버로딩을 믿었는데 런타임 타입이 사라져 다르게 동작함,41-제네릭 타입과 오버로딩을 믿었는데 런타임 타입이 사라져 다르게 동작함,Problem 노트와 직접 매칭됨
-1774330367230,Checked Exception,Java,42-Checked Exception을 그대로 전파해 서비스 인터페이스가 예외에 오염됨,42-Checked Exception을 그대로 전파해 서비스 인터페이스가 예외에 오염됨,Problem 노트와 직접 매칭됨
-1775462168838,JVM 메모리 영역,JVM,43-Heap 사용량만 보고 JVM 메모리 부족 원인을 놓침,43-Heap 사용량만 보고 JVM 메모리 부족 원인을 놓침,Problem 노트와 직접 매칭됨
