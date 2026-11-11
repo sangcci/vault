@@ -19,6 +19,7 @@
 
 # Temp Note
 98-Temp/
+/temp/
 
 # Anki - local backups / card data exports
 *.apkg
