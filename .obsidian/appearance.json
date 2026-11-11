@@ -1,7 +1,7 @@
 {
-  "cssTheme": "Minimal",
+  "cssTheme": "Baseline",
   "enabledCssSnippets": [
-    "obsidian-minimal-tweaks"
+    "spacing"
   ],
   "interfaceFontFamily": "Apple SD Gothic Neo",
   "textFontFamily": "Apple SD Gothic Neo",
